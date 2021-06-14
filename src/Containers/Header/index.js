@@ -18,7 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import DrawerList from '../../Components/DrawerList';
 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-
+import CloseIcon from '@material-ui/icons/Close';
 const useStyles =makeStyles(theme=>({
   root:{
      top:"10px",
@@ -40,23 +40,24 @@ const useStyles =makeStyles(theme=>({
     height:"40px"
   },
   drawerToggle:{
+    marginLeft:"auto",
     "&:hover":{
       backgroundColor:"transparent"
     }
   },
   drawerToggleIcon:{
     color:"#000000",
-    height:"50px",
-    width:"50px",
+    height:"40px",
+    width:"40px",
 
   },
   swipeableDrawer:{
     width:"280px",
     overflow:"auto"
   },
-  desktopLogo:{
+ drawerTabsList:{
     marginLeft:"auto"
-  },
+ }
 
   
 }));
@@ -70,10 +71,6 @@ const Header =()=>{
 
   const DrawerMd =()=>(
       <>
-        <IconButton className={classes.drawerToggle} onClick={()=>setDrawerStatus(!drawerStatus)}>
-          <MenuIcon fontSize="large" className={classes.drawerToggleIcon}/>
-        </IconButton>
-
         <SwipeableDrawer
             open={drawerStatus}
             onClose={()=>setDrawerStatus(false)}
@@ -84,14 +81,24 @@ const Header =()=>{
 
         </SwipeableDrawer>
 
-        <Button disableRipple component={Link} to="/" className={classes.desktopLogo}
-        >
-          <img edge="start"
-               src={Logo} width={60}
-               height={60} alt="Sunnydale"
+          <Button disableRipple component={Link} to="/"
+          >
+            <img edge="start"
+                 src={Logo} width={60}
+                 height={60} alt="Sunnydale"
+            />
+          </Button>
 
-          />
-        </Button>
+
+        <IconButton className={classes.drawerToggle} onClick={()=>setDrawerStatus(!drawerStatus)}>
+          {
+            !drawerStatus ?
+                <MenuIcon fontSize="large" className={classes.drawerToggleIcon}/>
+              :
+                <CloseIcon  fontSize="large" className={classes.drawerToggleIcon} />
+          }
+        </IconButton>
+
       </>
   )
     return(
