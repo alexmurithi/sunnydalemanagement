@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {
     Button,
-    ButtonBase,
+
     Tabs,
     Tab,
     Menu,
-    MenuItem, Divider
+    MenuItem,
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import {makeStyles} from "@material-ui/core/styles";
@@ -21,6 +21,7 @@ const useStyles =makeStyles(theme=>({
         fontSize:"16px",
         color:"#000000",
         minWidth:"120px",
+
 
     },
     loginBtn:{
@@ -74,6 +75,7 @@ const classes =useStyles()
     const [onSaleMenu, setOnSaleMenu] =useState(null)
     const [onRentMenu, setOnRentMenu] =useState(null)
     const [onEnvironmentMenu, setEnvironmentMenu] =useState(null)
+    const [tabsValue, setTabsValue] =useState(0)
 
     const handleOnSaleMenu =(event)=>{
        setOnSaleMenu(event.currentTarget)
@@ -99,6 +101,48 @@ const classes =useStyles()
         setEnvironmentMenu(null)
     }
 
+    const handleTabs =(event,newValue)=>{
+       setTabsValue(newValue)
+    }
+
+    const onSaleOptions =[
+        {
+            name:"Apartments",
+            link:"/on-sale/apartments"
+        },
+        {
+            name:"Offices",
+            link:"/on-sale/offices"
+        },
+        {
+            name:"Shops",
+            link:"/on-sale/shops"
+        },
+        {
+            name:"Land",
+            link:"/on-sale/land"
+        }
+    ]
+
+    const RentOptions =[
+        {
+            name:"Apartments",
+            link:"/rent/apartments"
+        },
+        {
+            name:"Offices",
+            link:"/rent/offices"
+        },
+        {
+            name:"Shops",
+            link:"/rent/shops"
+        },
+        {
+            name:"Land",
+            link:"/rent/land"
+        }
+    ]
+
     return(
         <>
             <Button disableRipple component={Link} to="/"
@@ -108,93 +152,114 @@ const classes =useStyles()
                      height={60} alt="Sunnydale"
                 />
             </Button>
-            <Tabs className={classes.desktopTabs}  >
 
-                <Button component={Link} className={classes.desktopTab}>
-                    Home
+            <Tabs
+                className={classes.desktopTabs}
+                indicatorColor="primary"
+                value ={tabsValue}
+                onChange={handleTabs}
+            >
+                <Tab
+                    label="Home"
+                    component={Link} className={classes.desktopTab}
+                    to="/"
+                />
 
-                </Button>
+                <Tab
+                    label="On Sale"
+                    className={classes.desktopTab}
+                    aria-owns={setOnSaleMenu ? "onsale-menu" : undefined }
+                    aria-haspopup={setOnSaleMenu ? true : undefined}
+                    onClick={event=>handleOnSaleMenu(event)}
+                    to="/on-sale"
+                    icon={<ExpandMoreIcon />}
+                />
 
-                <Button component={Link}
-                        className={classes.desktopTab}
-                        aria-owns={setOnSaleMenu ? "onsale-menu" : undefined }
-                        aria-haspopup={setOnSaleMenu ? true : undefined}
-                        onClick={event=>handleOnSaleMenu(event)}
-                >
-                    On Sale
-                    <ExpandMoreIcon />
-                </Button>
+                <Tab component={Link}
+                     className={classes.desktopTab}
+                     aria-owns={setOnRentMenu ? "onrent-menu" : undefined }
+                     aria-haspopup={setOnRentMenu ? true : undefined}
+                     onClick={event=>handleOnRentMenu(event)}
+                     label="For Rent"
+                     icon={<ExpandMoreIcon/>}
+                     to="/for-rent"
+                />
 
-                <Button component={Link}
-                        className={classes.desktopTab}
-                        aria-owns={setOnRentMenu ? "onrent-menu" : undefined }
-                        aria-haspopup={setOnRentMenu ? true : undefined}
-                        onClick={event=>handleOnRentMenu(event)}
-                >
-                    For Rent
-                    <ExpandMoreIcon />
-                </Button>
+                <Tab component={Link}
+                     className={classes.desktopTab}
+                     aria-owns={setEnvironmentMenu ? "environment-menu" : undefined }
+                     aria-haspopup={setEnvironmentMenu ? true : undefined}
+                     onClick={event=>handleEnvironmentMenu(event)}
+                     label="Environmental Services"
+                     icon={<ExpandMoreIcon />}
+                     to="/environmental-services"
+                />
 
-                <Button component={Link}
-                        className={classes.desktopTab}
-                        aria-owns={setEnvironmentMenu ? "environment-menu" : undefined }
-                        aria-haspopup={setEnvironmentMenu ? true : undefined}
-                        onClick={event=>handleEnvironmentMenu(event)}
-                >
-                    Environmental Services
-                    <ExpandMoreIcon />
-                </Button>
-                <Button component={Link} className={classes.desktopTab}>
-                    About Us
-                </Button>
+                <Tab
+                    component={Link}
+                    className={classes.desktopTab}
+                    label ="About Us"
+                    to="/about-us"
+                />
 
-                <Button component={Link} className={classes.desktopTab}>
-                    Contact
-                </Button>
+                <Tab
+                    component={Link}
+                    className={classes.desktopTab}
+                    label="Contact"
+                    to="/contact"
+                />
 
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.loginBtn}
-                >
-                    Login
-                </Button>
             </Tabs>
 
+            <Button
+                variant="contained"
+                color="primary"
+                className={classes.loginBtn}
+            >
+                Login
+            </Button>
+
+
             <Menu id="onsale-menu"
-                  onSaleMenu={onSaleMenu}
+                  anchorEl={onSaleMenu}
                   open={Boolean(onSaleMenu)}
                   onClose={handleCloseSaleMenu}
                   MenuListProps={{onClick:handleCloseSaleMenu}}
                   classes={{paper:classes.onSaleMenu}}
                   elevation={2}
             >
-              <MenuItem classes={{root:classes.onSaleMenuItem}}>
-                  Apartments
-              </MenuItem>
-
-                <MenuItem>Offices</MenuItem>
-                <MenuItem>Shops</MenuItem>
-                <MenuItem>Lands</MenuItem>
+                {onSaleOptions.map((saleOption,i)=>(
+                    <MenuItem
+                        component={Link}
+                        key={i}
+                        to={saleOption.link}
+                    >
+                        {saleOption.name}
+                    </MenuItem>
+                ))}
             </Menu>
 
             <Menu id="onrent-menu"
-                  onRentMenu={onRentMenu}
+                  anchorEl={onRentMenu}
                   open={Boolean(onRentMenu)}
                   onClose={handleCloseRentMenu}
                   MenuListProps={{onClick:handleCloseRentMenu}}
                   classes={{paper:classes.onRentMenu}}
                   elevation={2}
             >
-                <MenuItem classes={{root:classes.onRentMenuItem}}>Apartments</MenuItem>
-
-                <MenuItem>Offices</MenuItem>
-                <MenuItem>Shops</MenuItem>
-                <MenuItem>Lands</MenuItem>
+                {RentOptions.map((rentOption,i)=>(
+                    <MenuItem
+                        component={Link}
+                        key={i}
+                        to={rentOption.link}
+                    >
+                        {rentOption.name}
+                    </MenuItem>
+                ))}
             </Menu>
 
             <Menu id="environment-menu"
-                  onEnvironmentMenu={onEnvironmentMenu}
+                  anchorEl={onEnvironmentMenu}
                   open={Boolean(onEnvironmentMenu)}
                   onClose={handleCloseEnvironmentMenu}
                   MenuListProps={{onClick:handleCloseEnvironmentMenu}}

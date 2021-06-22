@@ -4,8 +4,7 @@ import {
   AppBar,
   Toolbar,
   Container,
-  Tabs,
-  Tab,
+
   Button,
   IconButton,
   useMediaQuery,
@@ -19,9 +18,13 @@ import DrawerList from '../../Components/DrawerList';
 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import CloseIcon from '@material-ui/icons/Close';
+import DesktopTabs from "../../Components/DesktopTabs";
+
 const useStyles =makeStyles(theme=>({
   root:{
      top:"10px",
+      backgroundColor:theme.palette.white,
+      color:theme.palette.black.main
   },
     desktopTabs:{
       marginLeft:"auto",
@@ -104,7 +107,6 @@ const Header =()=>{
     return(
         <AppBar className={classes.root}
                 elevation={2}
-                color="navbar"
                 position="static"
         >
           <Container>
@@ -113,57 +115,7 @@ const Header =()=>{
                   isMobileTablet ?
                      <DrawerMd/>
                       :
-                      (
-                          <>
-                            <Button disableRipple component={Link} to="/"
-                            >
-                              <img edge="start"
-                                   src={Logo} width={60}
-                                   height={60} alt="Sunnydale"
-                              />
-                            </Button>
-                            <Tabs className={classes.desktopTabs}  >
-                              <Tab label="Home"
-                                   className={classes.desktopTab}
-                                   component={Link}
-                                   to="/"
-                              />
-
-                              <Tab label="On Sale"
-                                   className={classes.desktopTab}
-                                   component={Link}
-                                   to="/on-sale"
-                              />
-
-                              <Tab label="For Rent"
-                                   className={classes.desktopTab}
-                                   component={Link}
-                              />
-
-                              <Tab label="Environmental Services"
-                                   className={classes.desktopTab}
-                                   component={Link}
-                              />
-
-                              <Tab label="About"
-                                   className={classes.desktopTab}
-                                   component={Link}
-                              />
-
-                              <Tab label="Contact Us"
-                                   className={classes.desktopTab}
-                                   component={Link}
-                              />
-                              <Button
-                                  variant="contained"
-                                  color="primary"
-                                  className={classes.loginBtn}
-                              >
-                                Login
-                              </Button>
-                            </Tabs>
-                          </>
-                      )
+                     <DesktopTabs />
                 }
               </Toolbar>
           </Container>

@@ -1,16 +1,21 @@
-import Header from './Containers/Header';
-import {BrowserRouter as Router, Switch} from "react-router-dom";
-import Routers from './Routers';
-function App() {
-  return (
-      <Router>
-        <Header/>
-          <Switch>
-              <Routers/>
-          </Switch>
-      </Router>
 
-  );
+import {BrowserRouter as Router, Switch} from "react-router-dom";
+import Routes from './Routes';
+import React,{Suspense} from "react";
+import Loader from './Components/Loader/';
+
+const App =(props) =>{
+    return(
+        <Suspense fallback={<Loader/>}>
+            <Router>
+                <Switch>
+                    <Routes/>
+                </Switch>
+            </Router>
+        </Suspense>
+
+    )
 }
+
 
 export default App;

@@ -4,22 +4,29 @@ const materialUiTheme = createMuiTheme({
    palette:{
        primary:{
            main:"#0093dd",
-
        },
-       navbar:{
-          main:"#ffffff",
-                  },
-
        secondary:{
            main:"#85c226"
        },
-       text:{
-           primary:"#000000"
+
+       white:"#ffffff",
+       black:{
+           main:"#000000"
        }
+
    },
    typography:{
      fontFamily:"Montserrat"
    },
+
+    overrides:{
+       MuiTab:{
+           wrapper:{
+               flexDirection:"row-reverse"
+           },
+
+       }
+    }
   
 })
 
