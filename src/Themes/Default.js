@@ -26,6 +26,12 @@ const materialUiTheme = createMuiTheme({
            },
 
        }
+    },
+    desktopTab:{
+        textTransform:"none",
+        fontSize:"16px",
+        color:"#000000",
+        minWidth:"120px",
     }
   
 })
