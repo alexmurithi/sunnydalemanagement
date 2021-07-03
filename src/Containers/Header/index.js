@@ -106,7 +106,7 @@ const Header =()=>{
   )
     return(
         <AppBar className={classes.root}
-                elevation={2}
+                elevation={0}
                 position="static"
         >
           <Container>

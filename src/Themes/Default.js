@@ -10,8 +10,9 @@ const materialUiTheme = createMuiTheme({
        },
 
        white:"#ffffff",
-       black:{
-           main:"#000000"
+       black:"#000000",
+       text:{
+           primary:"#000000"
        }
 
    },
@@ -24,15 +25,25 @@ const materialUiTheme = createMuiTheme({
            wrapper:{
                flexDirection:"row-reverse"
            },
+           textColorInherit:{
+               opacity:1
+           },
+           root:{
+               '&$selected': {
+                   color: '#0093dd'
+               }
+           }
 
-       }
+       },
+
     },
     desktopTab:{
         textTransform:"none",
         fontSize:"16px",
         color:"#000000",
         minWidth:"120px",
-    }
+    },
+
   
 })
 

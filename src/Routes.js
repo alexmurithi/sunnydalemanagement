@@ -14,6 +14,7 @@ const Routes = () =>{
             <Route
                 exact path="/"
                 component={LandingPage}
+
             />
             <Route
                 exact path="/on-sale"
