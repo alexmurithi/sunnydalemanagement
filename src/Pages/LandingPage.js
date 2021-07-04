@@ -22,13 +22,14 @@ const useStyles =makeStyles(theme=>({
         color:theme.palette.white,
         borderRadius:"30px",
         padding:theme.spacing(3),
+        [theme.breakpoints.down("md")]:{
+            padding:theme.spacing(0),
+            borderRadius: 0,
+            backgroundColor:theme.palette.white,
+            color:theme.palette.black,
+        }
     },
-    landingPaperMobile:{
-        borderRadius:"8px",
-        backgroundColor:theme.palette.primary.main,
-        color:theme.palette.white,
-        padding:theme.spacing(3),
-    },
+
     landingPText:{
       fontSize:"42px",
       fontWeight:800,
@@ -68,7 +69,7 @@ const LandingPage =()=>{
             <Header />
 
                 <Container className={classes.wrapper}>
-                    <Paper className={isMobileTablet ? classes.landingPaperMobile : classes.landingPaper}>
+                    <Paper className={ classes.landingPaper} elevation={isMobileTablet && 3}>
                                 <Grid container >
                                     <Grid item xs={12} lg={4} >
                                         <OnBoardingText />
