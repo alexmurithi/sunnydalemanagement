@@ -1,5 +1,5 @@
 import {createMuiTheme} from '@material-ui/core/styles';
-import createSpacing from "@material-ui/core/styles/createSpacing";
+
 
 const materialUiTheme = createMuiTheme({
    palette:{
@@ -18,7 +18,15 @@ const materialUiTheme = createMuiTheme({
 
    },
    typography:{
-     fontFamily:"Montserrat"
+     fontFamily:"Montserrat",
+       h5:{
+         fontFamily:"Montserrat",
+           fontWeight:600
+       },
+       subtitle1:{
+         fontSize:"0.8rem",
+           fontFamily:"Montserrat",
+       }
    },
 
     overrides:{
@@ -36,6 +44,12 @@ const materialUiTheme = createMuiTheme({
            }
 
        },
+
+        MuiCard:{
+           root:{
+               margin:"4px"
+           }
+        }
 
     },
     desktopTab:{
