@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import SwiperCore, {
@@ -36,7 +36,7 @@ const SliderComponent =() =>{
             }} navigation={true} className="mySwiper">
                 {images.map((item,index)=>(
                     <SwiperSlide key={index}>
-                        <img src={item.pic} />
+                        <img src={item.pic}alt="slides"/>
                     </SwiperSlide>
                 ))}
 

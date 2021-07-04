@@ -106,7 +106,7 @@ const Header =()=>{
   )
     return(
         <AppBar className={classes.root}
-                elevation={0}
+                elevation={isMobileTablet && 3}
                 position="static"
         >
           <Container>
@@ -120,8 +120,6 @@ const Header =()=>{
               </Toolbar>
           </Container>
       </AppBar>
-      
-      
     )
 }
 

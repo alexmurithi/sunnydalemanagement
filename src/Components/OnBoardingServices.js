@@ -4,6 +4,8 @@ import {
     Tabs,
     Tab, Box, Typography,Paper,Divider,IconButton,
 } from "@material-ui/core";
+import {useMediaQuery} from "@material-ui/core";
+import {useTheme} from "@material-ui/core/styles";
 
 import {makeStyles} from "@material-ui/styles";
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
@@ -28,6 +30,7 @@ const  useStyles =makeStyles((theme)=>({
         }
     },
 }))
+
 
 const TabPanel =(props) =>{
     const {children,value,index,...others} =props
@@ -58,6 +61,9 @@ TabPanel.propTypes = {
 const OnBoardingServices =() =>{
     const classes =useStyles();
 
+    const theme =useTheme();
+    const isMobileTablet =useMediaQuery(theme.breakpoints.down("md"))
+
     const [value,setValue] =useState(0);
     const [valueReal,setRealValue] =useState(0);
     const [valueEnv,setEnvValue] =useState(0);
@@ -74,88 +80,93 @@ const OnBoardingServices =() =>{
 
 return(
     <>
-        <Tabs
-            value={value}
-            onChange={handleChange}
-            className={classes.OnBoardingTabs}
-            indicatorColor="primary"
-        >
-            <Tab label="Real Estate"  />
+        {isMobileTablet ? null :(
+            <>
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    className={classes.OnBoardingTabs}
+                    indicatorColor="primary"
+                >
+                    <Tab label="Real Estate"  />
 
-            <Tab label="Environmental Services"  />
-        </Tabs>
+                    <Tab label="Environmental Services"  />
+                </Tabs>
 
-        <TabPanel value={value} index={0}>
-            <Tabs value={valueReal}
-                  onChange={handleRealChange}>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Apartments"
-                    icon={<ApartmentSvg width={250} height={50}/>}
-                />
-                <Divider orientation="vertical" flexItem/>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Office"
-                    icon={<OfficeSvg width={250} height={50}/>}
-                />
-                <Divider orientation="vertical" flexItem/>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Shops"
-                    icon={<ShopSvg width={250} height={50}/>}
-                />
-                <Divider orientation="vertical" flexItem/>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Airbnbs"
-                    icon={<AirbnbSvg width={250} height={50}/>}
-                />
-                <Divider orientation="vertical" flexItem/>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Lands"
-                    icon={<LandSvg width={250} height={50}/>}
-                />
-                <Divider orientation="vertical" flexItem/>
-            </Tabs>
+                <TabPanel value={value} index={0}>
+                    <Tabs value={valueReal}
+                          onChange={handleRealChange}>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Apartments"
+                            icon={<ApartmentSvg width={250} height={50}/>}
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Office"
+                            icon={<OfficeSvg width={250} height={50}/>}
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Shops"
+                            icon={<ShopSvg width={250} height={50}/>}
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Airbnbs"
+                            icon={<AirbnbSvg width={250} height={50}/>}
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Lands"
+                            icon={<LandSvg width={250} height={50}/>}
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                    </Tabs>
 
-        </TabPanel>
+                </TabPanel>
 
-        <TabPanel value={value} index={1}>
-            <Tabs value={valueEnv}
-                  onChange={handleEnvChange}>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Environmental Audit"
-                />
-                <Divider orientation="vertical" flexItem/>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Monitoring & Protection"
-                />
-                <Divider orientation="vertical" flexItem/>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Environmental Impact Assessment"
-                />
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Waste Disposal & Management"
-                />
-                <Divider orientation="vertical" flexItem/>
-                <Tab
-                    classes={{wrapper:classes.tabsOnServ}}
-                    label="Environmental Research"
-                />
-                <Divider orientation="vertical" flexItem/>
-                <IconButton>
-                    <Typography>More </Typography>
-                    <ArrowRightAltIcon fontSize="large"/>
-                </IconButton>
-            </Tabs>
+                <TabPanel value={value} index={1}>
+                    <Tabs value={valueEnv}
+                          onChange={handleEnvChange}>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Environmental Audit"
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Monitoring & Protection"
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Environmental Impact Assessment"
+                        />
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Waste Disposal & Management"
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                        <Tab
+                            classes={{wrapper:classes.tabsOnServ}}
+                            label="Environmental Research"
+                        />
+                        <Divider orientation="vertical" flexItem/>
+                        <IconButton>
+                            <Typography>More </Typography>
+                            <ArrowRightAltIcon fontSize="large"/>
+                        </IconButton>
+                    </Tabs>
 
-        </TabPanel>
+                </TabPanel>
+            </>
+        )}
+
     </>
 )
 }

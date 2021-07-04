@@ -1,19 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
     Paper,
     Container,
     Grid,
-    Typography,
-    Tabs,
-    Tab,
-    Box,
-    Divider,
-    SvgIcon
+    Typography, useMediaQuery,
+
 } from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
 import Header from "../Containers/Header";
 import SliderComponent from "../Components/PhotosGlider";
 import OnBoardingServices from "../Components/OnBoardingServices";
+import {useTheme} from "@material-ui/core/styles";
+
 
 const useStyles =makeStyles(theme=>({
    wrapper:{
@@ -24,15 +22,27 @@ const useStyles =makeStyles(theme=>({
         color:theme.palette.white,
         borderRadius:"30px",
         padding:theme.spacing(3),
-
-
+    },
+    landingPaperMobile:{
+        borderRadius:"8px",
+        backgroundColor:theme.palette.primary.main,
+        color:theme.palette.white,
+        padding:theme.spacing(3),
     },
     landingPText:{
       fontSize:"42px",
-        fontWeight:800,
+      fontWeight:800,
+        [theme.breakpoints.down("md")]:{
+          fontSize:"21px",
+            padding:theme.spacing(2),
+            fontWeight: 700
+        },
+        [theme.breakpoints.down("sm")]:{
+          fontSize:"18px",
+            padding:theme.spacing(1)
+        }
 
     },
-
 
 }))
 
@@ -48,28 +58,30 @@ const OnBoardingText =() =>{
         )
 }
 
+
 const LandingPage =()=>{
     const classes =useStyles()
-
-
+    const theme =useTheme();
+    const isMobileTablet =useMediaQuery(theme.breakpoints.down("md"))
     return(
         <>
             <Header />
 
-            <Container className={classes.wrapper}>
-                <Paper className={classes.landingPaper}>
-                    <Grid container >
-                      <Grid item lg={4} >
-                         <OnBoardingText />
-                      </Grid>
-                        <Grid item lg={8}>
-                         <SliderComponent />
-                        </Grid>
-                    </Grid>
+                <Container className={classes.wrapper}>
+                    <Paper className={isMobileTablet ? classes.landingPaperMobile : classes.landingPaper}>
+                                <Grid container >
+                                    <Grid item xs={12} lg={4} >
+                                        <OnBoardingText />
+                                    </Grid>
+                                    <Grid item xs={12} lg={8}>
+                                        <SliderComponent />
+                                    </Grid>
+                                </Grid>
+                                <OnBoardingServices />
+                    </Paper>
+                </Container>
 
-                    <OnBoardingServices />
-                </Paper>
-            </Container>
+
         </>
 
     )

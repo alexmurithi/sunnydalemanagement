@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e2317805-857b-4137-9b36-aa43684d9eec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/OnBoardingServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/OnBoardingServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/PhotosGlider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/PhotosGlider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/Header/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Themes/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Themes/Default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +38,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -68,7 +68,11 @@
       <workItem from="1624782276101" duration="22037000" />
       <workItem from="1624982614591" duration="11962000" />
       <workItem from="1625249884730" duration="593000" />
-      <workItem from="1625292263423" duration="25270000" />
+      <workItem from="1625292263423" duration="26363000" />
+      <workItem from="1625335928296" duration="3962000" />
+      <workItem from="1625341711487" duration="3356000" />
+      <workItem from="1625393442145" duration="2558000" />
+      <workItem from="1625402178398" duration="1181000" />
     </task>
     <servers />
   </component>

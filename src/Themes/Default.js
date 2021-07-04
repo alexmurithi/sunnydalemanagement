@@ -1,4 +1,5 @@
 import {createMuiTheme} from '@material-ui/core/styles';
+import createSpacing from "@material-ui/core/styles/createSpacing";
 
 const materialUiTheme = createMuiTheme({
    palette:{
