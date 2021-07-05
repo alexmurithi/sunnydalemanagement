@@ -3,7 +3,7 @@ import {
     Paper,
     Container,
     Grid,
-    Typography, useMediaQuery,Hidden,Box,Card,CardContent
+    Typography, useMediaQuery,Hidden,Box,Card,CardContent,CardActionArea,CardMedia
 
 } from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
@@ -12,9 +12,13 @@ import SliderComponent from "../Components/PhotosGlider";
 import OnBoardingServices from "../Components/OnBoardingServices";
 import {useTheme} from "@material-ui/core/styles";
 import HowItWorksStyles from "../Assets/jss/HowItWorks";
+import OtherServicesStyles from "../Assets/jss/OtherServicesStyles";
 import FindServiceImage from '../Assets/Images/find-service@2x.png';
 import ExamineServiceImg from '../Assets/Images/examine-service@2x.png';
 import ContactProviderImg from '../Assets/Images/contact-provider@2x.png';
+import EnvironmentalImage1 from "../Assets/Images/environmental-image1@2x.png";
+import EnvironmentalImage2 from "../Assets/Images/environmental-image2@2x.png";
+import EnvironmentalImage3 from "../Assets/Images/environmental-image3@2x.png";
 
 const useStyles =makeStyles(theme=>({
    wrapper:{
@@ -134,10 +138,110 @@ const HowItWorks =()=>{
                         </CardContent>
                     </Card>
 
-
-
                 </Grid>
             </Grid>
+        </Box>
+    )
+}
+
+const OtherServices =() =>{
+    const otherServicesStyles =OtherServicesStyles()
+
+    return(
+        <Box className={otherServicesStyles.root}>
+           <Container>
+               <Box py={3}>
+                   <Typography variant="h4" align="center">
+                       Other Services - Monitoring & Evaluation
+                   </Typography>
+               </Box>
+
+               <Box py={3}>
+                   <Typography variant="subtitle2" style={{color:"#ffffff"}}>
+                       We are a Real Estate & an Environmental organization that is socially and environmentally
+                       responsible & embraces diversity, sustainability and creativity as we commit to preserve
+                       and protect the environment.
+                   </Typography>
+               </Box>
+
+               <Box>
+                   <Grid container spacing={3}>
+                       <Grid item xs={12} sm={12} lg={4} >
+                           <Card className={otherServicesStyles.card}>
+                               <CardActionArea>
+                                   <CardMedia
+                                       image={EnvironmentalImage1}
+                                       title="Contemplative Reptile"
+                                       className={otherServicesStyles.media}
+                                   />
+                               </CardActionArea>
+                               <CardContent>
+                                   <Box>
+                                       <Typography variant="h5">
+                                           Environmental Audit
+                                       </Typography>
+                                   </Box>
+                                   <Box py={2}>
+                                       <Typography variant="subtitle2" style={{color:"#0093dd"}}>
+                                           It is a long established fact that a reader will
+                                           be distracted by the readable content of a page when looking at its layout
+                                       </Typography>
+                                   </Box>
+                               </CardContent>
+                           </Card>
+                       </Grid>
+                       <Grid item xs={12} sm={12} lg={4}>
+                           <Card className={otherServicesStyles.card}>
+                               <CardActionArea>
+                                   <CardMedia
+                                       image={EnvironmentalImage2}
+                                       title="Contemplative Reptile"
+                                       className={otherServicesStyles.media}
+                                   />
+                               </CardActionArea>
+                               <CardContent>
+                                   <Box>
+                                       <Typography variant="h5">
+                                           Environmental Monitoring & Evaluation
+                                       </Typography>
+                                   </Box>
+                                   <Box py={2}>
+                                       <Typography variant="subtitle2" style={{color:"#0093dd"}}>
+                                           It is a long established fact that a reader will
+                                           be distracted by the readable content of a page when looking at its layout
+                                       </Typography>
+                                   </Box>
+                               </CardContent>
+                           </Card>
+                       </Grid>
+                       <Grid item xs={12} sm={12} lg={4}>
+                           <Card className={otherServicesStyles.card}>
+                               <CardActionArea>
+                                   <CardMedia
+                                       image={EnvironmentalImage3}
+                                       title="Contemplative Reptile"
+                                       className={otherServicesStyles.media}
+                                   />
+                               </CardActionArea>
+                               <CardContent>
+                                   <Box>
+                                       <Typography variant="h5">
+                                           Environmental Conservation & Protection
+                                       </Typography>
+                                   </Box>
+                                   <Box py={2}>
+                                       <Typography variant="subtitle2" style={{color:"#0093dd"}}>
+                                           It is a long established fact that a reader will
+                                           be distracted by the readable content of a page when looking at its layout
+                                       </Typography>
+                                   </Box>
+                               </CardContent>
+                           </Card>
+                       </Grid>
+                   </Grid>
+               </Box>
+
+           </Container>
         </Box>
     )
 }
@@ -166,6 +270,8 @@ const LandingPage =()=>{
 
                     <HowItWorks/>
                 </Container>
+
+            <OtherServices/>
 
         </>
 

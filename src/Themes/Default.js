@@ -21,11 +21,16 @@ const materialUiTheme = createMuiTheme({
      fontFamily:"Montserrat",
        h5:{
          fontFamily:"Montserrat",
-           fontWeight:600
+           fontWeight:600,
+           fontSize:"1.2rem"
        },
        subtitle1:{
          fontSize:"0.8rem",
            fontFamily:"Montserrat",
+       },
+       h4:{
+           fontFamily:"Montserrat",
+           fontWeight:800
        }
    },
 

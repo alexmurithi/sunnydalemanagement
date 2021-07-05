@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2317805-857b-4137-9b36-aa43684d9eec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Assets/Images/environmental-image1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Assets/Images/environmental-image1@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Assets/Images/environmental-image2@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Assets/Images/environmental-image3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Assets/Images/environmental-image3@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Assets/Images/envrionmental-image2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/OnBoardingServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/OnBoardingServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Images/Apartment2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Images/Apartment2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Images/apartment1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Images/apartment1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Images/contact-provider@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Images/contact-provider@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Images/examine-service@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Images/examine-service@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Images/find-service@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Images/find-service@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/jss/HowItWorks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/jss/HowItWorks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Themes/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Themes/Default.js" afterDir="false" />
     </list>
@@ -69,7 +80,8 @@
       <workItem from="1625335928296" duration="3962000" />
       <workItem from="1625341711487" duration="3356000" />
       <workItem from="1625393442145" duration="2558000" />
-      <workItem from="1625402178398" duration="19580000" />
+      <workItem from="1625402178398" duration="20138000" />
+      <workItem from="1625464666151" duration="5389000" />
     </task>
     <servers />
   </component>

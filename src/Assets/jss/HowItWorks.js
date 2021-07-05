@@ -4,7 +4,6 @@ const HowItWorks = makeStyles((theme)=>({
 
 
     title:{
-        fontWeight:800,
         padding:theme.spacing(3)
     }
 }))
