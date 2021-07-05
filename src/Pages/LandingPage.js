@@ -284,7 +284,7 @@ const WhyChooseUs =() =>{
                                             Transparent Business Model
                                         </Typography>
 
-                                        <Typography variant="subtitle2">
+                                        <Typography variant="subtitle2" style={{color:"#ffffff"}}>
                                             We are open-minded to endure your business
                                         </Typography>
                                     </CardContent>
@@ -296,8 +296,8 @@ const WhyChooseUs =() =>{
                                     </Box>
 
                                     <CardContent>
-                                        <Typography variant="h5">
-                                            Transparent Business Model
+                                        <Typography variant="h5" >
+                                            Responsible & Sustainable
                                         </Typography>
 
                                         <Typography variant="subtitle2" color="primary">
@@ -312,7 +312,7 @@ const WhyChooseUs =() =>{
 
                                     <CardContent>
                                         <Typography variant="h5">
-                                            Transparent Business Model
+                                            Trustworthy & Professional
                                         </Typography>
 
                                         <Typography variant="subtitle2" style={{color:"#ffffff"}}>
