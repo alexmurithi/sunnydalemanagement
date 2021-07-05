@@ -1,4 +1,7 @@
 import {createMuiTheme} from '@material-ui/core/styles';
+import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
+
+const breakpoints = createBreakpoints({})
 
 
 const materialUiTheme = createMuiTheme({
@@ -12,6 +15,7 @@ const materialUiTheme = createMuiTheme({
 
        white:"#ffffff",
        black:"#000000",
+       howItWorksBackCl:"ghostwhite",
        text:{
            primary:"#000000"
        }
@@ -30,7 +34,21 @@ const materialUiTheme = createMuiTheme({
        },
        h4:{
            fontFamily:"Montserrat",
-           fontWeight:800
+           fontWeight:800,
+           [breakpoints.down('md')]:{
+               fontSize:"1.5rem"
+           }
+       },
+       h2:{
+           fontFamily:"Montserrat",
+           fontWeight:800,
+       },
+       h3:{
+           fontFamily:"Montserrat",
+           fontWeight:800,
+           [breakpoints.down('md')]:{
+             fontSize:"1.2rem"
+           }
        }
    },
 

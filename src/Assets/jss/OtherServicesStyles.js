@@ -7,10 +7,20 @@ const OtherServicesStyles =makeStyles((theme)=>({
     },
     media:{
         height:90,
-        objectFit:"cover"
+        objectFit:"contain",
+        [theme.breakpoints.down('md')]:{
+            height: 200
+        }
     },
     card:{
         borderRadius:0
+    },
+    moreBtn:{
+        backgroundColor:theme.palette.white,
+        borderRadius:0,
+        color:theme.palette.primary.main,
+
+        textTransform:"none"
     }
 }))
 
