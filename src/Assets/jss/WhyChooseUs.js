@@ -6,10 +6,16 @@ const WhyChooseUsStyles =makeStyles((theme)=>({
         backgroundColor:theme.palette.white,
     },
     cardMedia:{
-
+        [theme.breakpoints.down('sm')]:{
+           textAlign:"center"
+        },
     },
     card:{
         display:"flex",
+        [theme.breakpoints.down('sm')]:{
+            display: "flex",
+            flexDirection: "column"
+        },
         backgroundColor:theme.palette.secondary.main,
         "&:nth-child(2)":{
             backgroundColor:theme.palette.white,
@@ -22,7 +28,11 @@ const WhyChooseUsStyles =makeStyles((theme)=>({
         borderRadius:0
     },
     cardContent:{
-       flexDirection:"column"
+       flexDirection:"column",
+        [theme.breakpoints.down('sm')]:{
+            display: "flex",
+            flexDirection: "column"
+        },
     },
     bannerImg:{
         width:"100%",
