@@ -360,8 +360,9 @@ const LandingPage =()=>{
 
             <WhyChooseUs/>
 
-            <Team/>
             <Partners/>
+            <Team/>
+
         </>
 
     )

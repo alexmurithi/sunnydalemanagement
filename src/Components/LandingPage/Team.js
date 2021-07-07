@@ -69,7 +69,9 @@ const Team =() =>{
                                 </div>
 
                                 <Card classes={{root:classes.card2}}>
-                                    <CardContent>John Doe</CardContent>
+                                    <CardContent>
+                                        <Typography variant="h5" align={"center"}>John Doe</Typography>
+                                    </CardContent>
                                 </Card>
                             </Box>
                         </Grid>
@@ -80,7 +82,9 @@ const Team =() =>{
                                 </div>
 
                                 <Card classes={{root:classes.card3}}>
-                                    <CardContent>James Kim</CardContent>
+                                    <CardContent>
+                                        <Typography variant="h5" align={"center"}>James Kim</Typography>
+                                    </CardContent>
                                 </Card>
                             </Box>
                         </Grid>
