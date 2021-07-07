@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2317805-857b-4137-9b36-aa43684d9eec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/Nike.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/Youtube.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/millwall.png" afterDir="false" />
+    <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Themes/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Themes/Default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LandingPage/Team.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LandingPage/Team.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
