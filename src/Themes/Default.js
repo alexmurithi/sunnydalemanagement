@@ -8,9 +8,11 @@ const materialUiTheme = createMuiTheme({
    palette:{
        primary:{
            main:"#0093dd",
+           light:"rgba(0,147,221,0.15)"
        },
        secondary:{
-           main:"#85c226"
+           main:"#85c226",
+           light:"rgba(133,194,38,0.15)"
        },
 
        white:"#ffffff",
@@ -29,14 +31,15 @@ const materialUiTheme = createMuiTheme({
            fontSize:"1.2rem"
        },
        subtitle1:{
-         fontSize:"0.8rem",
+         fontSize:"1rem",
            fontFamily:"Montserrat",
+           fontWeight:400,
        },
        h4:{
            fontFamily:"Montserrat",
            fontWeight:800,
            [breakpoints.down('md')]:{
-               fontSize:"1.5rem"
+               fontSize:"1.55rem"
            }
        },
        h2:{

@@ -23,6 +23,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import WhyChooseUsStyles from "../Assets/jss/WhyChooseUs";
 import WhyChooseUsImg from "../Assets/Images/why-us.png";
 import {ReactComponent as WhyChooseIconFirst} from '../Assets/svg/whyChoose1.svg';
+import Partners from "../Components/LandingPage/Partners";
+import Team from '../Components/LandingPage/Team';
 
 const useStyles =makeStyles(theme=>({
    wrapper:{
@@ -255,7 +257,7 @@ const OtherServices =() =>{
 const WhyChooseUs =() =>{
     const whyChooseUsStyles =WhyChooseUsStyles()
     return(
-        <Box className={whyChooseUsStyles.root} py={5}>
+        <Box className={whyChooseUsStyles.root} py={3}>
             <Container>
 
                 <Box>
@@ -358,6 +360,8 @@ const LandingPage =()=>{
 
             <WhyChooseUs/>
 
+            <Team/>
+            <Partners/>
         </>
 
     )
