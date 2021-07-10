@@ -25,6 +25,8 @@ import WhyChooseUsImg from "../Assets/Images/why-us.png";
 import {ReactComponent as WhyChooseIconFirst} from '../Assets/svg/whyChoose1.svg';
 import Partners from "../Components/LandingPage/Partners";
 import Team from '../Components/LandingPage/Team';
+import LeaveAMessage from "../Components/LandingPage/LeaveAMessage";
+import AllServices from "../Components/LandingPage/AllServices";
 
 const useStyles =makeStyles(theme=>({
    wrapper:{
@@ -362,7 +364,8 @@ const LandingPage =()=>{
 
             <Partners/>
             <Team/>
-
+            <LeaveAMessage/>
+            <AllServices/>
         </>
 
     )

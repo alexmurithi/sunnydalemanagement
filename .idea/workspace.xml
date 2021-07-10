@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/LandingPage/Team.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LandingPage/Team.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LandingPage/LeaveAMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LandingPage/LeaveAMessage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +52,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e2317805-857b-4137-9b36-aa43684d9eec" name="Default Changelist" comment="" />
+      <changelist id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="" />
       <created>1623488596071</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -72,6 +73,8 @@
       <workItem from="1625402178398" duration="20138000" />
       <workItem from="1625464666151" duration="30781000" />
       <workItem from="1625637256844" duration="11457000" />
+      <workItem from="1625737680256" duration="2321000" />
+      <workItem from="1625896857201" duration="7625000" />
     </task>
     <servers />
   </component>
