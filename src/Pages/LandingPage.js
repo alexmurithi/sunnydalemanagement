@@ -27,6 +27,7 @@ import Partners from "../Components/LandingPage/Partners";
 import Team from '../Components/LandingPage/Team';
 import LeaveAMessage from "../Components/LandingPage/LeaveAMessage";
 import AllServices from "../Components/LandingPage/AllServices";
+import Footer from "../Containers/Footer";
 
 const useStyles =makeStyles(theme=>({
    wrapper:{
@@ -366,6 +367,7 @@ const LandingPage =()=>{
             <Team/>
             <LeaveAMessage/>
             <AllServices/>
+            <Footer/>
         </>
 
     )
