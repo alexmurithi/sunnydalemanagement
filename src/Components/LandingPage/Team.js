@@ -1,9 +1,7 @@
 import React from 'react';
 import {Box, Container,Typography,Card,CardContent,Grid,IconButton} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
-import YouTube from "../../Assets/Images/Youtube.png";
 import SimbaImg from "../../Assets/Images/simba.jpg";
-import ZebraImg from "../../Assets/Images/zebra.jpg";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailIcon from '@material-ui/icons/Mail';
@@ -73,7 +71,7 @@ const Team =() =>{
                         <Grid item xs={12} sm={6} md={4} lg={4} >
                             <Box>
                                 <div className={classes.teamImg}>
-                                    <img src={SimbaImg}/>
+                                    <img src={SimbaImg} alt=''/>
                                 </div>
 
                                 <Card classes={{root:classes.card1}}>
@@ -111,7 +109,7 @@ const Team =() =>{
                         <Grid item xs={12} sm={6} md={4} lg={4}>
                             <Box>
                                 <div className={classes.teamImg}>
-                                    <img src={SimbaImg}/>
+                                    <img src={SimbaImg} alt=''/>
                                 </div>
 
                                 <Card classes={{root:classes.card2}}>
@@ -153,7 +151,7 @@ const Team =() =>{
                         <Grid item xs={12} sm={6} md={4} lg={4}>
                             <Box>
                                 <div className={classes.teamImg}>
-                                    <img src={SimbaImg}/>
+                                    <img src={SimbaImg} alt=''/>
                                 </div>
 
                                 <Card classes={{root:classes.card3}}>

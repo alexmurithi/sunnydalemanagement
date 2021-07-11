@@ -1,16 +1,12 @@
 import React from 'react';
 import HowItWorksStyles from "../../Assets/jss/HowItWorks";
-import {useTheme} from "@material-ui/core/styles";
-import {Box, Card, CardContent, Container, Grid, Typography, useMediaQuery} from "@material-ui/core";
+import {Box, Card, CardContent, Container, Grid, Typography,} from "@material-ui/core";
 import FindServiceImage from "../../Assets/Images/find-service@2x.png";
 import ExamineServiceImg from "../../Assets/Images/examine-service@2x.png";
 import ContactProviderImg from "../../Assets/Images/contact-provider@2x.png";
 
 const HowItWorks =()=>{
     const howItWorksStyles =HowItWorksStyles()
-    const theme =useTheme();
-    const isMobileTablet =useMediaQuery(theme.breakpoints.down("md"))
-
     return(
         <Box mt={2} textAlign="center"  className={howItWorksStyles.root} py={3}>
             <Container>
@@ -27,7 +23,7 @@ const HowItWorks =()=>{
                         <Card elevation={0} >
                             <CardContent>
                                 <Box mb={2}>
-                                    <img  src={FindServiceImage} alt="Find Service Image" width={250} />
+                                    <img  src={FindServiceImage} alt="" width={250} height="auto" />
                                 </Box>
 
                                 <Typography variant="h5" align="left">
@@ -47,7 +43,7 @@ const HowItWorks =()=>{
                         <Card elevation={0}>
                             <CardContent>
                                 <Box mb={2}>
-                                    <img src={ExamineServiceImg} alt="Examine Service" width={250}/>
+                                    <img src={ExamineServiceImg} alt="" width={250} height="auto"/>
                                 </Box>
 
                                 <Typography variant="h5" align="left">
@@ -66,7 +62,7 @@ const HowItWorks =()=>{
                         <Card elevation={0}>
                             <CardContent>
                                 <Box mb={2}>
-                                    <img src={ContactProviderImg} alt="Contact Provider Image" width={250}/>
+                                    <img src={ContactProviderImg} alt="" width={250} height="auto"/>
                                 </Box>
 
                                 <Typography variant="h5" align="left" >

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Box, Container, Typography, Grid, TextField, Button, Icon, Hidden,
+    Box, Container, Typography, Grid, TextField, Button, Hidden,
 } from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import LeaveMessageImg from "../../Assets/Images/leaveMessage.png";
@@ -55,7 +55,7 @@ return (
             <Grid container>
                 <Hidden only={['xs','sm']}>
                     <Grid item lg={6}>
-                        <img src={LeaveMessageImg} height={450}/>
+                        <img src={LeaveMessageImg} height={450} alt=''/>
                     </Grid>
                 </Hidden>
 
@@ -64,7 +64,7 @@ return (
                         <TextField
                             variant="outlined"
                             label="Your Name"
-                            fullWidth="true"
+                            fullWidth={true}
                         />
 
                         <TextField

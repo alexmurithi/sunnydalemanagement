@@ -1,13 +1,16 @@
 import React from 'react';
-import {Box, Container, Grid, Hidden, Paper, Typography, useMediaQuery} from "@material-ui/core";
+import {Box, Container, Grid, Hidden, Paper, Typography} from "@material-ui/core";
 import SliderComponent from "../PhotosGlider";
 import OnBoardingServices from "../OnBoardingServices";
-import {useTheme} from "@material-ui/core/styles";
 import {makeStyles} from "@material-ui/styles";
 
 const useStyles =makeStyles(theme=>({
     wrapper:{
         marginTop:theme.spacing(2)
+    },
+    onBoardingBox:{
+        paddingRight:theme.spacing(2),
+        paddingLeft:theme.spacing(2)
     },
     landingPaper:{
         backgroundColor:theme.palette.primary.main,
@@ -25,11 +28,10 @@ const useStyles =makeStyles(theme=>({
 }))
 
 const OnBoardingText =() =>{
-    const theme =useTheme();
-    const isMobileTablet =useMediaQuery(theme.breakpoints.down("md"))
+    const classes =useStyles()
     return (
         <>
-            <Box p={isMobileTablet && 2} >
+            <Box component="div" className={classes.onBoardingBox}>
                 <Typography  variant="h3">
                     Find Your Best Apartment,
                     Office, Land Shop & Environmental Services From Us

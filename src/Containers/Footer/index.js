@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme)=>({
     footerListItem:{
         paddingBottom:"8px !important",
         paddingTop:"8px !important",
+        paddingRight:"8px !important",
 
         '& .MuiListItemIcon-root':{
             color:theme.palette.white

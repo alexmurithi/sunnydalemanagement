@@ -19,7 +19,7 @@ const WhyChooseUs =() =>{
                     <Grid container spacing={3}>
                         <Hidden only={['xs','sm']}>
                             <Grid item md={6} lg={6} >
-                                <img src={WhyChooseUsImg} className={whyChooseUsStyles.bannerImg}/>
+                                <img src={WhyChooseUsImg} className={whyChooseUsStyles.bannerImg} alt=''/>
                             </Grid>
                         </Hidden>
 

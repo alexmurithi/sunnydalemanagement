@@ -1,7 +1,7 @@
 import React from 'react';
 import OtherServicesStyles from "../../Assets/jss/OtherServicesStyles";
 import {
-    Box,Button,Card,CardActionArea,CardContent,CardMedia,Container,Grid, IconButton,Typography
+    Box,Button,Card,CardActionArea,CardContent,CardMedia,Container,Grid,Typography
 } from "@material-ui/core";
 import EnvironmentalImage1 from "../../Assets/Images/environmental-1.jpg";
 import EnvironmentalImage2 from "../../Assets/Images/environmental-2.jpg";
@@ -36,7 +36,7 @@ const OtherServices =() =>{
                                 <CardActionArea>
                                     <CardMedia
                                         image={EnvironmentalImage1}
-                                        title="Contemplative Reptile"
+                                        title="Environmental Image"
                                         className={otherServicesStyles.media}
                                     />
                                 </CardActionArea>
@@ -60,7 +60,7 @@ const OtherServices =() =>{
                                 <CardActionArea>
                                     <CardMedia
                                         image={EnvironmentalImage2}
-                                        title="Contemplative Reptile"
+                                        title="Environmental Image 1"
                                         className={otherServicesStyles.media}
                                     />
                                 </CardActionArea>
@@ -84,7 +84,7 @@ const OtherServices =() =>{
                                 <CardActionArea>
                                     <CardMedia
                                         image={EnvironmentalImage3}
-                                        title="Contemplative Reptile"
+                                        title="Environmental Image 2"
                                         className={otherServicesStyles.media}
                                     />
                                 </CardActionArea>
@@ -106,11 +106,12 @@ const OtherServices =() =>{
                     </Grid>
 
                     <Box my={2}>
-                        <Button variant={"contained"} className={otherServicesStyles.moreBtn}>
-                            <Typography variant="h5">More Services</Typography>
-                            <IconButton disableRipple color="inherit">
-                                <ChevronRightIcon fontSize="large"/>
-                            </IconButton>
+                        <Button
+                            variant={"contained"}
+                            className={otherServicesStyles.moreBtn}
+                            endIcon={<ChevronRightIcon/>}
+                        >
+                            More Services
                         </Button>
                     </Box>
                 </Box>
