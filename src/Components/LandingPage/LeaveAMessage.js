@@ -76,7 +76,7 @@ return (
 
                         <TextField
                             variant="outlined"
-                            label="Email"
+                            label="Message"
                             multiline
                             rows={7}
                             fullWidth={true}
