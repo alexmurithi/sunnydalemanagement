@@ -19,7 +19,8 @@ const materialUiTheme = createMuiTheme({
        black:"#000000",
        howItWorksBackCl:"ghostwhite",
        text:{
-           primary:"#000000"
+           primary:"#000000",
+           secondary:"#ffffff"
        }
 
    },
@@ -52,7 +53,9 @@ const materialUiTheme = createMuiTheme({
            [breakpoints.down('md')]:{
              fontSize:"1.2rem"
            }
-       }
+       },
+
+
    },
 
     overrides:{

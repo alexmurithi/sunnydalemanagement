@@ -8,6 +8,10 @@ const LandingPage = lazy(() =>
         )
 );
 
+const AboutUs = lazy(()=>
+    import("./Pages/AboutUs")
+)
+
 const Routes = () =>{
     return (
         <>
@@ -16,6 +20,11 @@ const Routes = () =>{
                 component={LandingPage}
                 layout={MainLayout}
 
+            />
+            <Route
+                exact
+                path="/about-us"
+                component={AboutUs}
             />
             <Route
                 exact path="/on-sale"

@@ -22,8 +22,6 @@ const useStyles =makeStyles((theme)=>({
 
 const AllServices =() =>{
     const classes = useStyles();
-    // const theme =useTheme()
-    // const isMobileTablet =useMediaQuery(theme.breakpoints.down('md'));
     return(
         <Box py={5} className={classes.root}>
             <Container>
