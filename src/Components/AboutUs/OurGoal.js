@@ -11,17 +11,14 @@ const OurGoal =()=>{
     return(
         <Box py={5}>
             <Container maxWidth={'xl'}>
-                <Box py={3}>
-                    <Typography variant="h4" align={'center'}>
-                        Our Goal
-                    </Typography>
-                </Box>
-
-
-                <Grid container direction={isMobileTablet && 'column-reverse'}>
+                <Grid container direction={isMobileTablet ? 'column-reverse':null}>
 
                     <Grid item xs={12} sm={12} lg={6}>
-
+                        <Box py={3}>
+                            <Typography variant="h5" >
+                                Our Goal
+                            </Typography>
+                        </Box>
                         <Typography
                             variant="subtitle1"
                         >
