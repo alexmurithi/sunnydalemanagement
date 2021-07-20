@@ -7,9 +7,11 @@ const LandingPage = lazy(() =>
          "./Pages/LandingPage"
         )
 );
-
 const AboutUs = lazy(()=>
     import("./Pages/AboutUs")
+)
+const AdminLogin = lazy(()=>
+    import("./Pages/Auth/Login")
 )
 
 const Routes = () =>{
@@ -30,6 +32,11 @@ const Routes = () =>{
                 exact path="/on-sale"
                 component={()=><div>On Saldsdse</div>}
                 layout={MainLayout}
+            />
+            <Route
+                exact
+                path="/auth/login"
+                component={AdminLogin}
             />
         </>
 

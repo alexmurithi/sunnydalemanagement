@@ -20,7 +20,7 @@ const materialUiTheme = createMuiTheme({
        howItWorksBackCl:"ghostwhite",
        text:{
            primary:"#000000",
-           secondary:"#ffffff"
+
        }
 
    },

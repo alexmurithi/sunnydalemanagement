@@ -136,11 +136,11 @@ const Drawer =()=>{
                         </ListItem>
                     </List>
                 </Collapse>
-                <ListItem button component={Link} to="/about-us">
+                <ListItem button >
                     <ListItemText primary="Airbnb"/>
                 </ListItem>
                 <Divider />
-                <ListItem button >
+                <ListItem button component={Link} to="/about-us">
                     <ListItemText primary="About"/>
                 </ListItem>
                 <Divider />

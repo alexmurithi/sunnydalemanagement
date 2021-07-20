@@ -84,6 +84,8 @@ const classes =useStyles()
                 variant="contained"
                 color="primary"
                 className={classes.loginBtn}
+                component={Link}
+                to="/auth/login"
             >
                 Login
             </Button>
