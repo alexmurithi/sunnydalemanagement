@@ -148,7 +148,7 @@ const Drawer =()=>{
                     <ListItemText primary="Contact Us"/>
                 </ListItem>
                 <Divider />
-                <ListItem button >
+                <ListItem button component={Link} to="/auth/login">
                     <ListItemText primary="Login"/>
                 </ListItem>
                 <Divider />
