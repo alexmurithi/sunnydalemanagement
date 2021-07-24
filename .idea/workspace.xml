@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DesktopTabs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DesktopTabs/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DrawerList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DrawerList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_18_10__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_18_10__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Admin/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Admin/Dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Themes/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Themes/Default.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Assets/Images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -88,6 +86,7 @@
       <workItem from="1626611641630" duration="2672000" />
       <workItem from="1626709777856" duration="10355000" />
       <workItem from="1626761460994" duration="3320000" />
+      <workItem from="1627032805242" duration="127000" />
     </task>
     <servers />
   </component>

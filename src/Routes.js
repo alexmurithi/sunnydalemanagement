@@ -1,6 +1,8 @@
-import React,{lazy} from "react";
-import {Route} from 'react-router-dom';
-import MainLayout from "./Layouts/Main";
+import React, {lazy,} from "react";
+
+// import MainLayout from "./Layouts/Main";
+import DashboardLayout from './Components/DashboardLayout';
+
 
 const LandingPage = lazy(() =>
     import(
@@ -14,33 +16,30 @@ const AdminLogin = lazy(()=>
     import("./Pages/Auth/Login")
 )
 
-const Routes = () =>{
-    return (
-        <>
-            <Route
-                exact path="/"
-                component={LandingPage}
-                layout={MainLayout}
 
-            />
-            <Route
-                exact
-                path="/about-us"
-                component={AboutUs}
-            />
-            <Route
-                exact path="/on-sale"
-                component={()=><div>On Saldsdse</div>}
-                layout={MainLayout}
-            />
-            <Route
-                exact
-                path="/auth/login"
-                component={AdminLogin}
-            />
-        </>
+ const routes =[
+    {
+        path:"/",
+        element:<LandingPage/>
+    },
+    {
+        path:"auth/login",
+        element:<AdminLogin/>
+    },
+    {
+        path:"about",
+        element:<AboutUs/>
+    },
+    {
+        path:"admin",
+        element:<DashboardLayout/>,
+        children:[
+            {
+                path:"dashboard",
+                element:""
+            }
+        ]
+    }
+ ]
 
-    )
-}
-
-export default Routes;
+export default routes;

@@ -84,7 +84,13 @@ const Login =()=>{
                                    />
                                    <Link to="/" className={classes.forgotPass}>Forgot password ?</Link>
                                </FormGroup>
-                               <Button variant="contained" color="primary" className={classes.loginBtn}>
+                               <Button 
+                                    variant="contained" 
+                                    color="primary" 
+                                    className={classes.loginBtn}
+                                    component={Link}
+                                    to="/admin/dashboard" 
+                               >
                                    Sign in
                                </Button>
                            </form>
