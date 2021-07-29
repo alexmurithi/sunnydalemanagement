@@ -26,6 +26,7 @@ const NotFound =lazy(()=>
 
 const MonitoringDashboard =lazy(()=>import('./Components/Monitoring/Dashboard'))
 const EnvironmentalAudit =lazy(()=>import('./Components/Monitoring/EnvironmentalAudit'))
+const EnvironmentalConservation =lazy(()=>import('./Components/Monitoring/EnvironmentConservation'))
 
 const Dashboard = lazy(()=>import('./Pages/Dashboard'))
 
@@ -84,7 +85,7 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
             },
             {
                 path:'/environmental-conservation-and-protection',
-                element:<div>environmental-conservation-and-protection</div>
+                element:<EnvironmentalConservation/>
             },
             {
                 path:'/environmental-research',

@@ -7,8 +7,8 @@ import {
 import {Link} from 'react-router-dom';
 import {makeStyles} from "@material-ui/core/styles";
 import Logo from "../../Assets/Logo/Logo.png";
-import OnSaleTab from "./OnSaleTab";
-import OnRentTab from "./onRentTab";
+// import OnSaleTab from "./OnSaleTab";
+// import OnRentTab from "./onRentTab";
 
 const useStyles =makeStyles(theme=>({
     desktopTabs:{
@@ -58,8 +58,14 @@ const classes =useStyles()
                     to="/"
                 />
 
-                <OnSaleTab />
-                <OnRentTab />
+                <Tab
+                    label="Real Estate Management"
+                    component={Link} className={classes.desktopTab}
+                    to="/"
+                />
+
+                {/* <OnSaleTab />
+                <OnRentTab /> */}
                 <Tab
                     label="Monitoring & Evaluation"
                     component={Link} className={classes.desktopTab}
