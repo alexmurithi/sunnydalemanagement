@@ -6,6 +6,7 @@ const useStyles = makeStyles(() => ({
     image: {
         objectFit: "cover",
         width:"100%",
+        maxWidth:'100%'
         // maxWidth: "100%",
     },
 }));

@@ -9,8 +9,6 @@ import {makeStyles} from "@material-ui/core/styles";
 import Logo from "../../Assets/Logo/Logo.png";
 import OnSaleTab from "./OnSaleTab";
 import OnRentTab from "./onRentTab";
-import EnvironmentalTab from "./EnvironmentalTab";
-
 
 const useStyles =makeStyles(theme=>({
     desktopTabs:{
@@ -62,7 +60,12 @@ const classes =useStyles()
 
                 <OnSaleTab />
                 <OnRentTab />
-                <EnvironmentalTab />
+                <Tab
+                    label="Monitoring & Evaluation"
+                    component={Link} className={classes.desktopTab}
+                    to="/monitoring-and-evaluation"
+                />
+               
 
                 <Tab
                     component={Link}

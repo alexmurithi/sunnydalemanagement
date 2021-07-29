@@ -12,11 +12,16 @@ const useStyles =makeStyles((theme)=>({
         padding:theme.spacing(4),
         boxShadow:`rgba(0,0,0,0.35) 0px 5px 15px`,
         margin:"70px auto",
-        width:"60%"
+        width:"80%",
+        [theme.breakpoints.down('md')]:{
+            padding:theme.spacing(2),
+            width:"90%"
+        }
     },
     loginForm:{
         '& input':{
-            padding:theme.spacing(2)
+            padding:theme.spacing(2),
+            
         }
     },
     formControl:{
@@ -43,7 +48,7 @@ const Login =()=>{
         setChecked(event.target.checked)
     }
     return(
-       <Container maxWidth="xl">
+       <Container maxWidth={false}>
                <Box className={classes.loginBox}>
                    <Grid container item justify="space-between">
                        <Logo width={100}/>

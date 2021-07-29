@@ -1,9 +1,8 @@
 import React from 'react';
 import {
-    AppBar,Toolbar,Box,Hidden,IconButton,Badge
+    AppBar,Toolbar,Box,Hidden,IconButton,Badge, Typography
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import Logo from '../Components/Logo';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import InputIcon from '@material-ui/icons/Input';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -17,9 +16,9 @@ const DashboardNavbar =({onMobileNavOpen, ...rest})=>{
             {...rest} 
         >
             <Toolbar>
-                <Link to="/">
-                  <Logo width={40}/>
-                </Link>
+            
+                  <Typography component={Link} to="/" color="inherit" variant="h3">SunnyDale</Typography>
+                
 
                 <Box 
                     style={{

@@ -32,7 +32,7 @@ const OnBoardingText =() =>{
     return (
         <>
             <Box component="div" className={classes.onBoardingBox}>
-                <Typography  variant="h3">
+                <Typography  variant="h1" style={{fontSize:'3rem'}}>
                     Find Your Best Apartment,
                     Office, Land Shop & Environmental Services From Us
                 </Typography>

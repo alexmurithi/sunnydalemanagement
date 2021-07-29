@@ -95,6 +95,8 @@ const DashboardSidebar =({onMobileClose, openMobile})=>{
     //       onMobileClose();
     //     }
     //   }, [location.pathname]);
+
+    // const [openRealEstate, setOpenRealEstate] =useState(false)
     
 
     return(

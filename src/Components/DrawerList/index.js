@@ -46,8 +46,12 @@ const Drawer =()=>{
     return(
         <>
             <List>
-                <ListItem button >
-                    <Button disableRipple component={Link} to="/" className={classes.drawerLogoBtn}
+                <ListItem button divider>
+                    <Button 
+                        disableRipple 
+                        component={Link} 
+                        to="/" 
+                        className={classes.drawerLogoBtn}
                     >
                         <img edge="start"
                              src={Logo} width="100%"
@@ -57,13 +61,20 @@ const Drawer =()=>{
                         />
                     </Button>
                 </ListItem>
-                <Divider />
 
-                <ListItem button onClick={toggleOnSale}>
-                    <ListItemText primary="On Sale" />
+                <ListItem 
+                    button 
+                    onClick={toggleOnSale}
+                    divider 
+                >
+                    <ListItemText 
+                        primary="On Sale" 
+                    />
+
                     {openOnSale ? <ExpandLess /> : <ExpandMore />}
+
                 </ListItem>
-                <Divider />
+                
                 <Collapse in={openOnSale} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         <ListItem button className={classes.drawerListItemNested}>
@@ -81,11 +92,19 @@ const Drawer =()=>{
                     </List>
                 </Collapse>
 
-                <ListItem button onClick={toggleForRent}>
-                    <ListItemText primary="For Rent" />
+                <ListItem 
+                    button 
+                    onClick={toggleForRent}
+                    divider 
+                >
+                    <ListItemText 
+                        primary="For Rent" 
+                    />
+
                     {openForRent ? <ExpandLess /> : <ExpandMore />}
+
                 </ListItem>
-                <Divider />
+                
                 <Collapse in={openForRent} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         <ListItem button className={classes.drawerListItemNested}>
@@ -103,55 +122,152 @@ const Drawer =()=>{
                     </List>
                 </Collapse>
 
-                <ListItem button onClick={toggleEServices}>
-                    <ListItemText primary="Environmental Services" />
+                <ListItem 
+                    button 
+                    onClick={toggleEServices} 
+                    component={Link}
+                    to='/monitoring-and-evaluation' 
+                >
+                    <ListItemText 
+                        primary="Environmental Services" 
+                    />
+
                     {openEServices ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Divider />
-                <Collapse in={openEServices} timeout="auto" unmountOnExit>
+
+                <Collapse 
+                    in={openEServices} 
+                    timeout="auto" 
+                    unmountOnExit 
+                >
                     <List component="div" disablePadding>
-                        <ListItem button className={classes.drawerListItemNested}>
+                        <ListItem 
+                            button 
+                            className={classes.drawerListItemNested} 
+                            component={Link}
+                            to='/monitoring-and-evaluation/environmental-audit'
+                            divider 
+                        >
                             <ListItemText primary="Environmental Audit" />
                         </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Monitoring & Evaluation" />
+
+                        <ListItem 
+                            button 
+                            className={classes.drawerListItemNested}
+                            component={Link}
+                            to='/monitoring-and-evaluation/environmental-conservation-and-protection'
+                            divider 
+                        >
+                            <ListItemText 
+                                primary="Environmental 
+                                Conservation & Protection" 
+                            />
                         </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Conservation & Protection" />
+
+                        <ListItem 
+                            button 
+                            className={classes.drawerListItemNested}
+                            component={Link}
+                            to='/monitoring-and-evaluation/waste-disposal-and-management'
+                            divider 
+                        >
+                            <ListItemText 
+                                primary="Waste Disposal & Management" 
+                            />
                         </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Waste Disposal & Management" />
+
+                        <ListItem 
+                            button 
+                            className={classes.drawerListItemNested}
+                            component={Link}
+                            to='/monitoring-and-evaluation/environmental-impact-and-assessment'
+                            divider 
+                        >
+                            <ListItemText 
+                                primary="Environmental Impact Assessment" 
+                            />
                         </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Environmental Impact Assessment" />
+
+                        <ListItem 
+                            button 
+                            className={classes.drawerListItemNested}
+                            component={Link}
+                            to='/monitoring-and-evaluation/environmental-research'
+                            divider 
+                        >
+                            <ListItemText 
+                                primary="Environmental Research" 
+                            />
                         </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Environmental Research" />
+
+                        <ListItem 
+                            button 
+                            className={classes.drawerListItemNested}
+                            component={Link}
+                            to='/monitoring-and-evaluation/water-and-forest-resources'
+                            divider 
+                        >
+                            <ListItemText 
+                                primary="Water & Forest Resources" 
+                            />
                         </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Water & Forest Resources" />
+
+                        <ListItem 
+                            button 
+                            className={classes.drawerListItemNested}
+                            component={Link}
+                            to='/monitoring-and-evaluation/public-capacity-building'
+                            divider 
+                        >
+                            <ListItemText 
+                                primary="Public Capacity Building" 
+                            />
                         </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Public Capacity Building" />
-                        </ListItem>
+
                     </List>
                 </Collapse>
-                <ListItem button >
-                    <ListItemText primary="Airbnb"/>
+
+                <ListItem 
+                    button 
+                    divider 
+                >
+                    <ListItemText 
+                        primary="Airbnb" 
+                    />
                 </ListItem>
-                <Divider />
-                <ListItem button component={Link} to="/about-us">
-                    <ListItemText primary="About"/>
+                
+                <ListItem 
+                    button 
+                    component={Link} 
+                    to="/about-us"
+                    divider 
+                >
+                    <ListItemText 
+                        primary="About" 
+                    />
                 </ListItem>
-                <Divider />
-                <ListItem button >
-                    <ListItemText primary="Contact Us"/>
+               
+                <ListItem 
+                    button 
+                    divider 
+                >
+                    <ListItemText 
+                        primary="Contact Us" 
+                    />
                 </ListItem>
-                <Divider />
-                <ListItem button component={Link} to="/auth/login">
-                    <ListItemText primary="Login"/>
+               
+                <ListItem 
+                    button 
+                    component={Link} 
+                    to="/auth/login"
+                    divider 
+                >
+                    <ListItemText 
+                        primary="Login" 
+                    />
                 </ListItem>
-                <Divider />
+               
             </List>
         </>
     )

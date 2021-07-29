@@ -2,13 +2,13 @@ import React from 'react';
 import {
     Avatar, Card,CardContent, Grid, Typography,Box,Divider,List,ListItem,ListItemAvatar,ListItemText
 } from '@material-ui/core';
-import ApartmentIcon from '@material-ui/icons/Apartment';
-import {red,green} from '@material-ui/core/colors';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import BusinessIcon from '@material-ui/icons/Business';
+import {red,blue} from '@material-ui/core/colors';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import {green} from '@material-ui/core/colors';
 import SellIcon from '@material-ui/icons/Sell';
 
-const Apartments =()=>{
-    
+const Offices =()=>{
     return(
         <Card >
             <CardContent>
@@ -25,14 +25,14 @@ const Apartments =()=>{
                             gutterBottom 
                             variant="h6" 
                         >
-                            APARTMENTS
+                            OFFICES
                         </Typography>
 
                         <Typography
                             color="textPrimary"
                             variant="h3"
                         >
-                           3,000
+                           100
                         </Typography>
                     </Grid>
 
@@ -41,10 +41,10 @@ const Apartments =()=>{
                         style={{
                             height:64,
                             width:64,
-                            backgroundColor:red[600]
+                            backgroundColor:blue[600]
                         }} 
                         >
-                            <ApartmentIcon/>
+                            <BusinessIcon/>
                             
                         </Avatar>
                     </Grid>
@@ -57,19 +57,19 @@ const Apartments =()=>{
                         pt:2
                     }} 
                 >
-                    <ArrowUpwardIcon 
+                    <ArrowDownwardIcon 
                         style={{
-                            color:green[900]
+                            color:red[900]
                         }} 
                     />
                     <Typography 
                         variant="body2" 
                         style={{
-                            color:green[900],
+                            color:red[900],
                             marginRight:10
                         }} 
                     >
-                        16%
+                        12%
                     </Typography>
 
                     <Typography variant="caption" color="textSecondary">
@@ -127,4 +127,4 @@ const Apartments =()=>{
     )
 }
 
-export default Apartments;
+export default Offices;

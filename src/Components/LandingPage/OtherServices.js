@@ -7,6 +7,7 @@ import EnvironmentalImage1 from "../../Assets/Images/environmental-1.jpg";
 import EnvironmentalImage2 from "../../Assets/Images/environmental-2.jpg";
 import EnvironmentalImage3 from "../../Assets/Images/environmental-3.jpg";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import {Link} from 'react-router-dom';
 
 
 const OtherServices =() =>{
@@ -17,7 +18,7 @@ const OtherServices =() =>{
             <Container>
                 <Box py={3}>
                     <Typography variant="h4" align="center">
-                        Other Services - Monitoring & Evaluation
+                         Monitoring & Evaluation
                     </Typography>
                 </Box>
 
@@ -110,6 +111,8 @@ const OtherServices =() =>{
                             variant={"contained"}
                             className={otherServicesStyles.moreBtn}
                             endIcon={<ChevronRightIcon/>}
+                            component={Link}
+                            to='/monitoring-and-evaluation'
                         >
                             More Services
                         </Button>

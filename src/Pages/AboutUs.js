@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from "../Containers/Header";
 import FlatCarousel from "../Components/AboutUs/FlatCarousel";
 import OurGoal from "../Components/AboutUs/OurGoal";
 import OurMission from "../Components/AboutUs/OurMission";
@@ -10,10 +9,8 @@ const AboutUs =()=>{
     return (
         <>
             <Helmet>
-                <title>About Us</title>
+                <title>About Us | SunnyDale</title>
             </Helmet>
-
-            <Header/>
             <FlatCarousel/>
             <OurGoal/>
             <OurMission/>

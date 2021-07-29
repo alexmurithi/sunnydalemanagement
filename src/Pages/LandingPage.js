@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from "../Containers/Header";
 import Partners from "../Components/LandingPage/Partners";
 import Team from '../Components/LandingPage/Team';
 import LeaveAMessage from "../Components/LandingPage/LeaveAMessage";
@@ -13,7 +12,6 @@ import OnBoardingSection from "../Components/LandingPage/OnBoardingSection";
 const LandingPage =()=>{
     return(
         <>
-            <Header />
             <OnBoardingSection/>
             <HowItWorks/>
             <OtherServices/>

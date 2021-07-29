@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_18_10__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_06_2021_18_10__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Admin/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Admin/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Apartments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Apartments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DashboardSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/AboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/AboutUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Auth/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Themes/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Themes/Default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +95,7 @@
       <workItem from="1626709777856" duration="10355000" />
       <workItem from="1626761460994" duration="3320000" />
       <workItem from="1627032805242" duration="127000" />
+      <workItem from="1627315760766" duration="299000" />
     </task>
     <servers />
   </component>
