@@ -28,6 +28,7 @@ const MonitoringDashboard =lazy(()=>import('./Components/Monitoring/Dashboard'))
 const EnvironmentalAudit =lazy(()=>import('./Components/Monitoring/EnvironmentalAudit'))
 const EnvironmentalConservation =lazy(()=>import('./Components/Monitoring/EnvironmentConservation'))
 const WasteDisposal =lazy(()=>import('./Components/Monitoring/WasteDisposal'))
+const ImpactAssessment =lazy(()=>import('./Components/Monitoring/ImpactAssessment'))
 
 const Dashboard = lazy(()=>import('./Pages/Dashboard'))
 
@@ -98,7 +99,7 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
             },
             {
                 path:'/environmental-impact-and-assessment',
-                element:<div>Environmental Impact & Assessment</div>
+                element:<ImpactAssessment/>
             },
             {
                 path:'/water-and-forest-resources',
