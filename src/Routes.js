@@ -71,8 +71,8 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
                 element:<NotFound/>,
             },
             {
-                path:'*',
-                element:<Navigate to='/404'/>
+                path:'/*',
+                element:<Navigate to='404'/>
             }
         ]
     },
@@ -111,7 +111,8 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
             {
               path:'/public-capacity-building',
               element:<CapacityBuilding/>  
-            }
+            },
+            
         ]
     }
  ]
