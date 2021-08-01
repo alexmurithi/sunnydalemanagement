@@ -28,22 +28,18 @@ const MonitoringDashboard =()=>{
             <Typography 
                 variant='h4' 
                 color='secondary' 
-                style={{
-                    paddingBottom:'16px'
-                }} 
+                gutterBottom 
             >
                 Monitoring and Evaluation (M&E)
             </Typography>
 
-            <Box className={classes.MonitoringRootImage}>
+           
                 <Image src={MonitoringImage} height={200}/>
-            </Box>
+            
             
             <Typography 
                paragraph
-                style={{
-                    padding:'8px'
-                }} 
+                gutterBottom 
             >
                 M&E is at the core of sustainable development and is key for
                 every organization looking to making and maintaining
@@ -64,11 +60,12 @@ const MonitoringDashboard =()=>{
 
             {/* <Steps/> */}
 
-            <Box py={4} >
-                <Typography variant='h4' color='secondary'>
+            <Box  >
+                <Typography variant='h4' color='secondary' >
                     What’s best with hiring Sunnydale for M&E services?
                 </Typography>
 
+                <Typography component='div'>
                 <ul>
                     <li>We provide professionally designed and customized M&E</li>
                     <li>
@@ -101,6 +98,9 @@ const MonitoringDashboard =()=>{
                      professional and confidential.
                     </li>
                 </ul>
+                </Typography>
+
+                
             </Box>
 
           </Container>
