@@ -30,6 +30,8 @@ const EnvironmentalConservation =lazy(()=>import('./Components/Monitoring/Enviro
 const WasteDisposal =lazy(()=>import('./Components/Monitoring/WasteDisposal'))
 const ImpactAssessment =lazy(()=>import('./Components/Monitoring/ImpactAssessment'))
 const EnvironmentalResearch =lazy(()=>import('./Components/Monitoring/EnvironmentalResearch'))
+const WaternForest =lazy(()=>import('./Components/Monitoring/WaternForest'))
+const CapacityBuilding =lazy(()=>import('./Components/Monitoring/CapacityBuilding'))
 
 const Dashboard = lazy(()=>import('./Pages/Dashboard'))
 
@@ -104,11 +106,11 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
             },
             {
                 path:'/water-and-forest-resources',
-                element:<div>water and forest resources</div>
+                element:<WaternForest/>
             },
             {
               path:'/public-capacity-building',
-              element:<div>public capacity building</div>  
+              element:<CapacityBuilding/>  
             }
         ]
     }
