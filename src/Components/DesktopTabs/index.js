@@ -77,7 +77,7 @@ const classes =useStyles()
                     component={Link}
                     className={classes.desktopTab}
                     label ="About Us"
-                    to="/about-us"
+                    to="/about"
                 />
 
                 <Tab
