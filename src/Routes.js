@@ -1,5 +1,5 @@
 import React, {lazy,} from "react";
-import { Navigate } from "react-router";
+import {Navigate} from 'react-router-dom';
 
 
 // import MainLayout from "./Layouts/Main";
@@ -66,13 +66,14 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
                 path:'about',
                 element:<AboutUs/>
             },
+            
+            {
+                path:'*',
+                element:<Navigate to='/404'/>
+            },
             {
                 path:'404',
                 element:<NotFound/>,
-            },
-            {
-                path:'*',
-                element:<Navigate to='404'/>
             }
         ]
     },
@@ -111,6 +112,10 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
             {
               path:'/public-capacity-building',
               element:<CapacityBuilding/>  
+            },
+            {
+                path:'*',
+                element:<Navigate to='/404'/>
             },
             
         ]
