@@ -71,7 +71,7 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
                 element:<NotFound/>,
             },
             {
-                path:'/*',
+                path:'*',
                 element:<Navigate to='404'/>
             }
         ]
