@@ -1,180 +1,116 @@
 import React from 'react';
-import {Box, Container, Typography, Card, CardContent, Grid, IconButton, CardMedia} from '@material-ui/core';
+import {
+    Box, 
+    Container, 
+    Typography, 
+    Card,
+    Avatar, 
+    Grid, 
+}
+ from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
-import SimbaImg from "../../Assets/Images/simba.jpg";
-import TwitterIcon from '@material-ui/icons/Twitter';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import MailIcon from '@material-ui/icons/Mail';
+import HRImage from '../../Assets/Images/collins.jpg';
+import AccountantImage from '../../Assets/Images/sora.jpg';
+import CEOImage from '../../Assets/Images/ceo.jpg';
 
 const TeamStyles =makeStyles((theme)=>({
-    root:{
-        width:"100%",
-        backgroundColor:"ghostwhite"
-    },
-    card:{
-        borderRadius:0
-    },
-    cardMedia:{
-        width:"100px",
-        height:'100px',
-        borderRadius:"50%",
-        marginLeft:"auto",
-        marginRight:"auto"
-    }
-
+   card:{
+       display:'flex',
+       flexDirection:'column',
+       borderRadius:0,
+       padding:theme.spacing(3),
+       
+       
+   },
+  details:{
+       display:'flex',
+       flexDirection:'row',
+       justifyContent:'space-between'
+       
+   },
+   personalDetails:{
+       display:'flex',
+       flexDirection:'column'
+   },
+   avatar:{
+       width:theme.spacing(9),
+       height:theme.spacing(9)
+   }
 }))
+
+const  members =[
+    {
+        name:'Ambrose Mugambi',
+        avatar:CEOImage,
+        position:'CEO & Founder',
+        message:`
+        Your time is limited, so don't waste it 
+        living someone else's life. Don't be trapped 
+        by dogma – which is living with the results of 
+        other people's thinking.
+        `
+    },
+
+    {
+        name:'Stanely Mugambi',
+        avatar:HRImage,
+        position:'Senior HR',
+        message:`If you look at what you have in 
+        life, you'll always have more. If you look 
+        at what you don't have in life, you'll 
+        never have enough. `
+    },
+    {
+        name:'Alice Muthomi',
+        avatar:AccountantImage,
+        position:'Accountant',
+        message:`If you set your goals ridiculously 
+        high and it's a failure, you will fail 
+        above everyone else's success.`
+    }
+]
 
 const Team =() =>{
     const classes =TeamStyles()
 
     return(
-        <Box className={classes.root} py={5}>
-            <Container>
-               <Typography variant={"h5"} align="center">Meet Our Team</Typography>
+        <Box py={4}>
+           <Container maxWidth='lg'>
+              <Typography variant='h4' color='secondary' align='center'>
+                  Our Team
+              </Typography>
 
-                <Box py={2}>
-                    <Typography variant="subtitle1" align={"center"} >
-                        Sunnydale Team embraces diversity, sustainability as well as creativity to serving their customers
-                    </Typography>
-                </Box>
-                <Box>
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} sm={6} md={4} lg={4} >
-                            <Box>
-                                <Card classes={{root:classes.card}} elevation={3}>
-                                    <CardContent >
-                                        <CardMedia
-                                            image={SimbaImg}
-                                            className={classes.cardMedia}
-                                        />
+              <Box py={4}>
+                  <Grid container spacing={4}>
+                  {members.map((member,index)=>(
+                      <Grid item lg={4}>
+                          <Card elevation={0} className={classes.card}>
+                              <Box className={classes.details}>
+                                  <Box className={classes.personalDetails}>
+                                      <Typography variant='h5' gutterBottom>
+                                          {member.name}
+                                      </Typography>
+                                      <Typography variant='h6' color='textSecondary' gutterBottom>
+                                          {member.position}
+                                      </Typography>
+                                  </Box>
+                                 
+                                 <Avatar className={classes.avatar} src={member.avatar} alt={member.name}/>
+                                  
+                              </Box>
+                              <Box py={3}>
+                                 <Typography variant='body2' color='textSecondary'>
+                                     {member.message}
+                                 </Typography>
+                              </Box>
+                          </Card>
+                      </Grid>
+                      ))}
+                  </Grid>
+                  
+              </Box>
 
-                                        <Typography
-                                            variant="h5"
-                                            align={'center'}
-                                        >
-                                            Ambrose Mugambi
-                                        </Typography>
-
-                                        <Typography
-                                            variant="h6"
-                                            align='center'
-                                            color='primary'
-                                        >
-                                            Founder & CEO
-                                        </Typography>
-                                        <Grid container>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <TwitterIcon  fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <FacebookIcon fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <MailIcon fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                        </Grid>
-                                    </CardContent>
-                                </Card>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Box>
-                                <Card classes={{root:classes.card}} elevation={3}>
-                                    <CardContent >
-                                        <CardMedia
-                                            image={SimbaImg}
-                                            className={classes.cardMedia}
-                                        />
-                                        <Typography
-                                            variant="h5"
-                                            align={'center'}
-                                        >
-                                            Ambrose Mugambi
-                                        </Typography>
-
-                                        <Typography
-                                            variant="h6"
-                                            align='center'
-                                            color='primary'
-                                        >
-                                            Founder & CEO
-                                        </Typography>
-                                        <Grid container>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <TwitterIcon  fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <FacebookIcon fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <MailIcon fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                        </Grid>
-                                    </CardContent>
-                                </Card>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Box>
-                                <Card classes={{root:classes.card}} elevation={3}>
-                                    <CardContent >
-                                        <CardMedia
-                                            image={SimbaImg}
-                                            className={classes.cardMedia}
-                                        />
-                                        <Typography
-                                            variant="h5"
-                                            align={'center'}
-                                        >
-                                            Ambrose Mugambi
-                                        </Typography>
-
-                                        <Typography
-                                            variant="h6"
-                                            align='center'
-                                            color='primary'
-                                        >
-                                            Founder & CEO
-                                        </Typography>
-
-                                        <Grid container>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <TwitterIcon  fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <FacebookIcon fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                            <Grid item lg={4}>
-                                                <IconButton>
-                                                    <MailIcon fontSize="large" />
-                                                </IconButton>
-                                            </Grid>
-                                        </Grid>
-
-                                    </CardContent>
-                                </Card>
-                            </Box>
-                        </Grid>
-                    </Grid>
-
-                </Box>
-            </Container>
+            </Container> 
         </Box>
     )
 }

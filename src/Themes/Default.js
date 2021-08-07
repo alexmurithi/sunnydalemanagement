@@ -33,38 +33,49 @@ const materialUiTheme = createMuiTheme({
    typography:{
      fontFamily:"Montserrat",
      h1: {
-        fontWeight: 500,
-        fontSize: 35,
-        letterSpacing: '-0.24px'
+        fontWeight: 'bold',
+        fontSize: '3.0rem',//55px
+        // letterSpacing: '-0.24px'
       },
       h2: {
         fontWeight: 500,
-        fontSize: 29,
-        letterSpacing: '-0.24px'
+        fontSize: '2.5rem',//42px
+        // letterSpacing: '-0.24px'
       },
       h3: {
-        fontWeight: 500,
-        fontSize: 24,
-        letterSpacing: '-0.06px'
+        fontWeight: 400,
+        fontSize: '1.5rem',//30px
+        // letterSpacing: '-0.06px'
       },
       h4: {
-        fontWeight: 500,
-        fontSize: 20,
-        letterSpacing: '-0.06px'
+        fontWeight: 'bold',
+        fontSize: '1.2rem',//24px
       },
       h5: {
         fontWeight: 500,
-        fontSize: 16,
-        letterSpacing: '-0.05px'
+        fontSize: '1.0rem',//18px
+        // letterSpacing: '-0.05px'
       },
       h6: {
         fontWeight: 500,
-        fontSize: 14,
-        letterSpacing: '-0.05px'
+        fontSize: '0.8rem',//14px
+        // letterSpacing: '-0.05px'
       },
-      overline: {
-        fontWeight: 500
-      }
+      // overline: {
+      //   fontWeight: 500
+      // },
+      // body2:{
+      //   fontSize:'0.875rem'
+      // },
+      // body1:{
+      //   fontSize:'1rem'
+      // },
+      // subtitle1:{
+      //   fontSize:'1.8rem'
+      // },
+      // subtitle2:{
+      //   fontSize:'1.2rem'
+      // }
     //    h5:{
     //      fontFamily:"Montserrat",
     //        fontWeight:600,
@@ -96,6 +107,22 @@ const materialUiTheme = createMuiTheme({
 
 
    },
+   props: {
+    MuiTypography: {
+      variantMapping: {
+        h1: "h1",
+        h2: "h2",
+        h3: "h3",
+        h4: "h4",
+        h5: "h5",
+        h6: "h6",
+        subtitle1: "h2",
+        subtitle2: "h2",
+        body1: "p",
+        body2: "p",
+      },
+    },
+  },
 
     overrides:{
        MuiTab:{
@@ -114,9 +141,9 @@ const materialUiTheme = createMuiTheme({
        },
 
         MuiCard:{
-           root:{
-               margin:"4px"
-           }
+          //  root:{
+          //      margin:"4px"
+          //  }
         }
 
     },

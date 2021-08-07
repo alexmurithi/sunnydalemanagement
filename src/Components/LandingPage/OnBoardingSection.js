@@ -1,65 +1,91 @@
 import React from 'react';
-import {Box, Container, Grid, Hidden, Paper, Typography} from "@material-ui/core";
-import SliderComponent from "../PhotosGlider";
-import OnBoardingServices from "../OnBoardingServices";
+import {
+    Box, 
+    Container,
+    Grid, 
+    Typography,
+    Card
+} from "@material-ui/core";
 import {makeStyles} from "@material-ui/styles";
+import Image from '../Image';
+import PropertyBanner from '../../Assets/Images/Banner/houses.webp';
+import ME_Banner from '../../Assets/Images/Banner/monitoring-evaluation.png';
 
 const useStyles =makeStyles(theme=>({
-    wrapper:{
-        marginTop:theme.spacing(2)
-    },
-    onBoardingBox:{
-        paddingRight:theme.spacing(2),
-        paddingLeft:theme.spacing(2)
-    },
-    landingPaper:{
-        backgroundColor:theme.palette.primary.main,
-        color:theme.palette.white,
-        borderRadius:"30px",
-        padding:theme.spacing(3),
-        [theme.breakpoints.down("md")]:{
-            padding:theme.spacing(0),
-            borderRadius: 0,
-
-        }
-    },
-
-
+   root:{
+    //    width:"100%",
+       height:'100%',
+       width:'100%',
+       marginTop:theme.spacing(4),
+      
+   },
+   brandSunny:{
+       color:theme.palette.secondary.main
+   },
+   brandDale:{
+       color:theme.palette.primary.main
+   },
+   banner:{
+       padding:theme.spacing(2)
+   },
+   card:{
+       borderRadius:0,
+       padding:theme.spacing(2),
+       marginBottom:theme.spacing(3)
+   },
+   image:{
+       width:'60%'
+   }
+   
 }))
 
-const OnBoardingText =() =>{
-    const classes =useStyles()
-    return (
-        <>
-            <Box component="div" className={classes.onBoardingBox}>
-                <Typography  variant="h1" style={{fontSize:'3rem'}}>
-                    Find Your Best Apartment,
-                    Office, Land Shop & Environmental Services From Us
-                </Typography>
-            </Box>
 
-        </>
-    )
-}
 
 const OnBoardingSection =() =>{
     const classes =useStyles()
+   
     return (
-        <Container className={classes.wrapper}>
-            <Paper className={ classes.landingPaper} elevation={3}>
-                <Grid container >
-                    <Grid item xs={12} lg={4} >
-                        <OnBoardingText />
+        <Box className={classes.root}>
+            <Container maxWidth='lg'>
+                <Card className={classes.card} elevation={1}>
+                    <Grid container alignItems='center'>
+                        
+                        <Grid item sm={12} md={12} lg={7} xl={7}>
+                            <Typography variant='h4' gutterBottom>
+                                Sunnydale Real Estate & Property Management
+                            </Typography>
+                            <Typography color='textSecondary' variant='body1'>
+                            we are reliable and trusted property managers for houses and land
+                            </Typography>
+                        </Grid>
+
+                        <Grid item sm={12} md={12} lg={5} xl={5}>
+                            <Image src={PropertyBanner}/>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} lg={8}>
-                        <SliderComponent />
-                    </Grid>
-                </Grid>
-                <Hidden only={['md','sm','xs']}>
-                    <OnBoardingServices />
-                </Hidden>
-            </Paper>
-        </Container>
+                </Card>
+
+                <Card className={classes.card} elevation={1} >
+                <Grid container alignItems='center'>
+                            <Grid item sm={12} md={12} lg={5} xl={5}>
+                                
+                               <Image src={ME_Banner} className={classes.image}/>
+                            </Grid>
+                            <Grid item sm={12} md={12} lg={7} xl={7}>
+                             <Typography variant='h4' gutterBottom>
+                                 Sunnydale Monitoring & Evaluation
+                             </Typography>
+                             <Typography variant='body1' color='textSecondary'>
+                             We provide professional support in
+                                environmental and business research to help
+                               you know what you do not know.
+                             </Typography>
+                            </Grid>
+                        </Grid>
+                </Card>
+            </Container>
+        </Box>
+
     )
 }
 

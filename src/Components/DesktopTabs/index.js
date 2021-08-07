@@ -19,10 +19,11 @@ const useStyles =makeStyles(theme=>({
 
     },
     loginBtn:{
-        borderRadius:"0",
+       
         fontWeight:"bold",
         width:"150px",
-        height:"40px"
+        height:"40px",
+        borderRadius:theme.spacing(2)
     },
 
 }))
@@ -90,7 +91,7 @@ const classes =useStyles()
             </Tabs>
 
             <Button
-                variant="contained"
+                variant="outlined"
                 color="primary"
                 className={classes.loginBtn}
                 component={Link}

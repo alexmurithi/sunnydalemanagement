@@ -24,7 +24,8 @@ const useStyles =makeStyles(theme=>({
   root:{
      top:"10px",
       backgroundColor:theme.palette.white,
-      color:theme.palette.black.main
+      color:theme.palette.black.main,
+      width:'100%'
   },
     desktopTabs:{
       marginLeft:"auto",
@@ -107,7 +108,7 @@ const Header =()=>{
     return(
         <AppBar className={classes.root}
                 elevation={3}
-                position="static"
+                position='static'
         >
           <Container>
               <Toolbar>
