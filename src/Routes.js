@@ -38,10 +38,7 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
 
  const routes =[
    
-    {
-        path:"auth/login",
-        element:<AdminLogin/>
-    },
+    
     
     {
         path:"admin",
@@ -65,6 +62,10 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
             {
                 path:'about',
                 element:<AboutUs/>
+            },
+            {
+                path:"auth/login",
+                element:<AdminLogin/>
             },
             
             {

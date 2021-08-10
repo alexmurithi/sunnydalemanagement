@@ -5,6 +5,7 @@ import {
     Container,
     Grid,
     Typography,
+    Link
 }
 from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
@@ -18,6 +19,7 @@ import  TwitterImg from '../../Assets/Images/SocialMedia/twitter.png';
 import  LinkedInImg from '../../Assets/Images/SocialMedia/linkedin.png';
 import  InstagramImg from '../../Assets/Images/SocialMedia/instagram.png';
 
+
 const useStyles =makeStyles((theme)=>({
     root:{
         width:'100%',
@@ -28,10 +30,10 @@ const useStyles =makeStyles((theme)=>({
 }))
 
 const socialMedias =[
-    {name:'facebook',image:FaceBookImg},
-    {name:'twitter',image:TwitterImg},
-    {name:'linkedin',image:LinkedInImg},
-    {name:'insagram',image:InstagramImg},
+    {name:'facebook',image:FaceBookImg,link:'https://web.facebook.com/sunnydalemanagementltd/?ref=page_internal'},
+    {name:'twitter',image:TwitterImg,link:'https://twitter.com/sunnydalekenya'},
+    {name:'linkedin',image:LinkedInImg,link:'https://www.linkedin.com/in/sunnydale-management-ltd-35a37b194/'},
+    {name:'insagram',image:InstagramImg,link:'https://www.instagram.com/sunnydalemanagementltd/'},
 ]
 
 const FooterDetails =()=>{
@@ -100,7 +102,10 @@ const FooterDetails =()=>{
                         
                         {socialMedias.map((item,index)=>(
                             <Grid item xs={6} sm={6} md={6} lg={3} xl={3} key={index}>
-                                 <img src={item.image} alt={item.name}/>
+                               
+                                    <Link component='a' href={item.link} target='_blank'>
+                                         <img src={item.image} alt={item.name} />
+                                    </Link>
                             </Grid>
                         ))}
                     </Grid>

@@ -11,8 +11,10 @@ import PropTypes from 'prop-types';
 const DashboardNavbar =({onMobileNavOpen, ...rest})=>{
     return(
         <AppBar 
-            color="primary" 
-            elevation={0}
+            style={{
+                backgroundColor:'#ffffff'
+            }}
+            elevation={1}
             {...rest} 
         >
             <Toolbar>
