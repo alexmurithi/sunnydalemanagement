@@ -44,6 +44,5 @@ jobs:
     # Ready to run steps that rely on node_modules
     - name: Build application
       run: yarn build
-    - name: Testing
-      run: yarn test
+    
         
