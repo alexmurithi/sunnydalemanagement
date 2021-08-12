@@ -83,7 +83,7 @@ const Team =() =>{
               <Box py={4}>
                   <Grid container spacing={4}>
                   {members.map((member,index)=>(
-                      <Grid item lg={4}>
+                      <Grid item lg={4} key={index}>
                           <Card elevation={0} className={classes.card}>
                               <Box className={classes.details}>
                                   <Box className={classes.personalDetails}>

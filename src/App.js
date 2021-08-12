@@ -6,6 +6,8 @@ import theme from './Themes/Default'
 import React,{Suspense} from "react";
 import Loader from './Components/Loader/';
 import routes from './Routes';
+import {ApolloProvider} from '@apollo/client';
+import Client from './Apollo/client';
 
 
 const App =() =>{
@@ -18,9 +20,12 @@ const App =() =>{
         // </Suspense>
         
         <ThemeProvider theme={theme}>
-            <Suspense fallback={<Loader/>}>
-            {routing}
-            </Suspense>
+            <ApolloProvider client={Client}>
+                <Suspense fallback={<Loader/>}>
+                {routing}
+                </Suspense>
+            </ApolloProvider>
+            
             
         </ThemeProvider>
 
