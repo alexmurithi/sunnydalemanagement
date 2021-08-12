@@ -35,9 +35,8 @@ jobs:
         path: '**/node_modules'
         key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-    # `--prefer-offline` gives cache priority
-    - name: Install dependencies
-      run: yarn install --prefer-offline --frozen-lockfile
+    - name: Install packages
+      run: yarn install
 
     # Ready to run steps that rely on node_modules
     - name: Build application
