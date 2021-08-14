@@ -9,6 +9,7 @@ import {
 
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
+import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 
 import { GET_ALL_PROPERTY_ITEMS } from '../../GraphQL/Queries/GetAllPropertyItems';
 import { useQuery } from '@apollo/client';
@@ -20,7 +21,21 @@ card:{
     width:'100%',
     marginBottom:theme.spacing(2),
     borderRadius:0
-}
+},
+imageTitle:{
+    color:theme.palette.white,
+    fontWeight:"bold",
+    fontSize:'1.2rem',
+    paddingBottom:theme.spacing(1)
+},
+imageSubtitle:{
+    color:theme.palette.secondary.main,
+    fontWeight:"bold"
+},
+titleBar: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  },
 }))
 
 
@@ -36,16 +51,31 @@ const AllProperties =()=>{
         <Box>
             {data.allPropertyItems.map((item)=>(
                 <Card key={item.id} className={classes.card} elevation={1}>
-                    <Grid container spacing={1}>
+                    <Grid container spacing={2}>
                         <Grid item lg={4}>
                             <ImageList>
-                                <ImageListItem>
-
+                                <ImageListItem cols={2} rows={1}>
+                                    <img 
+                                    src={
+                                        item.files.length >0 ?item.files[0].path :undefined  
+                                    } 
+                                    alt={item.title} 
+                                    />
+                                    <ImageListItemBar 
+                                    title={item.property.name} 
+                                    subtitle={item.propertyType.type}
+                                     classes={{
+                                                root: classes.titleBar,
+                                                title: classes.imageTitle,
+                                                subtitle:classes.imageSubtitle
+                                            }}
+                                    />
                                 </ImageListItem>
                             </ImageList>
                         </Grid>
                         <Grid item lg={8}>
-                            <Typography variant='h4' color='primary' gutterBottom>
+                            <Box py={2}>
+                                 <Typography variant='h4' color='primary' gutterBottom>
                                 KSH {item.price}
                             </Typography>
                             <Typography variant='body1' gutterBottom>
@@ -60,6 +90,8 @@ const AllProperties =()=>{
                             <Box>
                                 {item.no_of_rooms} rooms
                             </Box>
+                            </Box>
+                           
                         </Grid>
                     </Grid>
                 </Card>
