@@ -6,6 +6,7 @@ import {Navigate} from 'react-router-dom';
 import DashboardLayout from './Components/DashboardLayout';
 import MainLayout from './Layouts/MainLayout';
 import MonitoringLayout from './Layouts/MonitoringLayout';
+import RealEstateLayout from  './Layouts/RealEstateLayout';
 
 
 const LandingPage = lazy(() =>
@@ -32,6 +33,8 @@ const ImpactAssessment =lazy(()=>import('./Components/Monitoring/ImpactAssessmen
 const EnvironmentalResearch =lazy(()=>import('./Components/Monitoring/EnvironmentalResearch'))
 const WaternForest =lazy(()=>import('./Components/Monitoring/WaternForest'))
 const CapacityBuilding =lazy(()=>import('./Components/Monitoring/CapacityBuilding'))
+
+const AllPropertyItems =lazy(()=>import('./Components/RealEstate/AllPropertyItems'))
 
 const Dashboard = lazy(()=>import('./Pages/Dashboard'))
 
@@ -119,6 +122,16 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
                 element:<Navigate to='/404'/>
             },
             
+        ]
+    },
+    {
+        path:"/real-estate-and-property-management",
+        element:<RealEstateLayout/>,
+        children:[
+            {
+                path:"",
+                element:<AllPropertyItems/>
+            }
         ]
     }
  ]

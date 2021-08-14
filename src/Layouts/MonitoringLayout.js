@@ -64,4 +64,4 @@ const MonitoringLayout =()=>{
     )
 }
 
-export default MonitoringLayout;
+export default React.memo(MonitoringLayout);

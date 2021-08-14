@@ -8,6 +8,8 @@ import {ReactComponent as OfficeSvg} from '../../Assets/svg/offices.svg';
 import { ReactComponent as SaleSvg} from '../../Assets/svg/forSale.svg';
 import { ReactComponent as RentSvg} from '../../Assets/svg/onRent.svg';
 
+import {Link} from 'react-router-dom';
+
 import {
     Box,
     Container,
@@ -186,6 +188,8 @@ const RealEstate =()=>{
                                             color='primary' 
                                             size='large'
                                             className={classes.startBtn}
+                                            component={Link}
+                                            to='/real-estate-and-property-management'
                                         >
                                             Get Started
                                         </Button>

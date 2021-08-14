@@ -62,7 +62,7 @@ const classes =useStyles()
                 <Tab
                     label="Real Estate Management"
                     component={Link} className={classes.desktopTab}
-                    to="/"
+                    to="/real-estate-and-property-management"
                 />
 
                 {/* <OnSaleTab />
