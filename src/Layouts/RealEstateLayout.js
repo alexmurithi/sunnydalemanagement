@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router';
 import MainNavbar from '../Containers/Header';
 import Alert from '@material-ui/lab/Alert';
@@ -7,9 +7,15 @@ import {
     Container,
     Typography,
     Grid,
-    Hidden
+    Hidden,
+    
 }
 from "@material-ui/core";
+import PropertyNavTabs from '../Components/RealEstate/PropertyNavTabs';
+
+
+
+
 
 const AlertMessage =()=>(
     <Box py={2}>
@@ -26,22 +32,27 @@ const AlertMessage =()=>(
     </Box>
 )
 
-const RealEstateContent =()=>(
-    <Box>
+const RealEstateContent =(props)=>{
+    
+    return (
+        <Box>
         <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
                <Outlet/>
             </Grid>
             <Hidden mdDown>
             <Grid item  lg={4} xl={4}>
-                bjbj
+               <PropertyNavTabs />
             </Grid>
             </Hidden>
         </Grid>
     </Box>
-)
+    )
+    
+}
 
 const RealEstateLayout =()=>{
+    
     return(
         <>
             <MainNavbar/>

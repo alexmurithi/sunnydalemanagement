@@ -14,7 +14,7 @@ const materialUiTheme = createMuiTheme({
 
        primary:{
            main:"#0093dd",
-           light:"rgba(0,147,221,0.15)"
+           light:"rgba(0,147,221,0.15)",
        },
        secondary:{
            main:"#85c226",

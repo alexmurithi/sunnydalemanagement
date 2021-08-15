@@ -42,7 +42,9 @@ titleBar: {
 const AllProperties =()=>{
     const classes =useStyles()
 
-    const {loading,data,error} =useQuery(GET_ALL_PROPERTY_ITEMS)
+    const {loading,data,error} =useQuery(GET_ALL_PROPERTY_ITEMS,{
+        // pollInterval:500,
+    })
     if (loading) return<div>Loading..</div>
     if (error) return <div>Error</div>
     console.log(data)
@@ -88,7 +90,7 @@ const AllProperties =()=>{
                                 {item.town}, {item.city} 
                             </Typography>
                             <Box>
-                                {item.no_of_rooms} rooms
+                                {item.no_of_bathrooms} rooms
                             </Box>
                             </Box>
                            
