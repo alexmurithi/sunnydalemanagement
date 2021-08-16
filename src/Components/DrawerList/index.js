@@ -60,7 +60,7 @@ const Drawer =()=>{
                     to='/real-estate-and-property-management' 
                 >
                     <ListItemText 
-                        primary="Property Management" 
+                        primary="Real Estate & Property Management" 
                     />
 
                 </ListItem>

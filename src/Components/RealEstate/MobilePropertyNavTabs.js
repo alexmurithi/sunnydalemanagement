@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 
 import {
     Fab,
-    Drawer,
+    SwipeableDrawer,
     Tabs,
     Tab,
     AppBar,
@@ -154,6 +154,8 @@ const MobilePropertyNavTabs =()=>{
          setPropertyId(event.target.value)
      }
 
+     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
     const {loading,data,error} =useQuery(GET_ALL_PROPERTIES)
     if (loading) return<div>Loading..</div>
     if (error) return <div>Error</div>
@@ -177,12 +179,13 @@ const MobilePropertyNavTabs =()=>{
               <SearchIcon/>
               Search Property
           </Fab>
-          <Drawer 
+          <SwipeableDrawer 
             anchor="bottom" 
             open={open}
             onClose={handleCloseBottomDrawer}
             classes={{paper:classes.drawerPaper}}
-            
+            disableBackdropTransition={!iOS} 
+            disableDiscovery={iOS}
           >
              <AppBar 
              position='static' 
@@ -252,7 +255,7 @@ const MobilePropertyNavTabs =()=>{
                <Button color='primary' variant='outlined' size='large'>Search</Button>
              </form>
              
-          </Drawer>
+          </SwipeableDrawer>
         </Hidden> 
         </>
     )
