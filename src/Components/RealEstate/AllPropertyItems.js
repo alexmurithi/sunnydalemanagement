@@ -54,7 +54,7 @@ const AllProperties =()=>{
        <>
         <Box>
             {data.allPropertyItems.map((item)=>(
-                <Card key={item.id} className={classes.card} elevation={2}>
+                <Card key={item.id} className={classes.card} elevation={0}>
                     <Grid container spacing={2}>
                         <Grid item lg={4}>
                             <ImageList>

@@ -9,9 +9,19 @@ import {
     Select,
     MenuItem,
     TextField,
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Typography,
+    RadioGroup,
+    FormControlLabel,
+    Button,
+    Radio,
+    Paper
   
 }
 from "@material-ui/core";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PropTypes from 'prop-types';
 
 import { GET_ALL_PROPERTIES} from '../../GraphQL/Queries/GetAllProperties';
@@ -20,31 +30,103 @@ import { useQuery } from '@apollo/client';
 
 const TabPanel =(props)=>{
    
-    const {children,value,index,...others}=props
+    const {children,...others}=props
    
     return(
         <Box 
         {...others}
         role="tabpanel"
-        hidden={value !== index}
-        id={`simple-tabpanel-${index}`}
-        aria-labelledby={`simple-tab-${index}`} 
+       
+        id={`simple-tabpanel`}
+        aria-labelledby={`simple-tab-`} 
         >
-            {value === index && (
-               <Box py={2}>{children}</Box>
-            )}
+            
+               <Box py={2} style={{padding:'8px 16px'}}>{children}</Box>
+           
         </Box>
     )
 }
 
 TabPanel.propTypes ={
     children:PropTypes.node,
-    index: PropTypes.any.isRequired,
-    value: PropTypes.any.isRequired,
+   
    
 }
 
-
+const AccordingSection =()=>{
+    const [roomsValue,setRoomsValue] =useState('1')
+    const handleRoomsChange =(e)=>{
+        setRoomsValue(e.target.value)
+    }
+     const [bathValue,setBathValue] =useState('1')
+    const handleBathChange =(e)=>{
+        setBathValue(e.target.value)
+    }
+    return(
+        <Box py={1}>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
+                    <Typography>Rooms</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <RadioGroup row value={roomsValue} onChange={handleRoomsChange}>
+                        <FormControlLabel 
+                        control={<Radio color='primary'/>}
+                        label={1}
+                        value='1' 
+                        />
+                        <FormControlLabel 
+                        control={<Radio color='primary'/>}
+                        label={2}
+                        value='2'  
+                        />
+                        <FormControlLabel 
+                        control={<Radio color='primary'/>}
+                        label={3}
+                        value='3'  
+                        />
+                        <FormControlLabel 
+                        control={<Radio color='primary'/>}
+                        label='4+'
+                        value='4+'  
+                        />
+                        
+                    </RadioGroup>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
+                    <Typography>Bath Rooms</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                     <RadioGroup row value={bathValue} onChange={handleBathChange}>
+                        <FormControlLabel 
+                        control={<Radio color='primary'/>}
+                        label={1}
+                        value='1' 
+                        />
+                        <FormControlLabel 
+                        control={<Radio color='primary'/>}
+                        label={2}
+                        value='2'  
+                        />
+                        <FormControlLabel 
+                        control={<Radio color='primary'/>}
+                        label={3}
+                        value='3'  
+                        />
+                        <FormControlLabel 
+                        control={<Radio color='primary'/>}
+                        label='4+'
+                        value='4+'  
+                        />
+                        
+                    </RadioGroup>
+                </AccordionDetails>
+            </Accordion>
+        </Box>
+    )
+}
 
 const PropertyNavTabs =()=>{
      const [value,setTabsValue] =useState(0)
@@ -65,13 +147,17 @@ const PropertyNavTabs =()=>{
    
     return(
         <>
-            <Box>
-            <AppBar position='static' elevation={0} color='primary'>
+            <Paper square elevation={0}>
+            <AppBar position='static' elevation={0} style={{backgroundColor:'#ffffff'}}>
                 <Tabs 
                     variant="fullWidth"
                     value={value}
                     onChange={handleChange}
                     textColor='inherit'
+                    style={{
+                        color:'#0093dd'
+                    }}
+                    indicatorColor='primary'
                 >
                     <Tab label="For Rent" />
                     <Tab label="On Sale" />
@@ -79,7 +165,7 @@ const PropertyNavTabs =()=>{
                 </Tabs>
             </AppBar>
             
-            <TabPanel value={value} index={0}  >
+            <TabPanel >
               
                 <form>
                 <FormControl variant="outlined" fullWidth margin='dense'>
@@ -111,7 +197,7 @@ const PropertyNavTabs =()=>{
                     variant="outlined" 
                     type="number"
                     style={{
-                        width:"45%"
+                        width:"40%"
                     }} 
                 />
                 <TextField 
@@ -120,19 +206,18 @@ const PropertyNavTabs =()=>{
                     variant="outlined" 
                     type="number"
                      style={{
-                        width:"45%",
+                        width:"40%",
                         marginLeft:40
                     }} 
                 />
                 </div>
-                
-               
+
+                <AccordingSection/>
+               <Button color='primary' variant='outlined' size='large'>Search</Button>
                 </form>
             </TabPanel>
-            <TabPanel value={value} index={1}>
-                Item Two
-            </TabPanel>
-        </Box>
+            
+        </Paper>
         </>
     )
 }

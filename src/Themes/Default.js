@@ -24,10 +24,7 @@ const materialUiTheme = createMuiTheme({
        white:"#ffffff",
        black:"#000000",
        howItWorksBackCl:"ghostwhite",
-       text:{
-           primary:"#000000",
-
-       }
+       
 
    },
    typography:{
