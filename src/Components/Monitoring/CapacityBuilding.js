@@ -55,4 +55,4 @@ const CapacityBuilding =()=>{
     )
 }
 
-export default CapacityBuilding;
+export default React.memo(CapacityBuilding);

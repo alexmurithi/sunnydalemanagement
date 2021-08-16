@@ -87,4 +87,4 @@ const EnvironmentalConservation =()=>{
     )
 }
 
-export default EnvironmentalConservation;
+export default React.memo(EnvironmentalConservation);

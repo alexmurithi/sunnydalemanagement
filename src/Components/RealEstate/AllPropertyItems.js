@@ -4,12 +4,14 @@ import {
     Card,
     Typography,
     Grid,
-   
+    Button
 } from "@material-ui/core";
 
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+import KingBedIcon from '@material-ui/icons/KingBed';
+import BathtubIcon from '@material-ui/icons/Bathtub';
 
 import { GET_ALL_PROPERTY_ITEMS } from '../../GraphQL/Queries/GetAllPropertyItems';
 import { useQuery } from '@apollo/client';
@@ -43,7 +45,7 @@ const AllProperties =()=>{
     const classes =useStyles()
 
     const {loading,data,error} =useQuery(GET_ALL_PROPERTY_ITEMS,{
-        // pollInterval:500,
+       
     })
     if (loading) return<div>Loading..</div>
     if (error) return <div>Error</div>
@@ -52,7 +54,7 @@ const AllProperties =()=>{
        <>
         <Box>
             {data.allPropertyItems.map((item)=>(
-                <Card key={item.id} className={classes.card} elevation={1}>
+                <Card key={item.id} className={classes.card} elevation={2}>
                     <Grid container spacing={2}>
                         <Grid item lg={4}>
                             <ImageList>
@@ -89,9 +91,22 @@ const AllProperties =()=>{
                             <Typography variant='h5' gutterBottom color='textSecondary'>
                                 {item.town}, {item.city} 
                             </Typography>
-                            <Box>
-                                {item.no_of_bathrooms} rooms
+
+                            <Box  >
+                                <Button
+                                    variant="text"
+                                    startIcon={<KingBedIcon />}
+                                >
+                                    {item.no_of_rooms}
+                                </Button>
+                                <Button
+                                    variant="text"
+                                    startIcon={<BathtubIcon />}
+                                >
+                                    {item.no_of_bathrooms}
+                                </Button>
                             </Box>
+
                             </Box>
                            
                         </Grid>

@@ -109,4 +109,4 @@ const MonitoringDashboard =()=>{
     )
 }
 
-export default MonitoringDashboard
+export default React.memo(MonitoringDashboard);

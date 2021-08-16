@@ -1,6 +1,5 @@
 import React from 'react';
-import { GET_All_PROPERTY_ITEMS } from '../../GraphQL/Queries/TestQuery';
-import { useQuery } from '@apollo/client';
+
 import {
     Box,
     Container,
@@ -40,12 +39,7 @@ const ME_Items =[
 
 const AllServices =() =>{
     const classes = useStyles();
-    const {loading,data,error} =useQuery(GET_All_PROPERTY_ITEMS)
-
-    if (loading) return <div>Loading...</div>
-    if(error) return <div>Error</div>
-
-    console.log(data)
+    
     
     return(
        <>
@@ -96,4 +90,4 @@ const AllServices =() =>{
     )
 }
 
-export default AllServices;
+export default React.memo(AllServices);

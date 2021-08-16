@@ -89,4 +89,4 @@ const OnBoardingSection =() =>{
     )
 }
 
-export default OnBoardingSection;
+export default React.memo(OnBoardingSection);

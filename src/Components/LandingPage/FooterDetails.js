@@ -117,4 +117,4 @@ const FooterDetails =()=>{
     )
 }
 
-export default FooterDetails;
+export default React.memo(FooterDetails);

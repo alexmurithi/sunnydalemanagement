@@ -9,6 +9,8 @@ export const GET_ALL_PROPERTY_ITEMS =gql
                 description,
                 price,
                 location,
+                no_of_rooms,
+                no_of_bathrooms,
                 county,
                 town,
                 city,

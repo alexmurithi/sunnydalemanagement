@@ -31,4 +31,4 @@ const WaternForest =()=>{
     )
 }
 
-export default WaternForest;
+export default React.memo(WaternForest);

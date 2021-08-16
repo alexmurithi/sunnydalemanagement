@@ -163,4 +163,4 @@ const EnvironmentalAudit=()=>{
     )
 }
 
-export default EnvironmentalAudit;
+export default React.memo(EnvironmentalAudit);

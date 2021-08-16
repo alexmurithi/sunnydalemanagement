@@ -73,4 +73,4 @@ const OurValues =()=>{
     )
 }
 
-export default OurValues;
+export default React.memo(OurValues);

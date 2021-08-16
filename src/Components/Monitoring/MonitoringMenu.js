@@ -71,4 +71,4 @@ const MonitoringMenu =()=>{
     )
 }
 
-export default MonitoringMenu;
+export default React.memo(MonitoringMenu);

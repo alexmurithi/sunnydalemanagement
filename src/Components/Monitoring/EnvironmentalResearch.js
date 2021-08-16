@@ -102,4 +102,4 @@ const EnvironmentalResearch =()=>{
     )
 }
 
-export default EnvironmentalResearch;
+export default React.memo(EnvironmentalResearch);

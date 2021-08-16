@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router';
 import MainNavbar from '../Containers/Header';
 import Alert from '@material-ui/lab/Alert';
@@ -36,7 +36,7 @@ const RealEstateContent =(props)=>{
     
     return (
         <Box>
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
             <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
                <Outlet/>
             </Grid>

@@ -1,10 +1,10 @@
-import { ApolloClient, InMemoryCache, createHttpLink, from} from "@apollo/client";
+import { ApolloClient, InMemoryCache, createHttpLink} from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { RetryLink } from "@apollo/client/link/retry";
 
 const httpLink = new createHttpLink({
     uri: "https://us-central1-sunnydale.cloudfunctions.net/sunnydalemanagement-api/graphql",
-    credentials: 'same-origin',
+    
   });
 
  const retryLink = new RetryLink({

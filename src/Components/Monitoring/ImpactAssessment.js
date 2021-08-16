@@ -119,4 +119,4 @@ const ImpactAssessment =()=>{
     )
 }
 
-export default ImpactAssessment;
+export default React.memo(ImpactAssessment);

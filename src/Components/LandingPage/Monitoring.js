@@ -126,4 +126,4 @@ const Monitoring =()=>{
     )
 }
 
-export default Monitoring;
+export default React.memo(Monitoring);

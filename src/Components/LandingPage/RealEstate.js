@@ -206,4 +206,4 @@ const RealEstate =()=>{
     )
 }
 
-export default RealEstate;
+export default React.memo(RealEstate);

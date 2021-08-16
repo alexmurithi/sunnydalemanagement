@@ -101,4 +101,4 @@ const WasteDisposal =()=>{
     )
 }
 
-export default WasteDisposal;
+export default React.memo(WasteDisposal);
