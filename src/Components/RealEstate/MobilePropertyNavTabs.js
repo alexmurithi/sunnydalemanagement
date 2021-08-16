@@ -1,57 +1,60 @@
 import React,{useState} from 'react';
+
 import {
-    Box,
-    Tab,
+    Fab,
+    Drawer,
     Tabs,
+    Tab,
     AppBar,
+    TextField,
+    Hidden,
+    Select,
     FormControl,
     InputLabel,
-    Select,
     MenuItem,
-    TextField,
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
-    Typography,
-    RadioGroup,
-    FormControlLabel,
     Button,
     Radio,
-    Paper
-  
+    RadioGroup,
+    AccordionDetails,
+    FormControlLabel,
+    Typography,
+    Accordion,
+    AccordionSummary,
+    Box,
 }
 from "@material-ui/core";
+
+import SearchIcon from '@material-ui/icons/Search';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core';
 
 import { GET_ALL_PROPERTIES} from '../../GraphQL/Queries/GetAllProperties';
 import { useQuery } from '@apollo/client';
 
 
-const TabPanel =(props)=>{
-   
-    const {children,...others}=props
-   
-    return(
-        <Box 
-        {...others}
-        role="tabpanel"
-       
-        id={`simple-tabpanel`}
-        aria-labelledby={`simple-tab-`} 
-        >
-            
-               <Box py={2} style={{padding:'8px 16px'}}>{children}</Box>
-           
-        </Box>
-    )
-}
+const useStyles =makeStyles((theme)=>({
+    fabOpenDrawer:{
+      position:'fixed',
+      bottom: 12,
+      right: '25%',
+      left:'25%',
+     zIndex:1,
+     textTransform:'none',
+     
+    },
 
-TabPanel.propTypes ={
-    children:PropTypes.node,
-   
-   
-}
+    hideFab:{
+        display:'none'
+    },
+    drawerPaper:{
+        borderTopLeftRadius:theme.spacing(3),
+         borderTopRightRadius:theme.spacing(3)
+    },
+    formFilter:{
+        padding:theme.spacing(3)
+    }
+}))
 
 const AccordingSection =()=>{
     const [roomsValue,setRoomsValue] =useState('1')
@@ -128,13 +131,25 @@ const AccordingSection =()=>{
     )
 }
 
-const PropertyNavTabs =()=>{
-     const [value,setTabsValue] =useState(0)
-     const handleChange =(event,newValue)=>{
-         setTabsValue(newValue)
-     }
+const MobilePropertyNavTabs =()=>{
+    const classes =useStyles()
 
-     const [propertyId,setPropertyId] =useState(null)
+    const[open,setOpenBottomDrawer] =useState(false)
+
+    const[value,setValue] =useState(0)
+
+    const handleOnChange=(event,newValue)=>{
+        setValue(newValue)
+    }
+
+    const handleBottomDrawer =()=>{
+        setOpenBottomDrawer(true)
+    }
+    const handleCloseBottomDrawer=()=>{
+        setOpenBottomDrawer(false)
+    }
+
+    const [propertyId,setPropertyId] =useState(null)
      const handleProperty =(event)=>{
          setPropertyId(event.target.value)
      }
@@ -142,33 +157,53 @@ const PropertyNavTabs =()=>{
     const {loading,data,error} =useQuery(GET_ALL_PROPERTIES)
     if (loading) return<div>Loading..</div>
     if (error) return <div>Error</div>
-    console.log(data)
     
-   
-    return(
-        <>
-            <Paper square elevation={0}>
-            <AppBar position='static' elevation={0} style={{backgroundColor:'#ffffff'}}>
-                <Tabs 
-                    variant="fullWidth"
-                    value={value}
-                    onChange={handleChange}
-                    textColor='inherit'
-                    style={{
-                        color:'#0093dd'
-                    }}
-                    indicatorColor='primary'
-                   
-                >
-                    <Tab label="For Rent" />
-                    <Tab label="On Sale" />
 
-                </Tabs>
-            </AppBar>
+    return (
+        <>
+            <Hidden 
+             lgUp 
+        >
+            <Fab 
+                color='primary' 
+                variant='extended' 
+                align='center' 
+                className={clsx(classes.fabOpenDrawer,open && classes.hideFab)} 
+                onClick={handleBottomDrawer}
+                style={{
+                     
+                }}
+            >
+              <SearchIcon/>
+              Search Property
+          </Fab>
+          <Drawer 
+            anchor="bottom" 
+            open={open}
+            onClose={handleCloseBottomDrawer}
+            classes={{paper:classes.drawerPaper}}
             
-            <TabPanel >
-              
-                <form>
+          >
+             <AppBar 
+             position='static' 
+             style={{
+                 backgroundColor:'#ffffff'
+                 ,color:'#0093dd'
+                }}
+                elevation={0} 
+             >
+                 <Tabs 
+                    variant="fullWidth" 
+                    indicatorColor='primary'
+                    value={value}
+                    onChange={handleOnChange} 
+                 >
+                     <Tab label='For Rent'/>
+                     <Tab label='On Sale'/>
+                 </Tabs>
+             </AppBar>
+
+             <form className={classes.formFilter}>
                 <FormControl variant="outlined" fullWidth margin='dense'>
                      <InputLabel>Property</InputLabel>
                             <Select
@@ -215,12 +250,12 @@ const PropertyNavTabs =()=>{
 
                 <AccordingSection/>
                <Button color='primary' variant='outlined' size='large'>Search</Button>
-                </form>
-            </TabPanel>
-            
-        </Paper>
+             </form>
+             
+          </Drawer>
+        </Hidden> 
         </>
     )
 }
 
-export default React.memo(PropertyNavTabs);
+export default React.memo(MobilePropertyNavTabs)

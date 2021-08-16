@@ -29,17 +29,8 @@ const useStyles =makeStyles(theme=>({
 const Drawer =()=>{
     const classes =useStyles();
 
-    const [openOnSale, setOpenOnSale] =useState(false)
-    const [openForRent, setOpenForRent] =useState(false)
     const [openEServices, setOpenEServices] =useState(false)
 
-    const toggleOnSale =()=>{
-        setOpenOnSale(!openOnSale)
-    }
-
-    const toggleForRent =()=>{
-        setOpenForRent(!openForRent)
-    }
     const toggleEServices =()=>{
         setOpenEServices(!openEServices)
     }
@@ -64,64 +55,16 @@ const Drawer =()=>{
 
                 <ListItem 
                     button 
-                    onClick={toggleOnSale}
-                    divider 
+                    divider
+                    component={Link}
+                    to='/real-estate-and-property-management' 
                 >
                     <ListItemText 
-                        primary="On Sale" 
+                        primary="Property Management" 
                     />
 
-                    {openOnSale ? <ExpandLess /> : <ExpandMore />}
-
                 </ListItem>
-                
-                <Collapse in={openOnSale} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Apartments" />
-                        </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Offices" />
-                        </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Shops" />
-                        </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Land" />
-                        </ListItem>
-                    </List>
-                </Collapse>
-
-                <ListItem 
-                    button 
-                    onClick={toggleForRent}
-                    divider 
-                >
-                    <ListItemText 
-                        primary="For Rent" 
-                    />
-
-                    {openForRent ? <ExpandLess /> : <ExpandMore />}
-
-                </ListItem>
-                
-                <Collapse in={openForRent} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Apartments" />
-                        </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Offices" />
-                        </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Shops" />
-                        </ListItem>
-                        <ListItem button className={classes.drawerListItemNested}>
-                            <ListItemText primary="Land" />
-                        </ListItem>
-                    </List>
-                </Collapse>
-
+       
                 <ListItem 
                     button 
                     onClick={toggleEServices} 

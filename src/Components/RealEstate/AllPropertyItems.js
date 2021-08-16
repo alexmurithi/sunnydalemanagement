@@ -4,8 +4,11 @@ import {
     Card,
     Typography,
     Grid,
-    Button
+    Button,
+   
 } from "@material-ui/core";
+
+
 
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
@@ -22,7 +25,14 @@ const useStyles =makeStyles((theme)=>({
 card:{
     width:'100%',
     marginBottom:theme.spacing(2),
-    borderRadius:0
+    borderRadius:0,
+    cursor:'pointer',
+    transition:'all .2s ease-in-out',
+    '&:hover':{
+        boxShadow:theme.shadows[5],
+        transform:`scale(0.97)`
+       
+    }
 },
 imageTitle:{
     color:theme.palette.white,
@@ -41,6 +51,7 @@ titleBar: {
 }))
 
 
+
 const AllProperties =()=>{
     const classes =useStyles()
 
@@ -54,6 +65,7 @@ const AllProperties =()=>{
        <>
         <Box>
             {data.allPropertyItems.map((item)=>(
+                
                 <Card key={item.id} className={classes.card} elevation={0}>
                     <Grid container spacing={2}>
                         <Grid item lg={4}>
@@ -79,7 +91,7 @@ const AllProperties =()=>{
                         </Grid>
                         <Grid item lg={8}>
                             <Box py={2}>
-                                 <Typography variant='h4' color='primary' gutterBottom>
+                                 <Typography variant='h4' color='secondary' gutterBottom>
                                 KSH {item.price}
                             </Typography>
                             <Typography variant='body1' gutterBottom>
@@ -112,6 +124,8 @@ const AllProperties =()=>{
                         </Grid>
                     </Grid>
                 </Card>
+               
+                
             ))}
         </Box>
        </>
