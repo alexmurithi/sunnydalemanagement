@@ -37,6 +37,8 @@ const CapacityBuilding =lazy(()=>import('./Components/Monitoring/CapacityBuildin
 const AllPropertyItems =lazy(()=>import('./Components/RealEstate/AllPropertyItems'))
 
 const Dashboard = lazy(()=>import('./Pages/Dashboard'))
+const AdminPropManagement =lazy(()=>import('./Components/Admin/PropertyManagement'))
+const NewProperty =lazy(()=>import('./Components/Admin/PropertyManagement/New'))
 
 
  const routes =[
@@ -44,12 +46,20 @@ const Dashboard = lazy(()=>import('./Pages/Dashboard'))
     
     
     {
-        path:"admin",
+        path:"/admin",
         element:<DashboardLayout/>,
         children:[
             {
                 path:"dashboard",
                 element:<Dashboard/>
+            },
+            {
+                path:"property-management",
+                element:<AdminPropManagement/>
+            },
+            {
+                path:'new-property',
+                element:<NewProperty/>
             }
         ]
     },

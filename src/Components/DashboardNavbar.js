@@ -19,7 +19,13 @@ const DashboardNavbar =({onMobileNavOpen, ...rest})=>{
         >
             <Toolbar>
             
-                  <Typography component={Link} to="/" color="inherit" variant="h3">SunnyDale</Typography>
+                  <Typography 
+                    component={Link} to="/" 
+                    color="primary" 
+                    variant="h3" 
+                  >
+                      SunnyDale
+                  </Typography>
                 
 
                 <Box 
@@ -54,4 +60,4 @@ DashboardNavbar.propTypes={
     onMobileNavOpen:PropTypes.func
 }
 
-export default DashboardNavbar
+export default React.memo(DashboardNavbar);

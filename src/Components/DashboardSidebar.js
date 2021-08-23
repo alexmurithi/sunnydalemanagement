@@ -1,13 +1,28 @@
 import React from 'react';
 import {
-    Drawer,Box,Avatar,Typography,Divider,List,ListItem,ListItemIcon,ListItemText,Hidden
+    Drawer,
+    Box,
+    Avatar,
+    Typography,
+    Divider,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Hidden
 } from '@material-ui/core';
 
 import BarChartIcon from '@material-ui/icons/BarChart';
-import PersonIcon from '@material-ui/icons/Person';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import ApartmentIcon from '@material-ui/icons/Apartment';
+import AssessmentIcon from '@material-ui/icons/Assessment';
+// import {makeStyles} from "@material-ui/core";
+import {Link} from 'react-router-dom';
 // import { useLocation } from 'react-router';
 import PropTypes from 'prop-types';
+
+// const useStyles =makeStyles(theme=>({
+    
+// }))
 
 const User ={
     avatar:'../Assets/Images/simba.jpg',
@@ -17,24 +32,37 @@ const User ={
 
 const Items =[
     {
-        href:'/app/dashboard',
+        href:'/admin/dashboard',
         icon:<BarChartIcon/>,
         title:'Dashboard'
     },
     {
-        href:'/app/customers',
-        icon:<PersonIcon/>,
-        title:'Apartments'
+        href:'/admin/property-management',
+        icon:<ApartmentIcon/>,
+        title:'Property Management'
     },
     {
-        href:'/app/products',
-        icon:<ShoppingBasketIcon/>,
-        title:'Offices'
+        href:'/admin/monitoring-and-evaluation',
+        icon:<AssessmentIcon/>,
+        title:'Monitoring & Evaluation'
     }
+    // {
+    //     href:'/admin/customers',
+    //     icon:<PersonIcon/>,
+    //     title:'Apartments'
+    // },
+    // {
+    //     href:'/admin/products',
+    //     icon:<ShoppingBasketIcon/>,
+    //     title:'Offices'
+    // }
 ]
 
-const Content =(
-    <Box 
+const Content =()=>{
+    //  const classes= useStyles()
+
+    return (
+        <Box 
         style={{
             display:"flex",
             flexDirection:"column",
@@ -59,35 +87,37 @@ const Content =(
                 }} 
             />
 
-            <Typography variant="h5">
+            <Typography variant="h5" color='textPrimary'>
                 {User.name}
             </Typography>
 
-            <Typography variant="body2">
+            <Typography variant="body2" color='textSecondary'>
                 {User.jobTitle}
             </Typography>
         </Box>
 
         <Divider/>
 
-        <Box style={{}} p={2}>
+        <Box p={2}>
             <List component="nav">
                 {Items.map((item,index)=>(
-                    <ListItem key={index} button>
+                    <ListItem key={index} button component={Link} to={item.href}>
                         <ListItemIcon>
                             {item.icon}
                         </ListItemIcon>
-                        <ListItemText primary={item.title} />
+                        <ListItemText secondary={item.title}   />
                     </ListItem>
                 ))}
             </List>
         </Box>
 
     </Box>
-)
+    )
+    
+}
 
 const DashboardSidebar =({onMobileClose, openMobile})=>{
-
+   
     // const location =useLocation();
 
     // useEffect(() => {
@@ -113,7 +143,7 @@ const DashboardSidebar =({onMobileClose, openMobile})=>{
                    }
                }} 
                >
-                   {Content}
+                   <Content/>
                </Drawer>
            </Hidden>
 
@@ -132,7 +162,7 @@ const DashboardSidebar =({onMobileClose, openMobile})=>{
                 }}
                 
             >
-                {Content}
+                <Content/>
             </Drawer>
             </Hidden>
         </>
@@ -151,4 +181,4 @@ DashboardSidebar.defaultProps={
     openMobile:false
 }
 
-export default DashboardSidebar;
+export default React.memo(DashboardSidebar);
