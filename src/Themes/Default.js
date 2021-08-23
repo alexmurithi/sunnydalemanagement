@@ -1,11 +1,11 @@
 import { colors } from '@material-ui/core';
-import {createMuiTheme} from '@material-ui/core/styles';
+import {createTheme} from '@material-ui/core/styles';
 // import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
 
 // const breakpoints = createBreakpoints({})
 
 
-const materialUiTheme = createMuiTheme({
+const materialUiTheme = createTheme({
    palette:{
        background:{
            default:'#F4F6F8',

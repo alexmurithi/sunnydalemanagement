@@ -1,49 +1,49 @@
-import React from 'react';
-import {styled} from '@material-ui/core/styles'
-import { Outlet } from 'react-router';
-import MainNavbar from '../Containers/Header';
+import React from "react";
+import { styled } from "@material-ui/core/styles";
+import { Outlet } from "react-router";
+import MainNavbar from "../Containers/Header";
 
-const MainLayoutRoot =styled('div')((theme)=>({
-    // backgroundColor:theme.palette.background.paper,
-    // display: 'flex',
-    // height: '100%',
-    // // overflow: 'hidden',
-    // width: '100%'
-}))
+const MainLayoutRoot = styled("div")((theme) => ({
+  // backgroundColor:theme.palette.background.paper,
+  // display: 'flex',
+  // height: '100%',
+  // // overflow: 'hidden',
+  // width: '100%'
+}));
 
-const MainLayoutWrapper = styled('div')({
-    // display: 'flex',
-    // flex: '1 1 auto',
-    // // overflow: 'hidden',
-    // paddingTop: 64
-  });
-  
-  const MainLayoutContainer = styled('div')({
-    // display: 'flex',
-    // flex: '1 1 auto',
-    // overflow: 'hidden'
-  });
-  
-  const MainLayoutContent = styled('div')({
-    flex: '1 1 auto',
-    height: '100%',
-    // overflow: 'auto'
-  });
+const MainLayoutWrapper = styled("div")({
+  // display: 'flex',
+  // flex: '1 1 auto',
+  // // overflow: 'hidden',
+  // paddingTop: 64
+});
 
-  const MainLayout =()=>{
-      return(
-          <MainLayoutRoot>
-              <MainNavbar/>
+const MainLayoutContainer = styled("div")({
+  // display: 'flex',
+  // flex: '1 1 auto',
+  // overflow: 'hidden'
+});
 
-            <MainLayoutWrapper>
-                <MainLayoutContainer>
-                    <MainLayoutContent>
-                      <Outlet />
-                    </MainLayoutContent>
-                </MainLayoutContainer>
-            </MainLayoutWrapper>
-          </MainLayoutRoot>
-      )
-  }
+const MainLayoutContent = styled("div")({
+  flex: "1 1 auto",
+  height: "100%",
+  // overflow: 'auto'
+});
 
-  export default MainLayout;
+const MainLayout = () => {
+  return (
+    <MainLayoutRoot>
+      <MainNavbar />
+
+      <MainLayoutWrapper>
+        <MainLayoutContainer>
+          <MainLayoutContent>
+            <Outlet />
+          </MainLayoutContent>
+        </MainLayoutContainer>
+      </MainLayoutWrapper>
+    </MainLayoutRoot>
+  );
+};
+
+export default MainLayout;
