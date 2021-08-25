@@ -1,13 +1,15 @@
-import { ApolloClient, InMemoryCache, createHttpLink} from "@apollo/client";
+import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { RetryLink } from "@apollo/client/link/retry";
 
 const httpLink = new createHttpLink({
-    uri: "https://us-central1-sunnydale.cloudfunctions.net/sunnydalemanagement-api/graphql",
-    
-  });
+  uri: "https://us-central1-sunnydale.cloudfunctions.net/sunnydalemanagement-api/graphql",
+  headers: {
+    authorization: localStorage.getItem(JSON.parse(JSON.stringify("token")))
+  },
+});
 
- const retryLink = new RetryLink({
+const retryLink = new RetryLink({
   delay: {
     initial: 300,
     max: Infinity,
@@ -27,21 +29,20 @@ const httpLink = new createHttpLink({
   },
 });
 
-  const errorLink = onError(({ graphQLErrors, networkError }) => {
-    if (graphQLErrors)
-      graphQLErrors.forEach(({ message, locations, path }) =>
-        console.log(
-          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-        ),
-      );
-  
-    if (networkError) console.log(`[Network error]: ${networkError}`);
-  });
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+      )
+    );
+
+  if (networkError) console.log(`[Network error]: ${networkError}`);
+});
 
 const Client = new ApolloClient({
-    link: retryLink.concat(errorLink).concat(httpLink),
-    cache: new InMemoryCache()
-})
-
+  link: retryLink.concat(errorLink).concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 export default Client;

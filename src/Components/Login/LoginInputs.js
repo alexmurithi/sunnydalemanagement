@@ -17,11 +17,19 @@ import Alert from "@material-ui/lab/Alert";
 
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../GraphQL/Mutations/Login";
+
 const LoginInputs = () => {
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
+  const [email, setEmail] = useState("");
+
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -35,6 +43,26 @@ const LoginInputs = () => {
     event.preventDefault();
   };
 
+  const [loginUser, { loading, error }] = useMutation(LOGIN_USER, {
+    onCompleted({ login }) {
+      if (login) {
+        localStorage.setItem("token", JSON.stringify(login));
+        console.log(login);
+      }
+    },
+    onError(error) {
+      console.log(error.message);
+    },
+  });
+
+  const submitLogin = (event) => {
+    event.preventDefault();
+
+    loginUser({
+      variables: { email: email, password: values.password },
+    });
+  };
+
   return (
     <>
       <Box py={2}>
@@ -45,6 +73,7 @@ const LoginInputs = () => {
               justifyContent: "center",
               alignItems: "center",
             }}
+            onSubmit={submitLogin}
           >
             <Paper style={{ padding: 12, width: 600, borderRadius: 0 }}>
               <Typography
@@ -59,10 +88,14 @@ const LoginInputs = () => {
                 Login
               </Typography>
               <Box py={2}>
-                <Alert>
-                  To Login you need a valid user account! If you do not have an
-                  account please contact the Administator
-                </Alert>
+                {error ? (
+                  <Alert>{error.message}</Alert>
+                ) : (
+                  <Alert>
+                    To Login you need a valid user account! If you do not have
+                    an account please contact the Administator
+                  </Alert>
+                )}
               </Box>
 
               <TextField
@@ -71,6 +104,8 @@ const LoginInputs = () => {
                 margin="dense"
                 fullWidth
                 variant="outlined"
+                value={email}
+                onChange={handleEmail}
               />
               <FormControl variant="outlined" fullWidth margin="dense">
                 <InputLabel htmlFor="outlined-adornment-password">
@@ -104,8 +139,9 @@ const LoginInputs = () => {
                 variant="outlined"
                 color="primary"
                 style={{ marginTop: 21, borderRadius: 0, width: 200 }}
+                type="submit"
               >
-                Login
+                {loading ? "loading..." : "LOGIN"}
               </Button>
             </Paper>
           </form>
