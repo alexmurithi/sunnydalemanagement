@@ -16,7 +16,8 @@ const PropertyDetails = ({
   city,
   streetAddress,
   agentName,
-  agentPhone
+  agentPhone,
+ 
 }) => {
   // const classes = useStyles();
   return (
@@ -33,7 +34,7 @@ const PropertyDetails = ({
         />
         <Grid container spacing={1}>
           <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-            <PropertyTypeSelect />
+            <PropertyTypeSelect  />
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
             <PropertySelect />

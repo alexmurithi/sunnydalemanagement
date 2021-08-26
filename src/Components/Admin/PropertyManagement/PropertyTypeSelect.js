@@ -10,22 +10,45 @@ const PropertyTypeSelect = ({ handlePropertyType }) => {
   // const handleChange = (event) => {
   //   setId(event.target.value);
   // };
+  const propertyTypeRef = React.createRef;
 
   const { loading, data, error } = useQuery(GET_ALL_PROPERTY_TYPES);
-  if (loading) return <div>loading...</div>;
-  if (error) return <div>error</div>;
+  if (loading)
+    return (
+      <FormControl variant="outlined" fullWidth margin="dense">
+        <InputLabel>Property</InputLabel>
+        <Select value="On Sale" label="On Sale">
+          <MenuItem key="On Sale" value="On Sale">
+            On Sale
+          </MenuItem>
+        </Select>
+      </FormControl>
+    );
+  if (error)
+    return (
+      <FormControl variant="outlined" fullWidth margin="dense">
+        <InputLabel>Property</InputLabel>
+        <Select value="Error" label="Error">
+          <MenuItem key="Error" value="Error">
+            Error; Data cannot be displayed
+          </MenuItem>
+        </Select>
+      </FormControl>
+    );
 
   return (
     <>
       <FormControl variant="outlined" fullWidth margin="dense">
         <InputLabel>Property Type</InputLabel>
         <Select
-          // value={propertyTypeId}
+          ref={propertyTypeRef}
           onChange={handlePropertyType}
           label="Services"
         >
           {data.allPropertyTypes.map((item) => (
-            <MenuItem key={item.id}>{item.type}</MenuItem>
+            <MenuItem key={item.id} value={item.id}>
+              {item.type}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>

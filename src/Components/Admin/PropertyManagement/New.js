@@ -59,6 +59,12 @@ const GetStepContent = (step) => {
 
   const [agentPhone, setAgentPhone] = useState("");
 
+  const [propertyType, setPropertyType] = useState(1)
+  
+  const handlePropertyType = (event) => {
+    setPropertyType(event.target.value)
+  }
+
   const handlePrice = (event) => {
     setPrice(event.target.value);
   };
@@ -117,24 +123,21 @@ const GetStepContent = (step) => {
     setThumbNail(files);
   };
 
-  const [propertyType, setPropertyType] = useState(1);
+  
 
-  const handlePropertyType = (e) => {
-    setPropertyType(e.target.value);
-  };
+  // console.log("title :", title);
 
-  console.log("title :", title);
+  // console.log("amenities :", amenity);
 
-  console.log("amenities :", amenity);
-
-  console.log("externals :", external);
-  console.log("propertyfiles :", propetyFiles);
-  console.log("thumbNail :", thumbNail);
-  console.log("county: ", county);
-  console.log("price :", price);
-  console.log("town :", town);
-  console.log("city :", city);
-  console.log("streetAddress :", streetAddress);
+  // console.log("externals :", external);
+  // console.log("propertyfiles :", propetyFiles);
+  // console.log("thumbNail :", thumbNail);
+  // console.log("county: ", county);
+  // console.log("price :", price);
+  // console.log("town :", town);
+  // console.log("city :", city);
+  // console.log("streetAddress :", streetAddress);
+  console.log("propertyType :", propertyType);
 
   switch (step) {
     case 0:
@@ -149,6 +152,7 @@ const GetStepContent = (step) => {
           streetAddress={handleStreetAddress}
           agentPhone={handleAgentPhone}
           agentName={handleAgentName}
+          propertyTypeCallBack={handlePropertyType}
         />
       );
     case 1:
