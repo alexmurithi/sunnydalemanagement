@@ -19,6 +19,7 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../GraphQL/Mutations/Login";
+import { isLoggedInVar } from "../../Apollo/ReactVariables";
 
 const LoginInputs = () => {
   const [values, setValues] = useState({
@@ -47,7 +48,7 @@ const LoginInputs = () => {
     onCompleted({ login }) {
       if (login) {
         localStorage.setItem("token", JSON.stringify(login));
-        console.log(login);
+        isLoggedInVar(true);
       }
     },
     onError(error) {
@@ -84,14 +85,15 @@ const LoginInputs = () => {
                 style={{
                   fontWeight: 800,
                 }}
+                required
               >
                 Login
               </Typography>
               <Box py={2}>
                 {error ? (
-                  <Alert>{error.message}</Alert>
+                  <Alert severity="error">{error.message}</Alert>
                 ) : (
-                  <Alert>
+                  <Alert severity="info">
                     To Login you need a valid user account! If you do not have
                     an account please contact the Administator
                   </Alert>
@@ -106,8 +108,9 @@ const LoginInputs = () => {
                 variant="outlined"
                 value={email}
                 onChange={handleEmail}
+                required
               />
-              <FormControl variant="outlined" fullWidth margin="dense">
+              <FormControl variant="outlined" fullWidth margin="dense" required>
                 <InputLabel htmlFor="outlined-adornment-password">
                   Password
                 </InputLabel>

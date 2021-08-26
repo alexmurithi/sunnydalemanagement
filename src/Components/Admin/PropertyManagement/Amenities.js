@@ -13,16 +13,7 @@ import {
 import { GET_ALL_AMENITIES } from "../../../GraphQL/Queries/GetAllAmenities";
 import { useQuery } from "@apollo/client";
 
-const Amenities = () => {
-  const [checkedAmenities, setChecked] = useState({});
-
-  const handleChange = (event) => {
-    setChecked({
-      ...checkedAmenities,
-      [event.target.value]: event.target.checkedAmenities,
-    });
-  };
-
+const Amenities = ({ amenityCallBack }) => {
   const { loading, data, error } = useQuery(GET_ALL_AMENITIES);
 
   if (loading) return <div>Loading..</div>;
@@ -31,7 +22,6 @@ const Amenities = () => {
 
   return (
     <>
-      {/* {console.log("Amenities: ",checked)} */}
       <Box py={2}>
         <FormControl component="fieldset">
           <FormLabel component="legend">Facilities in the property</FormLabel>
@@ -40,10 +30,10 @@ const Amenities = () => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    onChange={handleChange}
+                    onChange={amenityCallBack}
                     name={item.name}
                     value={item.id}
-                    checked={checkedAmenities.value}
+                    // checked={amenity.value}
                     color="primary"
                   />
                 }

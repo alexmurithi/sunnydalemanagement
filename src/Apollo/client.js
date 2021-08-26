@@ -1,12 +1,15 @@
-import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
+import { ApolloClient, createHttpLink } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { RetryLink } from "@apollo/client/link/retry";
+import { typeDefs } from "../GraphQL/Schema";
+import cache from "./Cache";
 
 const httpLink = new createHttpLink({
   uri: "https://us-central1-sunnydale.cloudfunctions.net/sunnydalemanagement-api/graphql",
   headers: {
-    authorization: localStorage.getItem(JSON.parse(JSON.stringify("token")))
+    authorization: localStorage.getItem(JSON.parse(JSON.stringify("token"))) || "",
   },
+  typeDefs,
 });
 
 const retryLink = new RetryLink({
@@ -42,7 +45,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 const Client = new ApolloClient({
   link: retryLink.concat(errorLink).concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: cache,
 });
 
 export default Client;

@@ -1,11 +1,15 @@
 import React, { lazy } from "react";
-import { Navigate } from "react-router-dom";
+
+import { Navigate, Route, Routes } from "react-router-dom";
 
 // import MainLayout from "./Layouts/Main";
 import DashboardLayout from "./Components/DashboardLayout";
 import MainLayout from "./Layouts/MainLayout";
 import MonitoringLayout from "./Layouts/MonitoringLayout";
 import RealEstateLayout from "./Layouts/RealEstateLayout";
+
+import { IS_LOGGED_IN } from "./GraphQL/Queries/IsLoggedIn";
+import { useQuery } from "@apollo/client";
 
 const LandingPage = lazy(() => import("./Pages/LandingPage"));
 const AboutUs = lazy(() => import("./Pages/AboutUs"));
@@ -47,106 +51,83 @@ const AdminPropManagement = lazy(() =>
 const NewProperty = lazy(() =>
   import("./Components/Admin/PropertyManagement/New")
 );
+const AppRoutes = () => {
+  const { data } = useQuery(IS_LOGGED_IN);
+  
+  return (
+    <Routes>
+      <Route path="/404" element={<NotFound />} />
+      <Route path="*" element={<Navigate to="/404" />} />
+      <Route path="/admin" element={<Navigate to="/admin/dashboard" />} />
 
-const routes = [
-  {
-    path: "/admin",
-    element: <DashboardLayout />,
-    children: [
-      {
-        path: "dashboard",
-        element: <Dashboard />,
-      },
-      {
-        path: "property-management",
-        element: <AdminPropManagement />,
-      },
-      {
-        path: "new-property",
-        element: <NewProperty />,
-      },
-    ],
-  },
+      <Route exact path="/" element={<MainLayout />}>
+        <Route path="/" exact element={<LandingPage />} />
+        <Route path="/about" exact element={<AboutUs />} />
+        <Route
+          path="/auth/login"
+          exact
+          element={!data.isLoggedIn ? <AdminLogin /> : <Navigate to="/" />}
+        />
+      </Route>
 
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-        path: "/",
-        element: <LandingPage />,
-      },
-      {
-        path: "about",
-        element: <AboutUs />,
-      },
-      {
-        path: "auth/login",
-        element: <AdminLogin />,
-      },
+      <Route exact path="/admin" element={<DashboardLayout />}>
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route
+          exact
+          path="/property-management"
+          element={<AdminPropManagement />}
+        />
+        <Route exact path="/new-property" element={<NewProperty />} />
+      </Route>
 
-      {
-        path: "*",
-        element: <Navigate to="/404" />,
-      },
-      {
-        path: "404",
-        element: <NotFound />,
-      },
-    ],
-  },
-  {
-    path: "/monitoring-and-evaluation",
-    element: <MonitoringLayout />,
-    children: [
-      {
-        path: "",
-        element: <MonitoringDashboard />,
-      },
-      {
-        path: "/environmental-audit",
-        element: <EnvironmentalAudit />,
-      },
-      {
-        path: "/environmental-conservation-and-protection",
-        element: <EnvironmentalConservation />,
-      },
-      {
-        path: "/environmental-research",
-        element: <EnvironmentalResearch />,
-      },
-      {
-        path: "/waste-disposal-and-management",
-        element: <WasteDisposal />,
-      },
-      {
-        path: "/environmental-impact-and-assessment",
-        element: <ImpactAssessment />,
-      },
-      {
-        path: "/water-and-forest-resources",
-        element: <WaternForest />,
-      },
-      {
-        path: "/public-capacity-building",
-        element: <CapacityBuilding />,
-      },
-      {
-        path: "*",
-        element: <Navigate to="/404" />,
-      },
-    ],
-  },
-  {
-    path: "/real-estate-and-property-management",
-    element: <RealEstateLayout />,
-    children: [
-      {
-        path: "",
-        element: <AllPropertyItems />,
-      },
-    ],
-  },
-];
+      <Route
+        exact
+        path="/monitoring-and-evaluation"
+        element={<MonitoringLayout />}
+      >
+        <Route exact path="" element={<MonitoringDashboard />} />
+        <Route
+          exact
+          path="/environmental-audit"
+          element={<EnvironmentalAudit />}
+        />
+        <Route
+          exact
+          path="/environmental-conservation-and-protection"
+          element={<EnvironmentalConservation />}
+        />
+        <Route
+          exact
+          path="/environmental-research"
+          element={<EnvironmentalResearch />}
+        />
+        <Route exact path="/impact-assessment" element={<ImpactAssessment />} />
+        <Route
+          exact
+          path="/environmental-impact-and-assessment"
+          element={<WasteDisposal />}
+        />
+        <Route
+          exact
+          path="/water-and-forest-resources"
+          element={<WaternForest />}
+        />
+        <Route
+          exact
+          path="/public-capacity-building"
+          element={<CapacityBuilding />}
+        />
+      </Route>
 
-export default routes;
+      <Route
+        exact
+        path="/real-estate-and-property-management"
+        element={<RealEstateLayout />}
+      >
+        <Route exact path="" element={<AllPropertyItems />} />
+      </Route>
+    </Routes>
+  );
+};
+
+export default AppRoutes;
