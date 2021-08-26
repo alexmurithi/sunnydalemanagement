@@ -59,11 +59,8 @@ const GetStepContent = (step) => {
 
   const [agentPhone, setAgentPhone] = useState("");
 
-  const [propertyType, setPropertyType] = useState(1)
+  // const [propertyType, setPropertyType] = useState(1)
   
-  const handlePropertyType = (event) => {
-    setPropertyType(event.target.value)
-  }
 
   const handlePrice = (event) => {
     setPrice(event.target.value);
@@ -137,14 +134,14 @@ const GetStepContent = (step) => {
   // console.log("town :", town);
   // console.log("city :", city);
   // console.log("streetAddress :", streetAddress);
-  console.log("propertyType :", propertyType);
+  // console.log("propertyType :", propertyType);
 
   switch (step) {
     case 0:
       return (
         <PropertyDetails
           titleCallBack={handleTitle}
-          onChange={handlePropertyType}
+          
           county={handleCounty}
           price={handlePrice}
           town={handleTown}
@@ -152,7 +149,7 @@ const GetStepContent = (step) => {
           streetAddress={handleStreetAddress}
           agentPhone={handleAgentPhone}
           agentName={handleAgentName}
-          propertyTypeCallBack={handlePropertyType}
+         
         />
       );
     case 1:

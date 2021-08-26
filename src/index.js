@@ -8,13 +8,10 @@ import Client from "./Apollo/Client";
 import theme from "./Themes/Default";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={Client}>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </ApolloProvider>
-  </React.StrictMode>,
-
+  <ApolloProvider client={Client}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </ApolloProvider>,
   document.getElementById("sunnyDale")
 );

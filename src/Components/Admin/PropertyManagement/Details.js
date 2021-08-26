@@ -20,6 +20,9 @@ const PropertyDetails = ({
  
 }) => {
   // const classes = useStyles();
+  
+
+ 
   return (
     <Box>
       <form noValidate autoComplete="off">
