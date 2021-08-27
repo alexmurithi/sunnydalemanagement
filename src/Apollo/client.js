@@ -7,7 +7,8 @@ import cache from "./Cache";
 const httpLink = new createHttpLink({
   uri: "https://us-central1-sunnydale.cloudfunctions.net/sunnydalemanagement-api/graphql",
   headers: {
-    authorization: localStorage.getItem(JSON.parse(JSON.stringify("token"))) || "",
+    authorization:
+      localStorage.getItem(JSON.parse(JSON.stringify("token"))) || "",
   },
   typeDefs,
 });
@@ -43,12 +44,9 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (networkError) console.log(`[Network error]: ${networkError}`);
 });
 
-const Client = new ApolloClient({
+const client = new ApolloClient({
   link: retryLink.concat(errorLink).concat(httpLink),
   cache: cache,
 });
 
-
-
-
-export default Client;
+export default client;
