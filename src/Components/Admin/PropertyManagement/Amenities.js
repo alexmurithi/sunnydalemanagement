@@ -13,7 +13,7 @@ import {
 import { GET_ALL_AMENITIES } from "../../../GraphQL/Queries/GetAllAmenities";
 import { useQuery } from "@apollo/client";
 
-const Amenities = ({ amenityCallBack }) => {
+const Amenities = ({ amenityCallBack, amenity }) => {
   const { loading, data, error } = useQuery(GET_ALL_AMENITIES);
 
   if (loading) return <div>Loading..</div>;
@@ -30,10 +30,10 @@ const Amenities = ({ amenityCallBack }) => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    onChange={amenityCallBack}
+                    onChange={amenityCallBack(item.id)}
                     name={item.name}
                     value={item.id}
-                    // checked={amenity.value}
+                    checked={amenity.includes(item.id)}
                     color="primary"
                   />
                 }

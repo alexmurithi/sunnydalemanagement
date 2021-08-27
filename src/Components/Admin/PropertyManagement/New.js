@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Container,
@@ -59,8 +59,23 @@ const GetStepContent = (step) => {
 
   const [agentPhone, setAgentPhone] = useState("");
 
-  // const [propertyType, setPropertyType] = useState(1)
-  
+  const [propertyType, setPropertyType] = useState(1);
+
+  const [property, setProperty] = useState(1);
+
+  const [description, setDescription] = useState("");
+
+  const handleDescription = (newValue, editor) => {
+    setDescription(newValue);
+  };
+
+  const handleProperty = (event) => {
+    setProperty(event.target.value);
+  };
+
+  const handlePropertyType = (event) => {
+    setPropertyType(event.target.value);
+  };
 
   const handlePrice = (event) => {
     setPrice(event.target.value);
@@ -90,22 +105,34 @@ const GetStepContent = (step) => {
     setCounty(event.target.value);
   };
 
-  const [amenity, setAmenity] = useState({});
+  const [amenity, setAmenity] = useState([]);
 
-  const handleAmenity = (event) => {
-    setAmenity({
-      ...amenity,
-      [event.target.value]: event.target.checked,
-    });
+  const handleAmenity = (id) => (event) => {
+    const allAmenity = [...amenity];
+    const selectedAmenities = amenity.indexOf(id);
+
+    if (selectedAmenities > -1) {
+      allAmenity.splice(selectedAmenities, 1);
+    } else {
+      allAmenity.push(id);
+    }
+
+    setAmenity(allAmenity);
   };
 
-  const [external, setExternal] = useState({});
+  const [external, setExternals] = useState([]);
 
-  const handleExternal = (event) => {
-    setExternal({
-      ...external,
-      [event.target.value]: event.target.checked,
-    });
+  const handleExternal = (id) => (event) => {
+    const all = [...external];
+    const selectedExternals = external.indexOf(id);
+
+    if (selectedExternals > -1) {
+      all.splice(selectedExternals, 1);
+    } else {
+      all.push(id);
+    }
+
+    setExternals(all);
   };
 
   const [propetyFiles, setFiles] = useState([]);
@@ -120,46 +147,62 @@ const GetStepContent = (step) => {
     setThumbNail(files);
   };
 
-  
-
-  // console.log("title :", title);
-
-  // console.log("amenities :", amenity);
-
-  // console.log("externals :", external);
-  // console.log("propertyfiles :", propetyFiles);
-  // console.log("thumbNail :", thumbNail);
-  // console.log("county: ", county);
-  // console.log("price :", price);
-  // console.log("town :", town);
-  // console.log("city :", city);
-  // console.log("streetAddress :", streetAddress);
-  // console.log("propertyType :", propertyType);
+  // console.log("description", description);
+  console.log("externals", external);
 
   switch (step) {
     case 0:
       return (
         <PropertyDetails
           titleCallBack={handleTitle}
-          
-          county={handleCounty}
-          price={handlePrice}
-          town={handleTown}
-          city={handleCity}
-          streetAddress={handleStreetAddress}
-          agentPhone={handleAgentPhone}
-          agentName={handleAgentName}
-         
+          countyCallBack={handleCounty}
+          priceCallBack={handlePrice}
+          townCallBack={handleTown}
+          cityCallBack={handleCity}
+          streetAddressCallBack={handleStreetAddress}
+          agentPhoneCallBack={handleAgentPhone}
+          agentNameCallBack={handleAgentName}
+          propertyTypecallBack={handlePropertyType}
+          propertyCallBack={handleProperty}
+          descriptionCallBack={handleDescription}
+          type={propertyType}
+          town={town}
+          city={city}
+          price={price}
+          county={county}
+          streetAddress={streetAddress}
+          agentName={agentName}
+          agentPhone={agentPhone}
+          title={title}
+          property={property}
+          description={description}
         />
       );
     case 1:
-      return <PropertyAmenities amenityCallBack={handleAmenity} />;
+      return (
+        <PropertyAmenities amenityCallBack={handleAmenity} amenity={amenity} />
+      );
     case 2:
-      return <PropertyExternals externalCallBack={handleExternal} />;
+      return (
+        <PropertyExternals
+          externalCallBack={handleExternal}
+          external={external}
+        />
+      );
     case 3:
-      return <PropertyFiles filesCallBack={handlePropertyFiles} />;
+      return (
+        <PropertyFiles
+          filesCallBack={handlePropertyFiles}
+          propetyFiles={propetyFiles}
+        />
+      );
     case 4:
-      return <PropertyThumbNail thumbNailCallBack={handleThumbNail} />;
+      return (
+        <PropertyThumbNail
+          thumbNailCallBack={handleThumbNail}
+          thumbNail={thumbNail}
+        />
+      );
 
     default:
       return <div>Invalid!</div>;

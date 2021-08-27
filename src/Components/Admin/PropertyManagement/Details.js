@@ -1,57 +1,102 @@
 import React from "react";
 // import { makeStyles } from "@material-ui/core";
-import { Box, TextField, Grid, Typography } from "@material-ui/core";
+import {
+  Box,
+  TextField,
+  Grid,
+  Typography,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@material-ui/core";
 
 import SunnyEditor from "../../SunnyEditor";
 import PropertyTypeSelect from "./PropertyTypeSelect";
 import PropertySelect from "./PropertySelect";
 
+import { GET_ALL_PROPERTY_TYPES } from "../../../GraphQL/Queries/GetAllPropertyTypes";
+import { GET_ALL_PROPERTIES } from "../../../GraphQL/Queries/GetAllProperties";
+import { useQuery } from "@apollo/client";
+
 // const useStyles = makeStyles((theme) => ({}));
 
 const PropertyDetails = ({
   titleCallBack,
-  county,
-  price,
+  countyCallBack,
+  priceCallBack,
+  townCallBack,
+  cityCallBack,
+  streetAddressCallBack,
+  agentNameCallBack,
+  agentPhoneCallBack,
+  propertyTypecallBack,
+  type,
   town,
   city,
+  title,
+  price,
+  county,
   streetAddress,
-  agentName,
   agentPhone,
- 
+  agentName,
+  ...rest
 }) => {
   // const classes = useStyles();
-  
 
- 
+  const { data, loading, error } = useQuery(GET_ALL_PROPERTY_TYPES);
+
   return (
     <Box>
       <form noValidate autoComplete="off">
         <TextField
           label="Title"
-          variant="outlined"
+          variant="filled"
           margin="dense"
           helperText="eg. 2 Bedroom for sale in Ruiru"
           fullWidth
           required
           onChange={titleCallBack}
+          value={title}
         />
         <Grid container spacing={1}>
           <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-            <PropertyTypeSelect  />
+            {/* <PropertyTypeSelect {...rest} /> */}
+            <FormControl variant="filled" fullWidth margin="dense">
+              <InputLabel>Property</InputLabel>
+              <Select
+                label="loading..."
+                value={type}
+                onChange={propertyTypecallBack}
+              >
+                {loading ? (
+                  <div>loading..</div>
+                ) : data ? (
+                  data.allPropertyTypes.map((item) => (
+                    <MenuItem key={item.id} value={item.id}>
+                      {item.type}
+                    </MenuItem>
+                  ))
+                ) : (
+                  <div>Error</div>
+                )}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-            <PropertySelect />
+            <PropertySelect {...rest} />
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
             <TextField
               label="Price"
-              variant="outlined"
+              variant="filled"
               margin="dense"
               helperText="eg. 25000 "
               type="number"
               fullWidth
               required
-              onChange={price}
+              onChange={priceCallBack}
+              value={price}
             />
           </Grid>
 
@@ -59,52 +104,56 @@ const PropertyDetails = ({
             <Grid item xs={12} sm={12} md={12} lg={3} xl={3}>
               <TextField
                 label="Name of County"
-                variant="outlined"
+                variant="filled"
                 margin="dense"
                 helperText="eg. Nairobi"
                 type="text"
                 fullWidth
                 required
-                onChange={county}
+                onChange={countyCallBack}
                 required
+                value={county}
               />
             </Grid>
 
             <Grid item xs={12} sm={12} md={12} lg={3} xl={3}>
               <TextField
                 label="Town"
-                variant="outlined"
+                variant="filled"
                 margin="dense"
                 helperText="eg. Westlands "
                 type="text"
                 fullWidth
                 required
-                onChange={town}
+                onChange={townCallBack}
+                value={town}
               />
             </Grid>
 
             <Grid item xs={12} sm={12} md={12} lg={3} xl={3}>
               <TextField
                 label="City"
-                variant="outlined"
+                variant="filled"
                 margin="dense"
                 helperText="Optinal "
                 type="text"
                 fullWidth
-                onChange={city}
+                onChange={cityCallBack}
+                value={city}
               />
             </Grid>
 
             <Grid item xs={12} sm={12} md={12} lg={3} xl={3}>
               <TextField
                 label="Street Addres"
-                variant="outlined"
+                variant="filled"
                 margin="dense"
                 helperText="eg. Along Naivas Supermarket "
                 type="address"
                 fullWidth
                 required
-                onChange={streetAddress}
+                onChange={streetAddressCallBack}
+                value={streetAddress}
               />
             </Grid>
           </Grid>
@@ -113,23 +162,25 @@ const PropertyDetails = ({
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
               <TextField
                 label="Agent Name"
-                variant="outlined"
+                variant="filled"
                 margin="dense"
                 helperText="eg. Elias Kiragu "
                 type="text"
                 fullWidth
-                onChange={agentName}
+                onChange={agentNameCallBack}
+                value={agentName}
               />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
               <TextField
                 label="Agent Mobile"
-                variant="outlined"
+                variant="filled"
                 margin="dense"
                 helperText="eg. +25471234567"
                 type="tel"
                 fullWidth
-                onChange={agentPhone}
+                onChange={agentPhoneCallBack}
+                value={agentPhone}
               />
             </Grid>
           </Grid>
@@ -139,7 +190,7 @@ const PropertyDetails = ({
           <Typography gutterBottom color="textSecondary">
             Description
           </Typography>
-          <SunnyEditor />
+          <SunnyEditor {...rest} />
         </Box>
       </form>
     </Box>
