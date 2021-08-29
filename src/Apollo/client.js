@@ -6,13 +6,18 @@ import cache from "./Cache";
 import { setContext } from "@apollo/client/link/context";
 require("dotenv").config();
 
+const url_api = "";
+
+if (process.env.NODE_ENV === "development") {
+  url_api = "http://localhost:4000/graphql";
+} else {
+  url_api =
+    "https://us-central1-sunnydale.cloudfunctions.net/sunnydalemanagement-api/graphql";
+}
+
 const httpLink = new createHttpLink({
-  uri: `${
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:4000/graphql"
-      : `${process.env.API_ENDPOINT}`
-  }`,
-  credentials:"same-origin",
+  uri: url_api,
+  credentials: "same-origin",
   typeDefs,
 });
 
