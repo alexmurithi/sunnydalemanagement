@@ -12,7 +12,7 @@ const httpLink = new createHttpLink({
       : `${process.env.API_ENDPOINT}`
   }`,
   headers: {
-    authorization: localStorage.getItem(JSON.stringify("token")) || "",
+    authorization: localStorage.getItem("token") || "",
   },
   typeDefs,
 });
