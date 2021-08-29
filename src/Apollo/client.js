@@ -1,19 +1,22 @@
-import { ApolloClient, createHttpLink } from "@apollo/client";
+import { ApolloClient, ApolloLink, createHttpLink } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { RetryLink } from "@apollo/client/link/retry";
 import { typeDefs } from "../GraphQL/Schema";
 import cache from "./Cache";
+import { setContext } from "@apollo/client/link/context";
 require("dotenv").config();
 
 const httpLink = new createHttpLink({
   uri: `${
     process.env.NODE_ENV === "development"
-      ? "http://localhost:4000/graphql"
+      ? "https://localhost:4000/graphql"
       : `${process.env.API_ENDPOINT}`
   }`,
-  headers: {
-    authorization: localStorage.getItem("token") || "",
-  },
+  credentials: "include",
+  // headers: {
+  //   authorization: localStorage.getItem("token") || "",
+  // },
+
   typeDefs,
 });
 
@@ -37,6 +40,17 @@ const retryLink = new RetryLink({
   },
 });
 
+const authMiddleware = new ApolloLink((operation, forward) => {
+  operation.setContext(({ headers = {} }) => ({
+    headers: {
+      ...headers,
+      authorization: localStorage.getItem("token") || null,
+    },
+  }));
+
+  return forward(operation);
+});
+
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.forEach(({ message, locations, path }) =>
@@ -49,7 +63,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 });
 
 const client = new ApolloClient({
-  link: retryLink.concat(errorLink).concat(httpLink),
+  link: retryLink.concat(errorLink).concat(authMiddleware).concat(httpLink),
   cache: cache,
 });
 
