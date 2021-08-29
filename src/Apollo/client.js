@@ -4,19 +4,15 @@ import { RetryLink } from "@apollo/client/link/retry";
 import { typeDefs } from "../GraphQL/Schema";
 import cache from "./Cache";
 import { setContext } from "@apollo/client/link/context";
+
 require("dotenv").config();
 
-const url_api = "";
-
-if (process.env.NODE_ENV === "development") {
-  url_api = "http://localhost:4000/graphql";
-} else {
-  url_api =
-    "https://us-central1-sunnydale.cloudfunctions.net/sunnydalemanagement-api/graphql";
-}
-
 const httpLink = new createHttpLink({
-  uri: url_api,
+  uri: `${
+    process.env.NODE_ENV === "development"
+      ? `${process.env.REACT_APP_LOCAL_API_ENDPOINT}`
+      : `${process.env.REACT_APP_API_ENDPOINT}`
+  }`,
   credentials: "same-origin",
   typeDefs,
 });
