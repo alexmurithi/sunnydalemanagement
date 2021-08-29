@@ -12,7 +12,7 @@ const httpLink = new createHttpLink({
       ? "http://localhost:4000/graphql"
       : `${process.env.API_ENDPOINT}`
   }`,
-  // credentials: "include",
+  credentials:"same-origin",
   typeDefs,
 });
 
