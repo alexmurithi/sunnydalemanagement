@@ -1,4 +1,4 @@
-import { ApolloClient, ApolloLink, createHttpLink } from "@apollo/client";
+import { ApolloClient, createHttpLink } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { RetryLink } from "@apollo/client/link/retry";
 import { typeDefs } from "../GraphQL/Schema";
@@ -9,14 +9,10 @@ require("dotenv").config();
 const httpLink = new createHttpLink({
   uri: `${
     process.env.NODE_ENV === "development"
-      ? "https://localhost:4000/graphql"
+      ? "http://localhost:4000/graphql"
       : `${process.env.API_ENDPOINT}`
   }`,
-  credentials: "include",
-  // headers: {
-  //   authorization: localStorage.getItem("token") || "",
-  // },
-
+  // credentials: "include",
   typeDefs,
 });
 
@@ -40,15 +36,13 @@ const retryLink = new RetryLink({
   },
 });
 
-const authMiddleware = new ApolloLink((operation, forward) => {
-  operation.setContext(({ headers = {} }) => ({
+const authMiddleware = setContext((_, { headers }) => {
+  return {
     headers: {
       ...headers,
-      authorization: localStorage.getItem("token") || null,
+      authorization: localStorage.getItem("token") || "",
     },
-  }));
-
-  return forward(operation);
+  };
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
