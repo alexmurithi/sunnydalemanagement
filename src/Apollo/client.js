@@ -13,7 +13,7 @@ const httpLink = new createHttpLink({
   }`,
   headers: {
     authorization:
-      localStorage.getItem(JSON.parse(JSON.stringify("token"))) || "",
+      localStorage.getItem(JSON.parse(JSON.stringify("token")) || ""),
   },
   typeDefs,
 });

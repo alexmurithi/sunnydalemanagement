@@ -5,13 +5,7 @@ import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
 import { GET_ALL_PROPERTIES } from "../../../GraphQL/Queries/GetAllProperties";
 import { useQuery } from "@apollo/client";
 
-const PropertySelect = ({ propertyCallBack,property }) => {
-  // const [propertyId, setId] = useState(1);
-
-  // const handleChange = (event) => {
-  //   setId(event.target.value);
-  // };
-
+const PropertySelect = ({ propertyCallBack, property }) => {
   const { loading, data, error } = useQuery(GET_ALL_PROPERTIES);
   if (loading)
     return (

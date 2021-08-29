@@ -14,21 +14,6 @@ import { GET_ALL_EXTERNALS } from "../../../GraphQL/Queries/GetAllExternals";
 import { useQuery } from "@apollo/client";
 
 const Externals = ({ externalCallBack, external }) => {
-  // const [externals, setExternals] = useState([]);
-
-  // const handleChange = (id) => (event) => {
-  //   const all = [...externals];
-  //   const selectedExternals = externals.indexOf(id);
-
-  //   if (selectedExternals > -1) {
-  //     all.splice(selectedExternals, 1);
-  //   } else {
-  //     all.push(id);
-  //   }
-
-  //   setExternals(all);
-  // };
-
   const { loading, data, error } = useQuery(GET_ALL_EXTERNALS);
 
   if (loading) return <div>Loading..</div>;
@@ -37,7 +22,7 @@ const Externals = ({ externalCallBack, external }) => {
 
   return (
     <>
-      {/* {console.log(JSON.stringify(externals))} */}
+    
       <Box py={2}>
         <FormControl component="fieldset">
           <FormLabel component="legend">

@@ -40,6 +40,10 @@ const PropertyDetails = ({
   streetAddress,
   agentPhone,
   agentName,
+  rooms,
+  bathrooms,
+  roomsCallBack,
+  bathRoomsCallBack,
   ...rest
 }) => {
   // const classes = useStyles();
@@ -61,7 +65,6 @@ const PropertyDetails = ({
         />
         <Grid container spacing={1}>
           <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-            {/* <PropertyTypeSelect {...rest} /> */}
             <FormControl variant="filled" fullWidth margin="dense">
               <InputLabel>Property</InputLabel>
               <Select
@@ -194,8 +197,9 @@ const PropertyDetails = ({
                 helperText="eg. 2"
                 type="number"
                 fullWidth
-                // onChange={agentPhoneCallBack}
-                // value={agentPhone}
+                onChange={roomsCallBack}
+                value={rooms}
+                required
               />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
@@ -206,8 +210,9 @@ const PropertyDetails = ({
                 helperText="eg. 2"
                 type="number"
                 fullWidth
-                // onChange={agentPhoneCallBack}
-                // value={agentPhone}
+                onChange={bathRoomsCallBack}
+                value={bathrooms}
+                required
               />
             </Grid>
           </Grid>

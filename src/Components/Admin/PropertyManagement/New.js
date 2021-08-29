@@ -18,6 +18,8 @@ import PropertyDetails from "./Details";
 import PropertyFiles from "./Files";
 import PropertyThumbNail from "./ThumbNail";
 
+import CustomButton from "../../Button.js";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(4),
@@ -148,8 +150,18 @@ const GetStepContent = (step) => {
     setThumbNail(files);
   };
 
+  const [rooms, setRooms] = useState(1);
+  const [bathrooms, setBathRooms] = useState(1);
+
+  const handleRooms = (event) => {
+    setRooms(event.target.value);
+  };
+  const handleBathRooms = (event) => {
+    setBathRooms(event.target.value);
+  };
+
   // console.log("description", description);
-  console.log("externals", external);
+  console.log("rooms", rooms);
 
   switch (step) {
     case 0:
@@ -166,6 +178,8 @@ const GetStepContent = (step) => {
           propertyTypecallBack={handlePropertyType}
           propertyCallBack={handleProperty}
           descriptionCallBack={handleDescription}
+          roomsCallBack={handleRooms}
+          bathRoomsCallBack={handleBathRooms}
           type={propertyType}
           town={town}
           city={city}
@@ -177,6 +191,8 @@ const GetStepContent = (step) => {
           title={title}
           property={property}
           description={description}
+          rooms={rooms}
+          bathrooms={bathrooms}
         />
       );
     case 1:
@@ -236,21 +252,21 @@ const PropertyStepper = () => {
                 <StepContent>
                   {GetStepContent(index)}
                   <Box py={2} display="flex" justifyContent="space-between">
-                    <Button
+                    <CustomButton
                       variant="outlined"
                       color="secondary"
                       onClick={handleBack}
                       disabled={activeStep === 0}
                     >
                       Back
-                    </Button>
-                    <Button
+                    </CustomButton>
+                    <CustomButton
                       variant="outlined"
                       color="primary"
                       onClick={handleNext}
                     >
                       {activeStep === getSteps.length - 1 ? "Finish" : "Next"}
-                    </Button>
+                    </CustomButton>
                   </Box>
                 </StepContent>
               </Step>
@@ -263,13 +279,16 @@ const PropertyStepper = () => {
                   <Typography>
                     All steps completed - you&apos;re finished
                   </Typography>
-                  <Button
+                  <CustomButton
                     onClick={handleReset}
                     color="primary"
-                    variant="contained"
+                    variant="outlined"
                   >
                     Reset
-                  </Button>
+                  </CustomButton>
+                  <CustomButton variant='outlined' color='secondary'>
+                    Upload
+                  </CustomButton>
                 </Paper>
               </Box>
             </>
