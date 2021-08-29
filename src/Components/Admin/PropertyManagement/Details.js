@@ -184,6 +184,33 @@ const PropertyDetails = ({
               />
             </Grid>
           </Grid>
+
+          <Grid item container spacing={1}>
+            <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+              <TextField
+                label="No of Rooms"
+                variant="filled"
+                margin="dense"
+                helperText="eg. 2"
+                type="number"
+                fullWidth
+                // onChange={agentPhoneCallBack}
+                // value={agentPhone}
+              />
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
+              <TextField
+                label="No of bathrooms"
+                variant="filled"
+                margin="dense"
+                helperText="eg. 2"
+                type="number"
+                fullWidth
+                // onChange={agentPhoneCallBack}
+                // value={agentPhone}
+              />
+            </Grid>
+          </Grid>
         </Grid>
 
         <Box py={2}>

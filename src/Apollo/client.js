@@ -3,9 +3,14 @@ import { onError } from "@apollo/client/link/error";
 import { RetryLink } from "@apollo/client/link/retry";
 import { typeDefs } from "../GraphQL/Schema";
 import cache from "./Cache";
+require("dotenv").config();
 
 const httpLink = new createHttpLink({
-  uri: "https://us-central1-sunnydale.cloudfunctions.net/sunnydalemanagement-api/graphql",
+  uri: `${
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:4000/graphql"
+      : `${process.env.API_ENDPOINT}`
+  }`,
   headers: {
     authorization:
       localStorage.getItem(JSON.parse(JSON.stringify("token"))) || "",

@@ -8,6 +8,7 @@ import {
   StepContent,
   Button,
   Typography,
+  Paper,
 } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core";
@@ -220,6 +221,10 @@ const PropertyStepper = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
   return (
     <>
       <Container maxWidth="lg">
@@ -253,8 +258,19 @@ const PropertyStepper = () => {
           </Stepper>
           {activeStep === getSteps.length && (
             <>
-              <Box>
-                <Typography>Lets do this</Typography>
+              <Box py={2}>
+                <Paper square elevation={1} style={{ padding: 8 }}>
+                  <Typography>
+                    All steps completed - you&apos;re finished
+                  </Typography>
+                  <Button
+                    onClick={handleReset}
+                    color="primary"
+                    variant="contained"
+                  >
+                    Reset
+                  </Button>
+                </Paper>
               </Box>
             </>
           )}
