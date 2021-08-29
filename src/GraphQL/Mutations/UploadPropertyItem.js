@@ -40,10 +40,51 @@ export const UPLOAD_PROPERTY_ITEM = gql`
       propertyExternal: $propertyExternal
       file: $file
     ) {
-      token
-      user {
+      success
+      message
+      propertyItem {
         id
-        email
+        title
+        description
+        no_of_bathrooms
+        no_of_rooms
+        county
+        town
+        city
+        streetAddress
+        agentName
+        agentPhone
+        createdAt
+        updatedAt
+        property {
+          id
+          name
+        }
+        propertyType {
+          id
+          type
+        }
+        files {
+          id
+          path
+        }
+        externals {
+          id
+          name
+        }
+        amenities {
+          id
+          name
+        }
+        thumbNail {
+          id
+          path
+        }
+        user {
+          id
+          firstName
+          lastName
+        }
       }
     }
   }
