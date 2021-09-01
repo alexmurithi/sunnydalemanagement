@@ -1,56 +1,132 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Container,
-  Stepper,
-  Step,
-  StepLabel,
-  StepContent,
-  Button,
+  Backdrop,
+  CircularProgress,
   Typography,
-  Paper,
+  Snackbar,
 } from "@material-ui/core";
-
+import MuiAlert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core";
-import PropertyAmenities from "./Amenities";
-import PropertyExternals from "./Externals";
-import PropertyDetails from "./Details";
-import PropertyFiles from "./Files";
-import PropertyThumbNail from "./ThumbNail";
-
 import CustomButton from "../../Button.js";
+import PropertyDetails from "./Details";
+
+import { UPLOAD_PROPERTY_ITEM } from "../../../GraphQL/Mutations/UploadPropertyItem";
+import { useMutation } from "@apollo/client";
+import Axios from "axios";
+
+require("dotenv").config();
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  newPropertyWrapper: {
     marginTop: theme.spacing(4),
+    width: "100%",
   },
-  formdDetails: {
-    "& .MuiTextField-root": {
-      //   margin: theme.spacing(1),
-      //   maxWidth:'100%',
-      // //   width:'30ch'
-    },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: "#fff",
+  },
+  uploadBtn: {
+    marginTop: theme.spacing(3),
   },
 }));
 
-const getSteps = [
-  "Property Details",
-  "Amenities",
-  "Externals",
-  "Files",
-  "ThumbNail Image",
-];
+const NewProperty = () => {
+  const classes = useStyles();
 
-const GetStepContent = (step) => {
-  const [title, setTitle] = useState("");
+  const token = JSON.parse(localStorage.getItem("token"));
 
-  const handleTitle = (e) => {
-    setTitle(e.target.value);
+  const UserId = Number(token.user.id);
+
+  const [openSnackbar, setSnackbar] = useState(false);
+
+  const [uploadItem, { loading, data, error }] = useMutation(
+    UPLOAD_PROPERTY_ITEM,
+    {
+      onCompleted({ uploadPropertyItem }) {
+        if (uploadPropertyItem) {
+          handleCloseBackdrop();
+
+          setSnackbar(true);
+
+          setTitle("");
+          setDescription("");
+          setProperty(1);
+          setPropertyType(1);
+          setCounty("");
+          setTown("");
+          setCity("");
+          setStreetAddress("");
+          setPrice(10000);
+          setRooms(1);
+          setBathRooms(1);
+          setAgentName("");
+          setAgentPhone("");
+          setAmenity([]);
+          setExternals([]);
+          setFiles([]);
+          setThumbNail("");
+        }
+      },
+      onError(error) {
+        setErrorSnackBar(true);
+      },
+    }
+  );
+
+  const uploadPropertyItem = (event) => {
+    event.preventDefault();
+
+    uploadItem({
+      variables: {
+        title: title,
+        description: description,
+        propertyTypeId: Number(propertyType),
+        propertyId: Number(property),
+        price: price,
+        county: county,
+        town: town,
+        city: city,
+        streetAddress: streetAddress,
+        thumbNail: thumbNail.toString(),
+        agentName: agentName,
+        agentPhone: agentPhone,
+        no_of_rooms: Number(rooms),
+        no_of_bathrooms: Number(bathrooms),
+        createdBy: UserId,
+        propertyAmenity: parseInt(amenity),
+        propertyExternal: parseInt(external),
+        file: propertyFiles,
+      },
+    });
   };
 
-  const [county, setCounty] = useState("");
+  const [openBackdrop, setOpenBackdrop] = useState(false);
 
-  const [price, setPrice] = useState(0);
+  const handleCloseBackdrop = () => {
+    setOpenBackdrop(false);
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbar(false);
+  };
+
+  const [errorSnackBar, setErrorSnackBar] = useState(false);
+
+  const [price, setPrice] = useState(10000);
+
+  const handlePrice = (event) => {
+    setPrice(Number(event.target.value));
+  };
+
+  const [title, setTitle] = useState("");
+
+  const [property, setProperty] = useState(1);
+
+  const [propertyType, setPropertyType] = useState(1);
+
+  const [county, setCounty] = useState("");
 
   const [town, setTown] = useState("");
 
@@ -58,72 +134,77 @@ const GetStepContent = (step) => {
 
   const [streetAddress, setStreetAddress] = useState("");
 
+  const [rooms, setRooms] = useState(1);
+
+  const [bathrooms, setBathRooms] = useState(1);
+
   const [agentName, setAgentName] = useState("");
 
   const [agentPhone, setAgentPhone] = useState("");
 
-  const [propertyType, setPropertyType] = useState(1);
-
-  const [property, setProperty] = useState(1);
-
   const [description, setDescription] = useState("");
-
-  const handleDescription = (newValue, editor) => {
-    setDescription(newValue);
-  };
-
-  const handleProperty = (event) => {
-    setProperty(event.target.value);
-  };
-
-  const handlePropertyType = (event) => {
-    setPropertyType(event.target.value);
-  };
-
-  const handlePrice = (event) => {
-    setPrice(event.target.value);
-  };
-
-  const handleAgentName = (event) => {
-    setAgentName(event.target.value);
-  };
-
-  const handleAgentPhone = (event) => {
-    setAgentPhone(event.target.value);
-  };
-
-  const handleTown = (event) => {
-    setTown(event.target.value);
-  };
-
-  const handleCity = (event) => {
-    setCity(event.target.value);
-  };
-
-  const handleStreetAddress = (event) => {
-    setStreetAddress(event.target.value);
-  };
-
-  const handleCounty = (event) => {
-    setCounty(event.target.value);
-  };
 
   const [amenity, setAmenity] = useState([]);
 
-  const handleAmenity = (id) => (event) => {
-    const allAmenity = [...amenity];
-    const selectedAmenities = amenity.indexOf(id);
+  const [external, setExternals] = useState([]);
 
-    if (selectedAmenities > -1) {
-      allAmenity.splice(selectedAmenities, 1);
-    } else {
-      allAmenity.push(id);
-    }
+  const [propertyFiles, setFiles] = useState([]);
 
-    setAmenity(allAmenity);
+  const [thumbNail, setThumbNail] = useState("");
+
+  const handleThumbNail = (files) => {
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "koxpsqt5");
+
+    return Axios.post(
+      `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`,
+      formData,
+      {
+        headers: { "X-Requested-With": "XMLHttpRequest" },
+      }
+    )
+      .then((res) => {
+        setThumbNail(res.data.secure_url);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
-  const [external, setExternals] = useState([]);
+  const handleDeleteThumbNail = (files) => {
+    setThumbNail([...thumbNail].slice(files, 1));
+  };
+
+  const handlePropertyFiles = (files) => {
+    const fileUrlArray = [];
+    files.forEach((file) => {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      formData.append("upload_preset", "koxpsqt5");
+
+      return Axios.post(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`,
+        formData,
+        {
+          headers: { "X-Requested-With": "XMLHttpRequest" },
+        }
+      )
+        .then((res) => {
+          const fileUrls = res.data.secure_url;
+          fileUrlArray.push(fileUrls);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    });
+    setFiles(fileUrlArray);
+  };
+
+  const handlePropertyFilesDelete = (files) => {
+    setFiles([...propertyFiles].slice(files, 1));
+  };
 
   const handleExternal = (id) => (event) => {
     const all = [...external];
@@ -138,174 +219,167 @@ const GetStepContent = (step) => {
     setExternals(all);
   };
 
-  const [propetyFiles, setFiles] = useState([]);
+  const handleAmenity = (id) => (event) => {
+    const allAmenity = [...amenity];
+    const selectedAmenities = amenity.indexOf(id);
 
-  const handlePropertyFiles = (files) => {
-    setFiles(files);
+    if (selectedAmenities > -1) {
+      allAmenity.splice(selectedAmenities, 1);
+    } else {
+      allAmenity.push(id);
+    }
+
+    setAmenity(allAmenity);
   };
 
-  const [thumbNail, setThumbNail] = useState([]);
-
-  const handleThumbNail = (files) => {
-    setThumbNail(files);
+  const handleDescription = (newValue, editor) => {
+    setDescription(newValue);
   };
 
-  const [rooms, setRooms] = useState(1);
-  const [bathrooms, setBathRooms] = useState(1);
-
-  const handleRooms = (event) => {
+  const handleRoom = (event) => {
     setRooms(event.target.value);
   };
-  const handleBathRooms = (event) => {
+
+  const handleBathRoom = (event) => {
     setBathRooms(event.target.value);
   };
 
-  // console.log("description", description);
-  console.log("rooms", rooms);
-
-  switch (step) {
-    case 0:
-      return (
-        <PropertyDetails
-          titleCallBack={handleTitle}
-          countyCallBack={handleCounty}
-          priceCallBack={handlePrice}
-          townCallBack={handleTown}
-          cityCallBack={handleCity}
-          streetAddressCallBack={handleStreetAddress}
-          agentPhoneCallBack={handleAgentPhone}
-          agentNameCallBack={handleAgentName}
-          propertyTypecallBack={handlePropertyType}
-          propertyCallBack={handleProperty}
-          descriptionCallBack={handleDescription}
-          roomsCallBack={handleRooms}
-          bathRoomsCallBack={handleBathRooms}
-          type={propertyType}
-          town={town}
-          city={city}
-          price={price}
-          county={county}
-          streetAddress={streetAddress}
-          agentName={agentName}
-          agentPhone={agentPhone}
-          title={title}
-          property={property}
-          description={description}
-          rooms={rooms}
-          bathrooms={bathrooms}
-        />
-      );
-    case 1:
-      return (
-        <PropertyAmenities amenityCallBack={handleAmenity} amenity={amenity} />
-      );
-    case 2:
-      return (
-        <PropertyExternals
-          externalCallBack={handleExternal}
-          external={external}
-        />
-      );
-    case 3:
-      return (
-        <PropertyFiles
-          filesCallBack={handlePropertyFiles}
-          propetyFiles={propetyFiles}
-        />
-      );
-    case 4:
-      return (
-        <PropertyThumbNail
-          thumbNailCallBack={handleThumbNail}
-          thumbNail={thumbNail}
-        />
-      );
-
-    default:
-      return <div>Invalid!</div>;
-  }
-};
-
-const PropertyStepper = () => {
-  const [activeStep, setActiveStep] = useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const handleAgentName = (event) => {
+    setAgentName(event.target.value);
   };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  const handleAgentPhone = (event) => {
+    setAgentPhone(event.target.value);
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
+  const handleTown = (e) => {
+    setTown(e.target.value);
+  };
+
+  const handleCounty = (e) => {
+    setCounty(e.target.value);
+  };
+
+  const handleCity = (e) => {
+    setCity(e.target.value);
+  };
+
+  const handleStreetAddress = (e) => {
+    setStreetAddress(e.target.value);
+  };
+
+  const handlePropertyTypeId = (event) => {
+    setPropertyType(event.target.value);
+  };
+
+  const handlePropertyId = (event) => {
+    setProperty(event.target.value);
+  };
+
+  const handleTitle = (event) => {
+    setTitle(event.target.value);
   };
 
   return (
     <>
       <Container maxWidth="lg">
-        <Box>
-          <Stepper orientation="vertical" activeStep={activeStep}>
-            {getSteps.map((label, index) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-                <StepContent>
-                  {GetStepContent(index)}
-                  <Box py={2} display="flex" justifyContent="space-between">
-                    <CustomButton
-                      variant="outlined"
-                      color="secondary"
-                      onClick={handleBack}
-                      disabled={activeStep === 0}
-                    >
-                      Back
-                    </CustomButton>
-                    <CustomButton
-                      variant="outlined"
-                      color="primary"
-                      onClick={handleNext}
-                    >
-                      {activeStep === getSteps.length - 1 ? "Finish" : "Next"}
-                    </CustomButton>
-                  </Box>
-                </StepContent>
-              </Step>
-            ))}
-          </Stepper>
-          {activeStep === getSteps.length && (
-            <>
-              <Box py={2}>
-                <Paper square elevation={1} style={{ padding: 8 }}>
-                  <Typography>
-                    All steps completed - you&apos;re finished
-                  </Typography>
-                  <CustomButton
-                    onClick={handleReset}
-                    color="primary"
-                    variant="outlined"
-                  >
-                    Reset
-                  </CustomButton>
-                  <CustomButton variant='outlined' color='secondary'>
-                    Upload
-                  </CustomButton>
-                </Paper>
-              </Box>
-            </>
-          )}
+        <Box className={classes.newPropertyWrapper}>
+          <form onSubmit={uploadPropertyItem}>
+            <PropertyDetails
+              title={title}
+              titleCallBack={handleTitle}
+              property={property}
+              propertyIdCallBack={handlePropertyId}
+              classes={classes}
+              propertyType={propertyType}
+              propertyTypeIdCallBack={handlePropertyTypeId}
+              town={town}
+              townCallBack={handleTown}
+              city={city}
+              cityCallBack={handleCity}
+              county={county}
+              countyCallBack={handleCounty}
+              streetAddress={streetAddress}
+              streetAddressCallBack={handleStreetAddress}
+              rooms={rooms}
+              roomsCallBack={handleRoom}
+              bathrooms={bathrooms}
+              bathroomsCallBack={handleBathRoom}
+              agentName={agentName}
+              agentNameCallBack={handleAgentName}
+              agentPhone={agentPhone}
+              agentPhoneCallBack={handleAgentPhone}
+              description={description}
+              descriptionCallBack={handleDescription}
+              amenity={amenity}
+              amenityCallBack={handleAmenity}
+              external={external}
+              externalsCallBack={handleExternal}
+              propertyFiles={propertyFiles}
+              propertyFilesCallBack={handlePropertyFiles}
+              // thumbNail={thumbNail}
+              thumbNailCallBack={handleThumbNail}
+              price={price}
+              priceCallBack={handlePrice}
+              deletePropertyFiles={handlePropertyFilesDelete}
+              deleteThumbNail={handleDeleteThumbNail}
+            />
+            <Box className={classes.uploadBtn}>
+              <CustomButton
+                color="primary"
+                variant="contained"
+                type="submit"
+                disabled={title.trim() === ""}
+                // onClick={uploadPropertyItem}
+              >
+                Upload Property
+              </CustomButton>
+            </Box>
+          </form>
         </Box>
-      </Container>
-    </>
-  );
-};
+        <Backdrop
+          className={classes.backdrop}
+          open={loading ? loading : openBackdrop}
+        >
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <CircularProgress color="inherit" />
+            <Typography variant="h6" style={{ marginLeft: 4 }}>
+              Uploading ...
+            </Typography>
+          </Box>
+        </Backdrop>
+        {data && (
+          <Snackbar
+            open={openSnackbar}
+            autoHideDuration={6000}
+            onClose={handleSnackbarClose}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            <MuiAlert severity="success" onClose={handleSnackbarClose}>
+              {data.uploadPropertyItem.message}
+            </MuiAlert>
+          </Snackbar>
+        )}
 
-const NewProperty = () => {
-  const classes = useStyles();
-  return (
-    <>
-      <Box className={classes.root}>
-        <PropertyStepper />
-      </Box>
+        {error && (
+          <Snackbar
+            open={errorSnackBar}
+            autoHideDuration={6000}
+            onClose={() => setErrorSnackBar(false)}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            <MuiAlert severity="error" onClose={() => setErrorSnackBar(false)}>
+              {error.message}
+            </MuiAlert>
+          </Snackbar>
+        )}
+      </Container>
     </>
   );
 };

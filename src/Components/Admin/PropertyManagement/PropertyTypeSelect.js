@@ -1,17 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
+import { FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@material-ui/core";
 
 import { GET_ALL_PROPERTY_TYPES } from "../../../GraphQL/Queries/GetAllPropertyTypes";
 import { useQuery } from "@apollo/client";
 
-const PropertyTypeSelect = ({...rest}) => {
-  // const [propertyTypeId, setId] = useState(1);
-  // const handleChange = (event) => {
-  //   setId(event.target.value);
-  // };
-  // console.log(propertyType)
-
+const PropertyTypeSelect = ({ propertyType, propertyTypeIdCallBack }) => {
   const { loading, data, error } = useQuery(GET_ALL_PROPERTY_TYPES);
   if (loading)
     return (
@@ -38,15 +32,20 @@ const PropertyTypeSelect = ({...rest}) => {
 
   return (
     <>
-      <FormControl variant="outlined" fullWidth margin="dense">
+      <FormControl variant="filled" fullWidth margin="dense" required>
         <InputLabel>Property Type</InputLabel>
-        <Select  onChange={rest} label="Services">
+        <Select
+          onChange={propertyTypeIdCallBack}
+          label="Services"
+          value={propertyType}
+        >
           {data.allPropertyTypes.map((item) => (
             <MenuItem key={item.id} value={item.id}>
               {item.type}
             </MenuItem>
           ))}
         </Select>
+        <FormHelperText>Select Type</FormHelperText>
       </FormControl>
     </>
   );

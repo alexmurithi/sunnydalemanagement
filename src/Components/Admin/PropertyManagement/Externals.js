@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Box,
@@ -13,7 +13,7 @@ import {
 import { GET_ALL_EXTERNALS } from "../../../GraphQL/Queries/GetAllExternals";
 import { useQuery } from "@apollo/client";
 
-const Externals = ({ externalCallBack, external }) => {
+const Externals = ({ externalsCallBack, external }) => {
   const { loading, data, error } = useQuery(GET_ALL_EXTERNALS);
 
   if (loading) return <div>Loading..</div>;
@@ -22,7 +22,6 @@ const Externals = ({ externalCallBack, external }) => {
 
   return (
     <>
-    
       <Box py={2}>
         <FormControl component="fieldset">
           <FormLabel component="legend">
@@ -33,7 +32,7 @@ const Externals = ({ externalCallBack, external }) => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    onChange={externalCallBack(item.id)}
+                    onChange={externalsCallBack(item.id)}
                     name={item.name}
                     color="primary"
                     checked={external.includes(item.id)}

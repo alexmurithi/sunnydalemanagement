@@ -1,14 +1,15 @@
 import React from "react";
 import { DropzoneArea } from "material-ui-dropzone";
 
-const PropertyThumbNail = ({ thumbNailCallBack,thumbNail }) => {
+const PropertyThumbNail = ({ thumbNailCallBack, deleteThumbNail }) => {
   return (
     <DropzoneArea
       acceptedFiles={["image/jpeg", "image/png", "image/bmp", "image/jpg"]}
       onChange={thumbNailCallBack}
+      onDelete={deleteThumbNail}
       showFileNames
       filesLimit={1}
-      initialFiles={thumbNail}
+      maxFileSize={3000000}
     />
   );
 };
