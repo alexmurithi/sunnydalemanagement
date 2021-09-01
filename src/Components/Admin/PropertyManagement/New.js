@@ -182,10 +182,19 @@ const NewProperty = () => {
       const formData = new FormData();
       formData.append("file", file);
 
-      formData.append("upload_preset", "koxpsqt5");
+      formData.append(
+        "upload_preset",
+        process.env.NODE_ENV === "development"
+          ? " koxpsqt5"
+          : "sunnydalemanagement"
+      );
 
       return Axios.post(
-        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`,
+        `https://api.cloudinary.com/v1_1/${
+          process.env.NODE_ENV === "development"
+            ? process.env.REACT_APP_CLOUD_NAME
+            : process.env.REACT_APP_PROD_CLOUDNAME
+        }/upload`,
         formData,
         {
           headers: { "X-Requested-With": "XMLHttpRequest" },
