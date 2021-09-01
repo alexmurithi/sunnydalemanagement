@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core";
-import CustomButton from "../../Button.js";
+import CustomButton from "../../Button/index.js";
 import PropertyDetails from "./Details";
 
 import { UPLOAD_PROPERTY_ITEM } from "../../../GraphQL/Mutations/UploadPropertyItem";

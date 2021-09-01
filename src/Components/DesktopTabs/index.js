@@ -1,107 +1,105 @@
-import React, {useState} from 'react';
-import {
-    Button,
-    Tabs,
-    Tab,
-} from '@material-ui/core';
-import {Link} from 'react-router-dom';
-import {makeStyles} from "@material-ui/core/styles";
+import React, { useState } from "react";
+import { Button, Tabs, Tab } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../../Assets/Logo/Logo.png";
-// import OnSaleTab from "./OnSaleTab";
-// import OnRentTab from "./onRentTab";
+import CustomButton from "../Button";
+import { isLoggedInVar as isLoggedIn } from "../../Apollo/ReactVariables";
 
-const useStyles =makeStyles(theme=>({
-    desktopTabs:{
-        marginLeft:"auto",
-    },
-    desktopTab:{
-        ...theme.desktopTab
+const useStyles = makeStyles((theme) => ({
+  desktopTabs: {
+    marginLeft: "auto",
+  },
+  desktopTab: {
+    ...theme.desktopTab,
+  },
+  loginBtn: {
+    // fontWeight:"bold",
+    // width:"150px",
+    // height:"40px",
+    // borderRadius:theme.spacing(2)
+  },
+}));
 
-    },
-    loginBtn:{
-       
-        fontWeight:"bold",
-        width:"150px",
-        height:"40px",
-        borderRadius:theme.spacing(2)
-    },
+const DesktopTabs = () => {
+  const classes = useStyles();
 
-}))
+  const [tabsValue, setTabsValue] = useState(0);
 
-const DesktopTabs =() =>{
-const classes =useStyles()
+  const handleTabs = (event, newValue) => {
+    setTabsValue(newValue);
+  };
 
-       const [tabsValue, setTabsValue] =useState(0)
+  return (
+    <>
+      <Button disableRipple component={Link} to="/">
+        <img edge="start" src={Logo} width={60} height={60} alt="Sunnydale" />
+      </Button>
 
-       const handleTabs =(event,newValue)=>{
-       setTabsValue(newValue)
-    }
+      <Tabs
+        className={classes.desktopTabs}
+        indicatorColor="primary"
+        value={tabsValue}
+        onChange={handleTabs}
+      >
+        <Tab
+          label="Home"
+          component={Link}
+          className={classes.desktopTab}
+          to="/"
+        />
 
-    return(
-        <>
-            <Button disableRipple component={Link} to="/"
-            >
-                <img edge="start"
-                     src={Logo} width={60}
-                     height={60} alt="Sunnydale"
-                />
-            </Button>
+        <Tab
+          label="Real Estate Management"
+          component={Link}
+          className={classes.desktopTab}
+          to="/real-estate-and-property-management"
+        />
 
-            <Tabs
-                className={classes.desktopTabs}
-                indicatorColor="primary"
-                value ={tabsValue}
-                onChange={handleTabs}
-            >
-                <Tab
-                    label="Home"
-                    component={Link} className={classes.desktopTab}
-                    to="/"
-                />
-
-                <Tab
-                    label="Real Estate Management"
-                    component={Link} className={classes.desktopTab}
-                    to="/real-estate-and-property-management"
-                />
-
-                {/* <OnSaleTab />
+        {/* <OnSaleTab />
                 <OnRentTab /> */}
-                <Tab
-                    label="Monitoring & Evaluation"
-                    component={Link} className={classes.desktopTab}
-                    to="/monitoring-and-evaluation"
-                />
-               
+        <Tab
+          label="Monitoring & Evaluation"
+          component={Link}
+          className={classes.desktopTab}
+          to="/monitoring-and-evaluation"
+        />
 
-                <Tab
-                    component={Link}
-                    className={classes.desktopTab}
-                    label ="About Us"
-                    to="/about"
-                />
+        <Tab
+          component={Link}
+          className={classes.desktopTab}
+          label="About Us"
+          to="/about"
+        />
 
-                <Tab
-                    component={Link}
-                    className={classes.desktopTab}
-                    label="Contact"
-                    to="/contact"
-                />
-
-            </Tabs>
-
-            <Button
-                variant="outlined"
-                color="primary"
-                className={classes.loginBtn}
-                component={Link}
-                to="/auth/login"
-            >
-                Login
-            </Button>
-
-        </>
-    )
-}
+        <Tab
+          component={Link}
+          className={classes.desktopTab}
+          label="Contact"
+          to="/contact"
+        />
+      </Tabs>
+      {isLoggedIn ? (
+        <CustomButton
+          variant="outlined"
+          color="primary"
+          component={Link}
+          to="/auth/login"
+        >
+          Sign Out
+        </CustomButton>
+      ) : (
+        <CustomButton
+          variant="outlined"
+          color="primary"
+          component={Link}
+          to="#"
+        >
+          Login In
+        </CustomButton>
+      )}
+    </>
+  );
+};
 
 export default DesktopTabs;
