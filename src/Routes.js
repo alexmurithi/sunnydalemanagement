@@ -70,7 +70,7 @@ const AppRoutes = () => {
         />
       </Route>
 
-      <Route exact path="/admin" element={<DashboardLayout />}>
+      <Route exact path="/admin" element={ <DashboardLayout />}>
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route
           exact

@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../../Assets/Logo/Logo.png";
 import CustomButton from "../Button";
-import { isLoggedInVar as isLoggedIn } from "../../Apollo/ReactVariables";
+import { isLoggedInVar } from "../../Apollo/ReactVariables";
+import { useApolloClient } from "@apollo/client";
+import { IS_LOGGED_IN } from "../../GraphQL/Queries/IsLoggedIn";
+import { useQuery } from "@apollo/client";
 
 const useStyles = makeStyles((theme) => ({
   desktopTabs: {
@@ -13,16 +16,12 @@ const useStyles = makeStyles((theme) => ({
   desktopTab: {
     ...theme.desktopTab,
   },
-  loginBtn: {
-    // fontWeight:"bold",
-    // width:"150px",
-    // height:"40px",
-    // borderRadius:theme.spacing(2)
-  },
 }));
 
 const DesktopTabs = () => {
   const classes = useStyles();
+  const client = useApolloClient();
+   const { data } = useQuery(IS_LOGGED_IN);
 
   const [tabsValue, setTabsValue] = useState(0);
 
@@ -79,12 +78,17 @@ const DesktopTabs = () => {
           to="/contact"
         />
       </Tabs>
-      {isLoggedIn ? (
+     
+      {data.isLoggedIn ? (
         <CustomButton
           variant="outlined"
           color="primary"
-          component={Link}
-          to="/auth/login"
+          onClick={() => {
+            client.cache.evict({ fieldName: "me" });
+            client.cache.gc();
+            localStorage.removeItem("token");
+            isLoggedInVar(false);
+          }}
         >
           Sign Out
         </CustomButton>
@@ -93,7 +97,7 @@ const DesktopTabs = () => {
           variant="outlined"
           color="primary"
           component={Link}
-          to="#"
+          to="/auth/login"
         >
           Login In
         </CustomButton>

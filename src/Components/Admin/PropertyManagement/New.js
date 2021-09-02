@@ -370,7 +370,7 @@ const NewProperty = () => {
             onClose={handleSnackbarClose}
             anchorOrigin={{ vertical: "top", horizontal: "right" }}
           >
-            <MuiAlert severity="success" onClose={handleSnackbarClose}>
+            <MuiAlert severity="success" onClose={handleSnackbarClose} variant="filled">
               {data.uploadPropertyItem.message}
             </MuiAlert>
           </Snackbar>
@@ -383,7 +383,7 @@ const NewProperty = () => {
             onClose={() => setErrorSnackBar(false)}
             anchorOrigin={{ vertical: "top", horizontal: "right" }}
           >
-            <MuiAlert severity="error" onClose={() => setErrorSnackBar(false)}>
+            <MuiAlert severity="error" onClose={() => setErrorSnackBar(false)} variant="filled">
               {error.message}
             </MuiAlert>
           </Snackbar>

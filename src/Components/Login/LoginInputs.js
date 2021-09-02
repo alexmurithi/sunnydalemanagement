@@ -13,7 +13,7 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
+import MuiAlert from "@material-ui/lab/Alert";
 
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 
@@ -91,12 +91,12 @@ const LoginInputs = () => {
               </Typography>
               <Box py={2}>
                 {error ? (
-                  <Alert severity="error">{error.message}</Alert>
+                  <MuiAlert severity="error">{error.message}</MuiAlert>
                 ) : (
-                  <Alert severity="info">
+                  <MuiAlert severity="info">
                     To Login you need a valid user account! If you do not have
                     an account please contact the Administator
-                  </Alert>
+                  </MuiAlert>
                 )}
               </Box>
 
