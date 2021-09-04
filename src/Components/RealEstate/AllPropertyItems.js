@@ -1,135 +1,83 @@
-import React from 'react';
-import {
-    Box,
-    Card,
-    Typography,
-    Grid,
-    Button,
-   
-} from "@material-ui/core";
+import React from "react";
+import { Box, Card, Typography, Grid, Button } from "@material-ui/core";
 
+import KingBedIcon from "@material-ui/icons/KingBed";
+import BathtubIcon from "@material-ui/icons/Bathtub";
 
+import { GET_ALL_PROPERTY_ITEMS } from "../../GraphQL/Queries/GetAllPropertyItems";
+import { useQuery } from "@apollo/client";
 
-import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
-import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-import KingBedIcon from '@material-ui/icons/KingBed';
-import BathtubIcon from '@material-ui/icons/Bathtub';
+import { makeStyles } from "@material-ui/core";
 
-import { GET_ALL_PROPERTY_ITEMS } from '../../GraphQL/Queries/GetAllPropertyItems';
-import { useQuery } from '@apollo/client';
-
-import {makeStyles} from "@material-ui/core";
-
-const useStyles =makeStyles((theme)=>({
-card:{
-    width:'100%',
-    marginBottom:theme.spacing(2),
-    borderRadius:0,
-    cursor:'pointer',
-    transition:'all .2s ease-in-out',
-    '&:hover':{
-        boxShadow:theme.shadows[5],
-        transform:`scale(0.97)`
-       
-    }
-},
-imageTitle:{
-    color:theme.palette.white,
-    fontWeight:"bold",
-    fontSize:'1.2rem',
-    paddingBottom:theme.spacing(1)
-},
-imageSubtitle:{
-    color:theme.palette.secondary.main,
-    fontWeight:"bold"
-},
-titleBar: {
-    background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginBottom: theme.spacing(3),
   },
-}))
+  imageList: {
+    width: "100%",
+  },
+}));
 
+const AllProperties = () => {
+  const classes = useStyles();
 
+  const { loading, data, error } = useQuery(GET_ALL_PROPERTY_ITEMS, {});
+  if (loading) return <div>Loading..</div>;
+  if (error) return <div>Error</div>;
+  console.log("propertyitems :", data);
+  return (
+    <>
+      <Box>
+        {data.allPropertyItems.map((item) => (
+          <Card elevation={1} className={classes.paper} key={item.id}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={12} md={12} lg={5} xl={5}>
+                <img
+                  src={item.thumbNail.path}
+                  alt={item.title}
+                  height={200}
+                  width="100%"
+                  style={{ objectFit: "cover" }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} md={12} lg={7} xl={7}>
+                <Box style={{ padding: "8px 4px" }}>
+                  <Typography gutterBottom variant="h4" color="secondary">
+                    {item.price}
+                  </Typography>
+                  <Typography variant="body1" gutterBottom>
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    gutterBottom
+                    color="textSecondary"
+                  >
+                    {item?.county} , {item?.town}, {item?.streetAddress}
+                  </Typography>
 
-const AllProperties =()=>{
-    const classes =useStyles()
-
-    const {loading,data,error} =useQuery(GET_ALL_PROPERTY_ITEMS,{
-       
-    })
-    if (loading) return<div>Loading..</div>
-    if (error) return <div>Error</div>
-    console.log(data)
-   return(
-       <>
-        <Box>
-            {data.allPropertyItems.map((item)=>(
-                
-                <Card key={item.id} className={classes.card} elevation={0}>
-                    <Grid container spacing={2}>
-                        <Grid item lg={4}>
-                            <ImageList>
-                                <ImageListItem cols={2} rows={1}>
-                                    <img 
-                                    src={
-                                        item.files.length >0 ?item.files[0].path :undefined  
-                                    } 
-                                    alt={item.title} 
-                                    />
-                                    <ImageListItemBar 
-                                    title={item.property.name} 
-                                    subtitle={item.propertyType.type}
-                                     classes={{
-                                                root: classes.titleBar,
-                                                title: classes.imageTitle,
-                                                subtitle:classes.imageSubtitle
-                                            }}
-                                    />
-                                </ImageListItem>
-                            </ImageList>
-                        </Grid>
-                        <Grid item lg={8}>
-                            <Box py={2}>
-                                 <Typography variant='h4' color='secondary' gutterBottom>
-                                KSH {item.price}
-                            </Typography>
-                            <Typography variant='body1' gutterBottom>
-                                {item.title}
-                            </Typography>
-                            <Typography variant='h5' gutterBottom>
-                                {item.county} County
-                            </Typography>
-                            <Typography variant='h5' gutterBottom color='textSecondary'>
-                                {item.town}, {item.city} 
-                            </Typography>
-
-                            <Box  >
-                                <Button
-                                    variant="text"
-                                    startIcon={<KingBedIcon />}
-                                >
-                                    {item.no_of_rooms}
-                                </Button>
-                                <Button
-                                    variant="text"
-                                    startIcon={<BathtubIcon />}
-                                >
-                                    {item.no_of_bathrooms}
-                                </Button>
-                            </Box>
-
-                            </Box>
-                           
-                        </Grid>
-                    </Grid>
-                </Card>
-               
-                
-            ))}
-        </Box>
-       </>
-   )
-}
+                  <Box style={{ display: "flex" }}>
+                    <Button
+                      variant="text"
+                      startIcon={<KingBedIcon color="primary" />}
+                    >
+                      {item.no_of_rooms}
+                    </Button>
+                    <Button
+                      variant="text"
+                      startIcon={<BathtubIcon color="primary" />}
+                    >
+                      {item.no_of_bathrooms}
+                    </Button>
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
+          </Card>
+        ))}
+      </Box>
+    </>
+  );
+};
 
 export default React.memo(AllProperties);

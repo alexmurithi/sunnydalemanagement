@@ -26,6 +26,10 @@ export const GET_ALL_PROPERTY_ITEMS = gql`
       files {
         id
         path
+      },
+      thumbNail{
+        id,
+        path
       }
     }
   }
