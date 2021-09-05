@@ -13,7 +13,7 @@ const httpLink = new createHttpLink({
       ? `${process.env.REACT_APP_LOCAL_API_ENDPOINT}`
       : `${process.env.REACT_APP_API_ENDPOINT}`
   }`,
-  credentials: "same-origin",
+  // credentials: "include",
   typeDefs,
 });
 
