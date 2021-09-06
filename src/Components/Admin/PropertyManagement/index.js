@@ -4,7 +4,7 @@ import { Box, Paper, Container, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core";
-import PropertyItemsDataGrid from "../PropertyItems/DataGrid";
+import PropertyItemsTable from "../PropertyItems/PropertyItemsTable";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const AddNewButton = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg">
+   
       <Paper className={classes.root} elevation={0}>
         <Box
           display="flex"
@@ -40,17 +40,19 @@ const AddNewButton = () => {
           </Button>
         </Box>
       </Paper>
-    </Container>
+    
   );
 };
 
 const AdminPropManagement = () => {
   return (
     <>
-      <AddNewButton />
-      <Box style={{ width: "100%"}}>
-        <PropertyItemsDataGrid />
-      </Box>
+      <Container maxWidth="lg">
+        <AddNewButton />
+        <Box style={{ width: "100%" }}>
+          <PropertyItemsTable />
+        </Box>
+      </Container>
     </>
   );
 };
