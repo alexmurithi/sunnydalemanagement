@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@material-ui/core/styles";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import MainNavbar from "../Containers/Header";
 
 const MainLayoutRoot = styled("div")((theme) => ({

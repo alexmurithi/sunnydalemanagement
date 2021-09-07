@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Container,
@@ -12,6 +12,8 @@ import {
   FormControl,
   InputLabel,
   OutlinedInput,
+  Snackbar,
+  CircularProgress
 } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 
@@ -22,11 +24,18 @@ import { LOGIN_USER } from "../../GraphQL/Mutations/Login";
 import { isLoggedInVar } from "../../Apollo/ReactVariables";
 
 const LoginInputs = () => {
+  const navigate = useNavigate();
+
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
   });
   const [email, setEmail] = useState("");
+  const [openLoginSuccessAlert, setOpenLoginSuccessAlert] = useState(false);
+
+  const handleCloseLoginSuccessAlert = () => {
+    setOpenLoginSuccessAlert(false);
+  };
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -49,6 +58,12 @@ const LoginInputs = () => {
       if (login) {
         localStorage.setItem("token", JSON.stringify(login));
         isLoggedInVar(true);
+        setOpenLoginSuccessAlert(true);
+        setValues({password:""})
+        setEmail("")
+        setTimeout(() => {
+          navigate("/admin");
+        }, 3000);
       }
     },
     onError(error) {
@@ -91,7 +106,9 @@ const LoginInputs = () => {
               </Typography>
               <Box py={2}>
                 {error ? (
-                  <MuiAlert severity="error">{error.message}</MuiAlert>
+                  <MuiAlert severity="error" variant="filled">
+                    {error.message}
+                  </MuiAlert>
                 ) : (
                   <MuiAlert severity="info">
                     To Login you need a valid user account! If you do not have
@@ -144,12 +161,27 @@ const LoginInputs = () => {
                 style={{ marginTop: 21, borderRadius: 0, width: 200 }}
                 type="submit"
               >
-                {loading ? "loading..." : "LOGIN"}
+                {loading ? <CircularProgress size={ 24}/> : "LOGIN"}
               </Button>
             </Paper>
           </form>
         </Container>
       </Box>
+
+      <Snackbar
+        open={openLoginSuccessAlert}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        onClose={handleCloseLoginSuccessAlert}
+        autoHideDuration={6000}
+      >
+        <MuiAlert
+          variant="filled"
+          severity="success"
+          onClose={handleCloseLoginSuccessAlert}
+        >
+          Logged in Successfully!
+        </MuiAlert>
+      </Snackbar>
     </>
   );
 };

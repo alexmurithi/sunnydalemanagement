@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@material-ui/core/styles";
 import Navbar from "../Containers/Header";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 // import MonitoringCarousel from '../Components/Monitoring/Carousel';
 import { Box, Grid, Hidden } from "@material-ui/core";
 import MonitoringMenu from "../Components/Monitoring/MonitoringMenu";

@@ -8,9 +8,6 @@ import MainLayout from "./Layouts/MainLayout";
 import MonitoringLayout from "./Layouts/MonitoringLayout";
 import RealEstateLayout from "./Layouts/RealEstateLayout";
 
-import { IS_LOGGED_IN } from "./GraphQL/Queries/IsLoggedIn";
-import { useQuery } from "@apollo/client";
-
 const LandingPage = lazy(() => import("./Pages/LandingPage"));
 const AboutUs = lazy(() => import("./Pages/AboutUs"));
 const AdminLogin = lazy(() => import("./Pages/Auth/Login"));
@@ -52,25 +49,36 @@ const NewProperty = lazy(() =>
   import("./Components/Admin/PropertyManagement/New")
 );
 const AppRoutes = () => {
-  const { data } = useQuery(IS_LOGGED_IN);
-  
+  const isAuthenticated = !!localStorage.getItem("token");
   return (
     <Routes>
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" />} />
-      <Route path="/admin" element={<Navigate to="/admin/dashboard" />} />
+
+      <Route
+        path="/admin"
+        element={
+          isAuthenticated ? (
+            <Navigate to="/admin/dashboard" />
+          ) : (
+            <Navigate to="/auth/login" />
+          )
+        }
+      />
 
       <Route exact path="/" element={<MainLayout />}>
         <Route path="/" exact element={<LandingPage />} />
         <Route path="/about" exact element={<AboutUs />} />
-        <Route
-          path="/auth/login"
-          exact
-          element={!data.isLoggedIn ? <AdminLogin /> : <Navigate to="/" />}
-        />
+        <Route path="/auth/login" exact element={<AdminLogin />} />
       </Route>
 
-      <Route exact path="/admin" element={ <DashboardLayout />}>
+      <Route
+        exact
+        path="/admin"
+        element={
+          isAuthenticated ? <DashboardLayout /> : <Navigate to="/auth/login" />
+        }
+      >
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route
           exact
