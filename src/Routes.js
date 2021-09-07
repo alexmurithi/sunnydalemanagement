@@ -133,6 +133,7 @@ const AppRoutes = () => {
         element={<RealEstateLayout />}
       >
         <Route exact path="" element={<AllPropertyItems />} />
+        <Route exact path="/:id" element={<div>this</div>} />
       </Route>
     </Routes>
   );

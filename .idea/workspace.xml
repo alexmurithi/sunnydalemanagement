@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Apartments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Apartments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DashboardSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardSidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/AboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/AboutUs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Auth/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Layouts/RealEstateLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layouts/RealEstateLayout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Themes/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Themes/Default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +19,9 @@
     <setting file="file://$PROJECT_DIR$/src/Containers/Header/index.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1tqFCt2KXnqx2bLS6MoJSBoC9B2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -35,13 +30,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/npm/node_modules/prettier" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\ALEX\AppData\Roaming\npm\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -53,11 +49,11 @@
       <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Assets\Logo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ALEX\Documents\PROJECTS\Sunnydale\sunnydalemanagement-dev\src\Shimmers\PropertyChips" />
       <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Pages" />
       <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Components" />
       <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Pages\Admin\Auth" />
       <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Assets\svg" />
-      <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Assets\Images" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -96,6 +92,7 @@
       <workItem from="1626761460994" duration="3320000" />
       <workItem from="1627032805242" duration="127000" />
       <workItem from="1627315760766" duration="299000" />
+      <workItem from="1631014748676" duration="16282000" />
     </task>
     <servers />
   </component>
@@ -113,5 +110,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
