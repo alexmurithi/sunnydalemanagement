@@ -38,7 +38,7 @@ const AllProperties = () => {
           <NavLink
             elevation={1}
             key={item.id}
-            to={`${window.location.pathname}/${item.id}`}
+            to={`/real-estate/property-item/${item.id}`}
             className={classes.link}
           >
             <Card className={classes.card}>

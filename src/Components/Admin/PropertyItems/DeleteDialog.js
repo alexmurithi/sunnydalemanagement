@@ -18,7 +18,13 @@ import { DELETE_PROPERTY_ITEMS } from "../../../GraphQL/Mutations/DeleteProperty
 import { GET_ALL_PROPERTY_ITEMS } from "../../../GraphQL/Queries/GetAllPropertyItems";
 import { useMutation } from "@apollo/client";
 
-const DeleteDialog = ({ open, closeDeleteDialog, selected, numSelected }) => {
+const DeleteDialog = ({
+  open,
+  closeDeleteDialog,
+  selected,
+  numSelected,
+  handleSelection,
+}) => {
   const [openSuccessSnackbar, setOpenSuccessSnackbar] = useState(false);
 
   const [openErrorSnackbar, setOpenErrorSnackbar] = useState(false);
@@ -33,10 +39,12 @@ const DeleteDialog = ({ open, closeDeleteDialog, selected, numSelected }) => {
   const [deleteItem, { loading }] = useMutation(DELETE_PROPERTY_ITEMS, {
     onCompleted({ deletePropertyItems }) {
       if (deletePropertyItems) {
+        handleSelection([]);
         closeDeleteDialog(true);
         setOpenSuccessSnackbar(true);
       }
     },
+    update: (cache) => {},
     refetchQueries: [GET_ALL_PROPERTY_ITEMS, "getAllPropertyItems"],
     onError(error) {
       closeDeleteDialog(true);
@@ -61,7 +69,7 @@ const DeleteDialog = ({ open, closeDeleteDialog, selected, numSelected }) => {
   });
 
   const handleDeletePropertyItems = () => {
-    deleteItem({ variables: { id: parseInt(selected) } });
+    deleteItem({ variables: { id: selected.map((i) => Number(i)) } });
   };
 
   return (

@@ -70,6 +70,12 @@ const AppRoutes = () => {
         <Route path="/" exact element={<LandingPage />} />
         <Route path="/about" exact element={<AboutUs />} />
         <Route path="/auth/login" exact element={<AdminLogin />} />
+
+        <Route
+          exact
+          path="/real-estate/property-item/:id"
+          element={<div>this</div>}
+        />
       </Route>
 
       <Route
@@ -133,7 +139,6 @@ const AppRoutes = () => {
         element={<RealEstateLayout />}
       >
         <Route exact path="" element={<AllPropertyItems />} />
-        <Route exact path="/:id" element={<div>this</div>} />
       </Route>
     </Routes>
   );

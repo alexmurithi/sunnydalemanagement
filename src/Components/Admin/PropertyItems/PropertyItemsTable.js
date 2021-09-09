@@ -116,7 +116,11 @@ const PropertyItemsTable = () => {
   return (
     <>
       <Paper elevation={1} square>
-        <TableToolbar numSelected={selected.length} selected={ selected}/>
+        <TableToolbar
+          numSelected={selected.length}
+          selected={selected}
+          handleSelection={setSelected}
+        />
         <TableContainer>
           <Table>
             <CustomTableHead

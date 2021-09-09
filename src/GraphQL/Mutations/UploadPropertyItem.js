@@ -25,7 +25,7 @@ export const UPLOAD_PROPERTY_ITEM = gql`
       title: $title
       description: $description
       propertyId: $propertyId
-      propertyTypeId:$propertyTypeId
+      propertyTypeId: $propertyTypeId
       price: $price
       county: $county
       town: $town
@@ -52,6 +52,7 @@ export const UPLOAD_PROPERTY_ITEM = gql`
         county
         town
         city
+        price
         streetAddress
         agentName
         agentPhone
