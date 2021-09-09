@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import MainNavbar from "../Containers/Header";
-import Alert from "@material-ui/lab/Alert";
 import { Box, Container, Typography, Grid, Hidden } from "@material-ui/core";
 import PropertiesChips from "../Components/RealEstate/PropertiesChips";
 
@@ -18,21 +17,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-const AlertMessage = () => (
-  <Box py={2}>
-    <Alert severity="info">
-      <Typography gutterBottom variant="caption">
-        Please note that data or any information on this page or website is for
-        testing purposes only!
-      </Typography>
-
-      <Typography variant="caption">
-        Real data or information will be uploaded soon. Keep Checking!
-      </Typography>
-    </Alert>
-  </Box>
-);
 
 const RealEstateContent = (props) => {
   return (
@@ -58,10 +42,11 @@ const RealEstateLayout = () => {
       <MainNavbar />
 
       <Container maxWidth="xl">
-        <AlertMessage />
-        <Box className={classes.chips} py={1}>
-          <PropertiesChips />
-        </Box>
+        <Hidden mdDown>
+          <Box className={classes.chips} py={2}>
+            <PropertiesChips />
+          </Box>
+        </Hidden>
 
         <MobilePropertyNavTabs />
         <RealEstateContent />

@@ -33,7 +33,7 @@ const AllProperties = () => {
 
   return (
     <>
-      <Box>
+      <Box py={1}>
         {data.allPropertyItems.map((item) => (
           <NavLink
             elevation={1}
