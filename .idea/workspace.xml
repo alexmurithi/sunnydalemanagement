@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Apollo/Cache.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Apollo/Cache.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Admin/PropertyItems/DeleteDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Admin/PropertyItems/DeleteDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Admin/PropertyItems/PropertyItemsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Admin/PropertyItems/PropertyItemsTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Admin/PropertyManagement/New.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Admin/PropertyManagement/New.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphQL/Mutations/DeletePropertyItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphQL/Mutations/DeletePropertyItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphQL/Mutations/UploadPropertyItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphQL/Mutations/UploadPropertyItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/RealEstate/PropertyItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/RealEstate/PropertyItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
-    </list>
+    <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +90,7 @@
       <workItem from="1631014748676" duration="18558000" />
       <workItem from="1631079561366" duration="3582000" />
       <workItem from="1631088908614" duration="9365000" />
-      <workItem from="1631176711092" duration="5043000" />
+      <workItem from="1631176711092" duration="5773000" />
     </task>
     <servers />
   </component>
