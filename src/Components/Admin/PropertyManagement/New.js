@@ -15,6 +15,7 @@ import PropertyDetails from "./Details";
 import { UPLOAD_PROPERTY_ITEM } from "../../../GraphQL/Mutations/UploadPropertyItem";
 import { useMutation } from "@apollo/client";
 import Axios from "axios";
+import { GET_ALL_PROPERTY_ITEMS } from "../../../GraphQL/Queries/GetAllPropertyItems";
 
 require("dotenv").config();
 
@@ -47,9 +48,7 @@ const NewProperty = () => {
       onCompleted({ uploadPropertyItem }) {
         if (uploadPropertyItem) {
           handleCloseBackdrop();
-
           setSnackbar(true);
-
           setTitle("");
           setDescription("");
           setProperty(1);
@@ -69,6 +68,16 @@ const NewProperty = () => {
           setThumbNail("");
         }
       },
+      update: (cache, { data }) => {
+        const newData = data?.uploadPropertyItem.propertyItem;
+        const existingData = cache.readQuery({ query: GET_ALL_PROPERTY_ITEMS });
+        cache.writeQuery({
+          query: GET_ALL_PROPERTY_ITEMS,
+          data: {
+            allPropertyItems: [...existingData?.allPropertyItems, newData],
+          },
+        });
+      },
       onError(error) {
         setErrorSnackBar(true);
       },
@@ -77,7 +86,6 @@ const NewProperty = () => {
 
   const uploadPropertyItem = (event) => {
     event.preventDefault();
-
     uploadItem({
       variables: {
         title: title,
@@ -117,7 +125,7 @@ const NewProperty = () => {
   const [price, setPrice] = useState(10000);
 
   const handlePrice = (event) => {
-    setPrice(Number(event.target.value));
+    setPrice(parseInt(event.target.value));
   };
 
   const [title, setTitle] = useState("");
@@ -370,7 +378,11 @@ const NewProperty = () => {
             onClose={handleSnackbarClose}
             anchorOrigin={{ vertical: "top", horizontal: "right" }}
           >
-            <MuiAlert severity="success" onClose={handleSnackbarClose} variant="filled">
+            <MuiAlert
+              severity="success"
+              onClose={handleSnackbarClose}
+              variant="filled"
+            >
               {data.uploadPropertyItem.message}
             </MuiAlert>
           </Snackbar>
@@ -383,7 +395,11 @@ const NewProperty = () => {
             onClose={() => setErrorSnackBar(false)}
             anchorOrigin={{ vertical: "top", horizontal: "right" }}
           >
-            <MuiAlert severity="error" onClose={() => setErrorSnackBar(false)} variant="filled">
+            <MuiAlert
+              severity="error"
+              onClose={() => setErrorSnackBar(false)}
+              variant="filled"
+            >
               {error.message}
             </MuiAlert>
           </Snackbar>

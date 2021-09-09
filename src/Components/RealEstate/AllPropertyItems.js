@@ -33,12 +33,12 @@ const AllProperties = () => {
 
   return (
     <>
-      <Box>
+      <Box py={1}>
         {data.allPropertyItems.map((item) => (
           <NavLink
             elevation={1}
             key={item.id}
-            to={`${window.location.pathname}/${item.id}`}
+            to={`/real-estate/property-item/${item.id}`}
             className={classes.link}
           >
             <Card className={classes.card}>
