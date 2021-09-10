@@ -1,18 +1,17 @@
 import { gql } from "@apollo/client";
 
-export const GET_ALL_PROPERTY_ITEMS = gql`
-  query getAllPropertyItems {
-    allPropertyItems {
-      id
+export const PROPERTY_ITEM = gql`
+  query propertyItem($id: ID!) {
+    propertyItem(id: $id) {
       title
       description
       price
-      streetAddress
       no_of_rooms
       no_of_bathrooms
-      county
       town
       city
+      county
+      streetAddress
       agentName
       agentPhone
       property {
@@ -23,13 +22,21 @@ export const GET_ALL_PROPERTY_ITEMS = gql`
         id
         type
       }
+      thumbNail {
+        id
+        path
+      }
       files {
         id
         path
       }
-      thumbNail {
+      externals {
         id
-        path
+        name
+      }
+      amenities {
+        id
+        name
       }
     }
   }

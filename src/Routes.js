@@ -48,6 +48,8 @@ const AdminPropManagement = lazy(() =>
 const NewProperty = lazy(() =>
   import("./Components/Admin/PropertyManagement/New")
 );
+
+const PropertyItem = lazy(() => import("./Pages/RealEstate/PropertyItem"));
 const AppRoutes = () => {
   const isAuthenticated = !!localStorage.getItem("token");
   return (
@@ -74,7 +76,7 @@ const AppRoutes = () => {
         <Route
           exact
           path="/real-estate/property-item/:id"
-          element={<div>this</div>}
+          element={<PropertyItem />}
         />
       </Route>
 

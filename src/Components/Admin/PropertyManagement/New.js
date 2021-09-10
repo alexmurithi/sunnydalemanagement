@@ -70,7 +70,9 @@ const NewProperty = () => {
       },
       update: (cache, { data }) => {
         const newData = data?.uploadPropertyItem.propertyItem;
+        console.log(newData);
         const existingData = cache.readQuery({ query: GET_ALL_PROPERTY_ITEMS });
+        console.log("existing Data ", existingData);
         cache.writeQuery({
           query: GET_ALL_PROPERTY_ITEMS,
           data: {
@@ -103,8 +105,8 @@ const NewProperty = () => {
         no_of_rooms: Number(rooms),
         no_of_bathrooms: Number(bathrooms),
         createdBy: UserId,
-        propertyAmenity: parseInt(amenity),
-        propertyExternal: parseInt(external),
+        propertyAmenity: amenity.map((i) => Number(i)),
+        propertyExternal: external.map((i) => Number(i)),
         file: propertyFiles,
       },
     });
@@ -162,8 +164,16 @@ const NewProperty = () => {
 
   const handleThumbNail = (files) => {
     const formData = new FormData();
+
     formData.append("file", files[0]);
-    formData.append("upload_preset", "koxpsqt5");
+    formData.append(
+      "upload_preset",
+      `${
+        process.env.NODE_ENV === "development"
+          ? "koxpsqt5"
+          : "sunnydalemanagement"
+      }`
+    );
 
     return Axios.post(
       `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`,
@@ -192,9 +202,11 @@ const NewProperty = () => {
 
       formData.append(
         "upload_preset",
-        process.env.NODE_ENV === "development"
-          ? " koxpsqt5"
-          : "sunnydalemanagement"
+        `${
+          process.env.NODE_ENV === "development"
+            ? "koxpsqt5"
+            : "sunnydalemanagement"
+        }`
       );
 
       return Axios.post(

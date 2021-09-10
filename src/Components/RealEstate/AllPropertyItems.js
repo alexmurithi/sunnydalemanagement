@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, Typography, Grid, Button, Link } from "@material-ui/core";
+import { Box, Card, Typography, Grid, Button } from "@material-ui/core";
 import { NavLink, useParams } from "react-router-dom";
 import KingBedIcon from "@material-ui/icons/KingBed";
 import BathtubIcon from "@material-ui/icons/Bathtub";

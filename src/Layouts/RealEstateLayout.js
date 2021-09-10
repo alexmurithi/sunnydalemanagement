@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import MainNavbar from "../Containers/Header";
-import { Box, Container, Typography, Grid, Hidden } from "@material-ui/core";
+import { Box, Container, Grid, Hidden } from "@material-ui/core";
 import PropertiesChips from "../Components/RealEstate/PropertiesChips";
 
 import PropertyNavTabs from "../Components/RealEstate/PropertyNavTabs";
