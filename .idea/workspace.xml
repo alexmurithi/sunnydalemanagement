@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Apollo/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Apollo/client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/css/slider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Admin/PropertyManagement/New.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Admin/PropertyManagement/New.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/PhotosGlider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphQL/Queries/GetAllPropertyItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphQL/Queries/GetAllPropertyItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layouts/RealEstateLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layouts/RealEstateLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/RealEstate/PropertyItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/RealEstate/PropertyItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +94,7 @@
       <workItem from="1631088908614" duration="9365000" />
       <workItem from="1631176711092" duration="7334000" />
       <workItem from="1631243008475" duration="22469000" />
-      <workItem from="1631275817191" duration="9001000" />
+      <workItem from="1631275817191" duration="10089000" />
     </task>
     <servers />
   </component>

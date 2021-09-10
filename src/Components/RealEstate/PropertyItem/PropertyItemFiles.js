@@ -11,7 +11,7 @@ const PropertyItemFiles = ({ fileImages }) => {
         settings={{
           gap: 10,
           perView: fileImages.length,
-          type: "carousel",
+          type: "slider",
           startAt: 0,
           rewind: true,
         }}
