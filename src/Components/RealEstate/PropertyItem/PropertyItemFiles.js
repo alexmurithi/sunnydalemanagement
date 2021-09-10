@@ -10,8 +10,8 @@ const PropertyItemFiles = ({ fileImages }) => {
       <GlideSlider
         settings={{
           gap: 10,
-          perView: fileImages.length,
-          type: "slider",
+          perView: fileImages.length > 3 ? 4 : fileImages.length,
+          type: "carousel",
           startAt: 0,
           rewind: true,
         }}
@@ -19,7 +19,7 @@ const PropertyItemFiles = ({ fileImages }) => {
         {fileImages.map((file) => (
           <>
             <div className="glide__slide slide">
-              <Image src={file.path} />
+              <Image src={file.path} height={220} />
             </div>
           </>
         ))}

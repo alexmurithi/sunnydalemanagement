@@ -27,9 +27,9 @@ const PropertyItem = () => {
     <>
       <Container maxWidth="lg">
         <Box py={3}>
-          <Box py={1}>
-            <PropertyItemThumbNail thumbNail={data.propertyItem.thumbNail} />
-          </Box>
+          {/*<Box py={1}>*/}
+          {/*  <PropertyItemThumbNail thumbNail={data.propertyItem.thumbNail} />*/}
+          {/*</Box>*/}
 
           {data.propertyItem.files.length > 0 && (
             <Box className={classes.imagesWrapper}>
