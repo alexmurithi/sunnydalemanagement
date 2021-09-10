@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const PropertyItemThumbNail = ({ thumbNail }) => {
   return (
     <>
-      <Image src={thumbNail.path} height={300} />
+      <Image src={thumbNail.path} height={400} />
     </>
   );
 };

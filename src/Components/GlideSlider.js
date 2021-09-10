@@ -6,18 +6,6 @@ import PropTypes from "prop-types";
 import { ArrowBackIos } from "@material-ui/icons";
 import { ArrowForwardIos } from "@material-ui/icons";
 
-// const renderDots = ({ children }) => {
-//   console.log("dot children", children);
-//   const total = React.Children.count(children);
-//   const dots = [];
-//   for (let i = 0; i < total; i += 1) {
-//     dots.push(
-//       <button className="glide__bullet" key={i} data-glide-dir={`=${i}`} />
-//     );
-//   }
-//   return dots;
-// };
-
 const GlideSlider = ({ children, settings }) => {
   const slider = new Glide(".glide", { ...settings });
 

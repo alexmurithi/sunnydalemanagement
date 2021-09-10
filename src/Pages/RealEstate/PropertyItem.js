@@ -27,16 +27,16 @@ const PropertyItem = () => {
     <>
       <Container maxWidth="lg">
         <Box py={3}>
-          {/*<Box py={1}>*/}
-          {/*  <PropertyItemThumbNail thumbNail={data.propertyItem.thumbNail} />*/}
-          {/*</Box>*/}
-
-          {data.propertyItem.files.length > 0 && (
+          {data.propertyItem.files.length > 0 ? (
             <Box className={classes.imagesWrapper}>
               <Typography variant="h5" gutterBottom>
                 More Pictures
               </Typography>
               <PropertyItemFiles fileImages={data.propertyItem.files} />
+            </Box>
+          ) : (
+            <Box py={1}>
+              <PropertyItemThumbNail thumbNail={data.propertyItem.thumbNail} />
             </Box>
           )}
         </Box>
@@ -48,7 +48,7 @@ const PropertyItem = () => {
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={5} xl={5}>
             <Box>
-              <PropertyContactForm />
+              <PropertyContactForm details={data.propertyItem} />
             </Box>
           </Grid>
         </Grid>
