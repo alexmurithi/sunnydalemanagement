@@ -1,63 +1,66 @@
-import React from 'react';
+import React from "react";
 import {
-    AppBar,Toolbar,Box,Hidden,IconButton,Badge, Typography
-} from '@material-ui/core';
-import {Link} from 'react-router-dom';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import InputIcon from '@material-ui/icons/Input';
-import MenuIcon from '@material-ui/icons/Menu';
-import PropTypes from 'prop-types';
+  AppBar,
+  Toolbar,
+  Box,
+  Hidden,
+  IconButton,
+  Badge,
+} from "@material-ui/core";
 
-const DashboardNavbar =({onMobileNavOpen, ...rest})=>{
-    return(
-        <AppBar 
-            style={{
-                backgroundColor:'#ffffff'
-            }}
-            elevation={1}
-            {...rest} 
-        >
-            <Toolbar>
-            
-                  <Typography 
-                    component={Link} to="/" 
-                    color="primary" 
-                    variant="h3" 
-                  >
-                      SunnyDale
-                  </Typography>
-                
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import InputIcon from "@material-ui/icons/Input";
+import MenuIcon from "@material-ui/icons/Menu";
+import PropTypes from "prop-types";
+import Image from "../Components/Image";
+import Logo from "../Assets/Logo/Logo.png";
+import { NavLink } from "react-router-dom";
+const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
+  return (
+    <AppBar
+      style={{
+        backgroundColor: "#ffffff",
+      }}
+      elevation={1}
+      {...rest}
+    >
+      <Toolbar>
+        <NavLink to="/">
+          <Image
+            src={Logo}
+            style={{ width: "60px", height: "60px", objectFit: "contain" }}
+          />
+        </NavLink>
 
-                <Box 
-                    style={{
-                       flexGrow:1
-                    }} 
-                />
-                    <Hidden mdDown>
-                        <IconButton color="inherit">
-                            <Badge badgeContent={4} >
-                                <NotificationsIcon/>
-                            </Badge>
-                        </IconButton>
+        <Box
+          style={{
+            flexGrow: 1,
+          }}
+        />
+        <Hidden mdDown>
+          <IconButton>
+            <Badge badgeContent={4}>
+              <NotificationsIcon color="primary" />
+            </Badge>
+          </IconButton>
 
-                        <IconButton color="inherit">
-                           <InputIcon/>
-                        </IconButton>
-                    </Hidden>
+          <IconButton>
+            <InputIcon color="primary" />
+          </IconButton>
+        </Hidden>
 
-                    <Hidden lgUp>
-                        <IconButton color="inherit" onClick={onMobileNavOpen}>
-                            <MenuIcon/>
-                        </IconButton>
-                    </Hidden>
+        <Hidden lgUp>
+          <IconButton color="inherit" onClick={onMobileNavOpen}>
+            <MenuIcon color="primary" />
+          </IconButton>
+        </Hidden>
+      </Toolbar>
+    </AppBar>
+  );
+};
 
-            </Toolbar>
-        </AppBar>
-    )
-}
-
-DashboardNavbar.propTypes={
-    onMobileNavOpen:PropTypes.func
-}
+DashboardNavbar.propTypes = {
+  onMobileNavOpen: PropTypes.func,
+};
 
 export default React.memo(DashboardNavbar);

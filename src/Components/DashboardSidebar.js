@@ -46,16 +46,6 @@ const Items = [
     icon: <AssessmentIcon />,
     title: "Monitoring & Evaluation",
   },
-  // {
-  //     href:'/admin/customers',
-  //     icon:<PersonIcon/>,
-  //     title:'Apartments'
-  // },
-  // {
-  //     href:'/admin/products',
-  //     icon:<ShoppingBasketIcon/>,
-  //     title:'Offices'
-  // }
 ];
 
 const Content = () => {
@@ -113,16 +103,6 @@ const Content = () => {
 };
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
-  // const location =useLocation();
-
-  // useEffect(() => {
-  //     if (openMobile && onMobileClose) {
-  //       onMobileClose();
-  //     }
-  //   }, [location.pathname]);
-
-  // const [openRealEstate, setOpenRealEstate] =useState(false)
-
   return (
     <>
       <Hidden lgUp>

@@ -6,7 +6,7 @@ import {
   CardHeader,
   Typography,
   Divider,
-  SvgIcon,
+  Chip,
   makeStyles,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
@@ -35,8 +35,20 @@ const PropertyDetails = ({ details }) => {
     <>
       <Card elevation={0} className={classes.root}>
         <CardHeader
-          title={details.property.name}
-          subheader={details.propertyType.type}
+          title={
+            <Box display={"flex"} justifyContent={"space-between"}>
+              <Chip
+                label={details.property.name}
+                color={"primary"}
+                variant={"outlined"}
+              />
+              <Chip
+                label={details.propertyType.type}
+                color={"secondary"}
+                variant={"outlined"}
+              />
+            </Box>
+          }
         />
         <Divider />
         <CardContent>

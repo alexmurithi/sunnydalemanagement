@@ -13,13 +13,7 @@ const PropertiesChips = () => {
         <PropertyChipsShimmer />
       ) : (
         data.allProperties.map((item) => (
-          <Chip
-            label={item.name}
-            color="primary"
-            clickable
-            variant="outlined"
-            key={item.id}
-          />
+          <Chip label={item.name} clickable variant="outlined" key={item.id} />
         ))
       )}
     </>

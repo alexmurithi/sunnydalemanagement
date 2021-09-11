@@ -3,15 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/GlideSlider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GlideSlider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DashboardSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardSidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyContactForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyContactForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyItemFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyItemFiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyItemThumbNail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyItemThumbNail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/RealEstate/PropertyItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/RealEstate/PropertyItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Themes/Default.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Themes/Default.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +99,7 @@
       <workItem from="1631088908614" duration="9365000" />
       <workItem from="1631176711092" duration="7334000" />
       <workItem from="1631243008475" duration="22469000" />
-      <workItem from="1631275817191" duration="26927000" />
+      <workItem from="1631275817191" duration="34824000" />
     </task>
     <servers />
   </component>

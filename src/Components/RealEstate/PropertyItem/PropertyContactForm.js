@@ -3,17 +3,20 @@ import {
   Card,
   CardContent,
   CardHeader,
+  CardActions,
   Divider,
   Typography,
   Box,
+  IconButton,
   TextField,
   makeStyles,
 } from "@material-ui/core";
 import CustomButton from "../../Button";
-
+import EmailIcon from "@material-ui/icons/Email";
+import PhoneIcon from "@material-ui/icons/Phone";
 const useStyles = makeStyles((theme) => ({
   form: {
-    "& > .MuiTextField-root": { border: `1pk solid red` },
+    "& ~ .MuiTextField-root": { border: `1pk solid red` },
   },
 }));
 
@@ -36,8 +39,8 @@ const PropertyContactForm = ({ details }) => {
         <CardContent>
           <Box>
             <form noValidate className={classes.form}>
-              <Typography variant="h5" gutterBottom color="textSecondary">
-                Your details
+              <Typography variant="h6" gutterBottom>
+                Contact the agent for this property
               </Typography>
               <TextField
                 label="Full Name"
@@ -84,6 +87,21 @@ const PropertyContactForm = ({ details }) => {
               </CustomButton>
             </form>
           </Box>
+
+          <Divider />
+
+          <CardActions>
+            <Typography variant="h6" gutterBottom>
+              Or Make an enquiry with us
+            </Typography>
+
+            <IconButton>
+              <EmailIcon fontSize="large" color="secondary" />
+            </IconButton>
+            <IconButton>
+              <PhoneIcon fontSize="large" color="secondary" />
+            </IconButton>
+          </CardActions>
         </CardContent>
       </Card>
     </>
