@@ -17,11 +17,9 @@ const PropertyItemFiles = ({ fileImages }) => {
         }}
       >
         {fileImages.map((file) => (
-          <>
-            <div className="glide__slide slide" key={file.id}>
-              <Image src={file.path} height={400} />
-            </div>
-          </>
+          <div className="glide__slide slide" key={file.id}>
+            <Image src={file.path} height={400} />
+          </div>
         ))}
       </GlideSlider>
     </>

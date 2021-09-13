@@ -1,20 +1,15 @@
 import React from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  Grid,
-  Chip,
-} from "@material-ui/core";
-import { NavLink, useParams } from "react-router-dom";
-import { ReactComponent as BedIcon } from "../../Assets/Icons/bed.svg";
-import { ReactComponent as BathTubIcon } from "../../Assets/Icons/bathtub.svg";
-import { GET_ALL_PROPERTY_ITEMS } from "../../GraphQL/Queries/GetAllPropertyItems";
 import { Helmet } from "react-helmet";
+import { Box, Chip, Grid, Typography } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
+import { Card, CardContent } from "@material-ui/core";
+import { useParams } from "react-router-dom";
+import { PROPERTY_ITEMS_BY_PROPERTY_ID } from "../../GraphQL/Queries/PropertyItemsByPropertyId";
 import { useQuery } from "@apollo/client";
 
 import { makeStyles } from "@material-ui/core";
+import { ReactComponent as BedIcon } from "../../Assets/Icons/bed.svg";
+import { ReactComponent as BathTubIcon } from "../../Assets/Icons/bathtub.svg";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -28,24 +23,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AllProperties = () => {
+const PropertyItemsByPropertyId = () => {
   const classes = useStyles();
-  const { all } = useParams();
-  console.log("all", all);
-  const { loading, data, error } = useQuery(GET_ALL_PROPERTY_ITEMS, {});
-  if (loading) return <div>Loading..</div>;
-  if (error) return <div>Error</div>;
+  const { id } = useParams();
+  const { loading, data, error } = useQuery(PROPERTY_ITEMS_BY_PROPERTY_ID, {
+    variables: { id: id },
+  });
 
+  if (loading) return <div>loading</div>;
+  if (error) return <div>error</div>;
   return (
     <>
       <Helmet>
         <title>Sunnydale Management | Properties</title>
       </Helmet>
       <Box py={1}>
-        {data.allPropertyItems.map((item) => (
+        {data.propertyItemsByPropertyId.property.propertyItems.map((item) => (
           <NavLink
-            key={item.id}
             to={`/real-estate/property-item/${item.id}`}
+            key={item.id}
             className={classes.link}
           >
             <Card className={classes.card} elevation={0}>
@@ -121,4 +117,4 @@ const AllProperties = () => {
   );
 };
 
-export default React.memo(AllProperties);
+export default React.memo(PropertyItemsByPropertyId);

@@ -167,21 +167,21 @@ const PropertyItemsTable = () => {
                       <TableCell>{row.title}</TableCell>
                       <TableCell>{row.rooms}</TableCell>
                       <TableCell>{row.bathrooms}</TableCell>
-                      <TableCell>{truncate(row.description, 100)}</TableCell>
+                      <TableCell>{truncate(row.description, 70)}</TableCell>
                     </TableRow>
                   );
                 })}
             </TableBody>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25]}
-              count={data.allPropertyItems ? rows.length : -1}
-              page={page}
-              rowsPerPage={rowsPerPage}
-              onPageChange={handlePageChange}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
           </Table>
         </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          count={data.allPropertyItems ? rows.length : -1}
+          page={page}
+          rowsPerPage={rowsPerPage}
+          onPageChange={handlePageChange}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
       </Paper>
     </>
   );

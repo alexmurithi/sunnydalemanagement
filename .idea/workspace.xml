@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Pages/RealEstate/PropertyItemsByPropertyId.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DashboardSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Admin/PropertyItems/DeleteDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Admin/PropertyItems/DeleteDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Admin/PropertyItems/PropertyItemsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Admin/PropertyItems/PropertyItemsTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Offices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Offices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dashboard/Shops.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dashboard/Shops.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/GlideSlider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GlideSlider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/AllPropertyItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/PropertiesChips.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/PropertiesChips.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyContactForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyContactForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyItemFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RealEstate/PropertyItem/PropertyItemFiles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/RealEstate/ForSale.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shimmers/PropertyChips/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shimmers/PropertyChips/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +61,11 @@
       <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Assets\Logo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ALEX\Documents\PROJECTS\Sunnydale\sunnydalemanagement-dev\public" />
       <recent name="C:\Users\ALEX\Documents\PROJECTS\Sunnydale\sunnydalemanagement-dev\src\Assets\Icons" />
       <recent name="C:\Users\ALEX\Documents\PROJECTS\Sunnydale\sunnydalemanagement-dev\src\Assets\css" />
       <recent name="C:\Users\ALEX\Documents\PROJECTS\Sunnydale\sunnydalemanagement-dev\src\Shimmers\PropertyChips" />
       <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Pages" />
-      <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Components" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -99,7 +109,9 @@
       <workItem from="1631088908614" duration="9365000" />
       <workItem from="1631176711092" duration="7334000" />
       <workItem from="1631243008475" duration="22469000" />
-      <workItem from="1631275817191" duration="34824000" />
+      <workItem from="1631275817191" duration="44305000" />
+      <workItem from="1631409703246" duration="3123000" />
+      <workItem from="1631513211092" duration="6669000" />
     </task>
     <servers />
   </component>

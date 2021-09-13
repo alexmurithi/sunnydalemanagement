@@ -3,6 +3,7 @@ import { Chip } from "@material-ui/core";
 import { GET_ALL_PROPERTIES } from "../../GraphQL/Queries/GetAllProperties";
 import { useQuery } from "@apollo/client";
 import PropertyChipsShimmer from "../../Shimmers/PropertyChips";
+import { NavLink } from "react-router-dom";
 
 const PropertiesChips = () => {
   const { data, loading, error } = useQuery(GET_ALL_PROPERTIES);
@@ -13,7 +14,9 @@ const PropertiesChips = () => {
         <PropertyChipsShimmer />
       ) : (
         data.allProperties.map((item) => (
-          <Chip label={item.name} clickable variant="outlined" key={item.id} />
+          <NavLink to={`${window.location.pathname}/${item.id}`} key={item.id}>
+            <Chip label={item.name} clickable variant="outlined" />
+          </NavLink>
         ))
       )}
     </>

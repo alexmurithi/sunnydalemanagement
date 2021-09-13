@@ -14,7 +14,6 @@ const GlideSlider = ({ children, settings }) => {
   });
 
   const renderDots = ({ children }) => {
-    console.log("dot children", children);
     const total = React.Children.count(children);
     const dots = [];
     for (let i = 0; i < total; i += 1) {

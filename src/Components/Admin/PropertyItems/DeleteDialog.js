@@ -131,7 +131,7 @@ const DeleteDialog = ({
 };
 
 DeleteDialog.propTypes = {
-  open: PropTypes.exact(true).isRequired,
+  open: PropTypes.bool.isRequired,
   closeDeleteDialog: PropTypes.func.isRequired,
   selected: PropTypes.array.isRequired,
   numSelected: PropTypes.number.isRequired,

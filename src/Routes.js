@@ -2,7 +2,6 @@ import React, { lazy } from "react";
 
 import { Navigate, Route, Routes } from "react-router-dom";
 
-// import MainLayout from "./Layouts/Main";
 import DashboardLayout from "./Components/DashboardLayout";
 import MainLayout from "./Layouts/MainLayout";
 import MonitoringLayout from "./Layouts/MonitoringLayout";
@@ -13,6 +12,9 @@ const AboutUs = lazy(() => import("./Pages/AboutUs"));
 const AdminLogin = lazy(() => import("./Pages/Auth/Login"));
 
 const NotFound = lazy(() => import("./Pages/NotFound"));
+const PropertyItemsByPropertyName = lazy(() =>
+  import("./Pages/RealEstate/PropertyItemsByPropertyId")
+);
 
 const MonitoringDashboard = lazy(() =>
   import("./Components/Monitoring/Dashboard")
@@ -141,6 +143,7 @@ const AppRoutes = () => {
         element={<RealEstateLayout />}
       >
         <Route exact path="" element={<AllPropertyItems />} />
+        <Route exact path="/:id" element={<PropertyItemsByPropertyName />} />
       </Route>
     </Routes>
   );

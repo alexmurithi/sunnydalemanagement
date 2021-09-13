@@ -73,7 +73,7 @@ const PropertyContactForm = ({ details }) => {
                 variant="outlined"
                 fullWidth
                 multiline
-                rows={5}
+                minRows={5}
                 maxRows={5}
               />
 
