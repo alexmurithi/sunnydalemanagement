@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ContactUs/ContactForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ContactUs/ContactForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ContactUs/ContactInformation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ContactUs/ContactInformation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LandingPage/Monitoring.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LandingPage/Monitoring.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LandingPage/Team.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LandingPage/Team.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/ContactUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/ContactUs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +107,7 @@
       <workItem from="1631550633599" duration="596000" />
       <workItem from="1631601633522" duration="2536000" />
       <workItem from="1631617865738" duration="14165000" />
-      <workItem from="1631730592012" duration="1081000" />
+      <workItem from="1631730592012" duration="10864000" />
     </task>
     <servers />
   </component>

@@ -47,7 +47,7 @@ const ContactInformation = () => {
         </Box>
       </Box>
 
-      <Box pt={4} display={"flex"} justifyContent={"space-between"}>
+      <Box pt={8} display={"flex"} justifyContent={"space-between"}>
         <NavLink to="">
           <img src={FacebookIcon} alt="Sunnydale | Facebook" height={30} />
         </NavLink>

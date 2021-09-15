@@ -4,7 +4,6 @@ import {
   Typography,
   Container,
   Card,
-  CardContent,
   Grid,
   makeStyles,
 } from "@material-ui/core";
@@ -15,6 +14,7 @@ import ContactForm from "../Components/ContactUs/ContactForm";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
   },
   card: {
     marginTop: theme.spacing(4),
@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     color: theme.palette.white,
     padding: theme.spacing(2),
+    height: "100%",
   },
   form: {
     padding: theme.spacing(2),
