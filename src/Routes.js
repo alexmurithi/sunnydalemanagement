@@ -10,6 +10,7 @@ import RealEstateLayout from "./Layouts/RealEstateLayout";
 const LandingPage = lazy(() => import("./Pages/LandingPage"));
 const AboutUs = lazy(() => import("./Pages/AboutUs"));
 const AdminLogin = lazy(() => import("./Pages/Auth/Login"));
+const ContactUs = lazy(() => import("./Pages/ContactUs"));
 
 const NotFound = lazy(() => import("./Pages/NotFound"));
 const PropertyItemsByPropertyName = lazy(() =>
@@ -74,7 +75,7 @@ const AppRoutes = () => {
         <Route path="/" exact element={<LandingPage />} />
         <Route path="/about" exact element={<AboutUs />} />
         <Route path="/auth/login" exact element={<AdminLogin />} />
-
+        <Route exact path="/contact" element={<ContactUs />} />
         <Route
           exact
           path="/real-estate/property-item/:id"
