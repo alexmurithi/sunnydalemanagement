@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5addde83-b651-43be-a3a9-d656abc9a7e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ContactUs/ContactForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ContactUs/ContactForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ContactUs/ContactInformation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ContactUs/ContactInformation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DashboardNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/LandingPage/Monitoring.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LandingPage/Monitoring.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/LandingPage/Team.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LandingPage/Team.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/ContactUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/ContactUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Apollo/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Apollo/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Containers/Header/index.js" root0="SKIP_INSPECTION" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1tqFCt2KXnqx2bLS6MoJSBoC9B2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -30,21 +33,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sunnydalemanagement-server" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
-    <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\ALEX\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/alexgitari/projects/sunnydale/sunnydalemanagement",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ALEX\Documents\PROJECTS\REACT\sunnydalemanagement\src\Assets\Images" />
@@ -108,6 +109,7 @@
       <workItem from="1631601633522" duration="2536000" />
       <workItem from="1631617865738" duration="14165000" />
       <workItem from="1631730592012" duration="10864000" />
+      <workItem from="1693493208606" duration="7392000" />
     </task>
     <servers />
   </component>
@@ -124,7 +126,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

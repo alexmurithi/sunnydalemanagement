@@ -5,14 +5,9 @@ import { typeDefs } from "../GraphQL/Schema";
 import cache from "./Cache";
 import { setContext } from "@apollo/client/link/context";
 
-require("dotenv").config();
 
 const httpLink = new createHttpLink({
-  uri: `${
-    process.env.NODE_ENV === "development"
-      ? `${process.env.REACT_APP_LOCAL_API_ENDPOINT}`
-      : `${process.env.REACT_APP_API_ENDPOINT}`
-  }`,
+  uri: "http://localhost:8000/api",
   credentials: "same-origin",
   typeDefs,
 });

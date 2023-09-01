@@ -90,13 +90,13 @@ const AppRoutes = () => {
           isAuthenticated ? <DashboardLayout /> : <Navigate to="/auth/login" />
         }
       >
-        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="dashboard" element={<Dashboard />} />
         <Route
           exact
-          path="/property-management"
+          path="property-management"
           element={<AdminPropManagement />}
         />
-        <Route exact path="/new-property" element={<NewProperty />} />
+        <Route exact path="new-property" element={<NewProperty />} />
       </Route>
 
       <Route
@@ -107,44 +107,44 @@ const AppRoutes = () => {
         <Route exact path="" element={<MonitoringDashboard />} />
         <Route
           exact
-          path="/environmental-audit"
+          path="environmental-audit"
           element={<EnvironmentalAudit />}
         />
         <Route
           exact
-          path="/environmental-conservation-and-protection"
+          path="environmental-conservation-and-protection"
           element={<EnvironmentalConservation />}
         />
         <Route
           exact
-          path="/environmental-research"
+          path="environmental-research"
           element={<EnvironmentalResearch />}
         />
-        <Route exact path="/impact-assessment" element={<ImpactAssessment />} />
+        <Route exact path="impact-assessment" element={<ImpactAssessment />} />
         <Route
           exact
-          path="/environmental-impact-and-assessment"
+          path="environmental-impact-and-assessment"
           element={<WasteDisposal />}
         />
         <Route
           exact
-          path="/water-and-forest-resources"
+          path="water-and-forest-resources"
           element={<WaternForest />}
         />
         <Route
           exact
-          path="/public-capacity-building"
+          path="public-capacity-building"
           element={<CapacityBuilding />}
         />
       </Route>
 
       <Route
         exact
-        path="/real-estate-and-property-management"
+        path="real-estate-and-property-management"
         element={<RealEstateLayout />}
       >
         <Route exact path="" element={<AllPropertyItems />} />
-        <Route exact path="/:id" element={<PropertyItemsByPropertyName />} />
+        <Route exact path=":id" element={<PropertyItemsByPropertyName />} />
       </Route>
     </Routes>
   );
